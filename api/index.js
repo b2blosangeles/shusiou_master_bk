@@ -6,10 +6,10 @@ function getServerIP() {
     }
     return address;
 };
- res.send(dev);
+res.send(dev);
 return true;
 
-var diskspace = require(env.root '/diskspace');
+var diskspace = require(env.root + '/diskspace');
 
 pkg.exec('df -h', function(err, resp) { 
     res.send(resp); 
