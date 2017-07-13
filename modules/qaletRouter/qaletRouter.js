@@ -160,8 +160,8 @@
 		}
 		
 		this.load = function() {
-			var me = this;
-			res.send(me.getServerIP());
+			var me = this, param = req.params[0];
+			res.send(param);
 			return true;
 			
 			var p = req.params[0];
