@@ -1,0 +1,7 @@
+[
+	{"id":"_git_service","schedule":"*/30 * * * * *", "script":"node cron_service/git_service.js"},
+	{"id":"_url_service10","schedule":"*/10 * * * * *", "script":"node cron_service/url_service.js 10"},
+	{"id":"_url_service","schedule":"10,40/30 * * * * *", "script":"node cron_service/url_service.js"},
+	{"id":"_url_service60","schedule":"20 * * * * *", "script":"node cron_service/url_service.js 60"},
+	{"id":"_url_service120","schedule":"40 */2 * * * *", "script":"node cron_service/url_service.js 120"}
+]
