@@ -7,6 +7,6 @@ request({
     json: {niu:1}
     }, function (error, resp, body) { 
       res.send(resp);
-   }
+   });
 
 
