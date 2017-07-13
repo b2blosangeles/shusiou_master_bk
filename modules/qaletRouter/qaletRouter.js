@@ -89,7 +89,7 @@
 						me.runApi(v[2]);
 						break;
 					case 'checkip':
-						res.send(me.getServerIP())	;
+						res.send(me.getServerIP());
 						break;	
 					default:
 						me.send404(p);
