@@ -66,32 +66,27 @@
 			}
 			return address;
 		}
-		this.requestType = function() {
+		this.respondByType = function() {
 			var me = this, p = req.params[0];
 			var patt = new RegExp('/(api|video)/(.+|)', 'i');
 			var v = p.match(patt);
-			return (v)?v:p;
+			if (v) {
+				res.send(v);		
+			} else {
+				res.send(p);
+			}
 		}		
 		
 		this.load = function() {
 			var me = this;
-			res.send(me.requestType());
+			me.respondByType();
 			return true;
 			
 			var p = req.params[0];
 			if (p.match(/\/$/i)) {
 				p+='index.html';
 			}			
-			res.send(p + req.get('host') + '===>' + address);
-			return true;
-			pkg.db.vhost.find({}, function (err, vhost) {
-				if (!err) {
-					me.callAfterVhost(vhost);
-				} else {
-					res.send(err)
-				}
-				
-			});	
+	
 		}	
 		this.callRouter = function(path, spacename, p_1) {
 			var p_0 = p_1.replace(/\/index\.html$/, '').replace(/\/([^\/]+)$/, '');
