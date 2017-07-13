@@ -71,7 +71,7 @@
 			var patt = new RegExp('/(api|video)/(.+|)', 'i');
 			var v = p.match(patt);
 			if (v) {
-				res.send(typeOf v);		
+				res.send(typeof v);		
 			} else {
 				res.send(p);
 			}
