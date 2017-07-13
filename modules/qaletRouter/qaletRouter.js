@@ -68,10 +68,19 @@
 		}
 		this.respondByType = function() {
 			var me = this, p = req.params[0];
-			var patt = new RegExp('/(api|video)/(.+|)', 'i');
+			var patt = new RegExp('/(api|stream)/(.+|)', 'i');
 			var v = p.match(patt);
-			if (v) {
-				res.send(typeof v);		
+			if ((v) && typeof v == 'object') {
+				switch (v[1]) {
+					case 'api':
+						res.send('api')	;
+						break;
+					case 'stream':
+						res.send('stream')	;
+						break;	
+					default:
+						res.send('nothing')
+				}		
 			} else {
 				res.send(p);
 			}
