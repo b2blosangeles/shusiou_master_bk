@@ -7,8 +7,9 @@ function getServerIP() {
     return address;
 };
 
-require('child_process').exec('df -h', function(err, resp) 
-{ res.send(resp); }); 
+pkg.exec('df -h', function(err, resp) { 
+    res.send(resp); 
+}); 
 
 return true;
 
