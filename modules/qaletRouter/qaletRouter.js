@@ -85,7 +85,7 @@
 						res.send('nothing')
 				}		
 			} else {
-				res.sendFile(env.root_path + p);
+				res.sendFile(env.root_path + 'files' +  p);
 			}
 		}		
 		
