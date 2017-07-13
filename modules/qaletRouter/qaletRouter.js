@@ -23,7 +23,9 @@
 			});				
 		};
 		
-		this.runApi = function(v, vhost) {
+		this.runApi = function(v) {
+			res.send('api -->')	;
+			return true;
 			var me = this;
 			var spacename = this.getSpacename(vhost);
 			var space_dir = env.root_path + '/_microservice/' + spacename;
@@ -80,15 +82,12 @@
 		
 		this.load = function() {
 			var me = this, p = req.params[0];
-			if (p.match(/\/$/i)) {
-				p+='index.html';
-			}
 			var patt = new RegExp('/(api|checkip)/(.+|)', 'i');
 			var v = p.match(patt);
 			if ((v) && typeof v == 'object') {
 				switch (v[1]) {
 					case 'api':
-						res.send('api ' + v[2])	;
+						me.runApi(v[2]);
 						break;
 					case 'checkip':
 						res.send(me.getServerIP())	;
@@ -97,6 +96,9 @@
 						me.send404(p);
 				}		
 			} else {
+				if (p.match(/\/$/i)) {
+					p+='index.html';
+				}				
 				me.sendFile(p);
 			}
 		};	
