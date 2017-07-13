@@ -149,18 +149,20 @@
 				} 
 			});	
 		}	
-		
-		
-		this.load = function() {
+		this.getServerIP() {
 			var ifaces = require('os').networkInterfaces(), address=[];
 			for (var dev in ifaces) {
 				var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
 				for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
 			}
-			
-			res.send(address);
-			return true;
+			return address;
+		}
+		
+		this.load = function() {
 			var me = this;
+			res.send(me.getServerIP());
+			return true;
+			
 			var p = req.params[0];
 			if (p.match(/\/$/i)) {
 				p+='index.html';
