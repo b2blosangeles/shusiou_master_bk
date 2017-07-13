@@ -6,7 +6,7 @@ pkg.request({
         },
     json: {niu:1}
     }, function (error, resp, body) { 
-      res.send(body);
+      res.send(typeof body);
    });
 
 
