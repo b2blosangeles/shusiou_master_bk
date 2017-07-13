@@ -71,15 +71,15 @@
 			if (p.match(/\/$/i)) {
 				p+='index.html';
 			}
-			var patt = new RegExp('/(api|stream)/(.+|)', 'i');
+			var patt = new RegExp('/(api|checkip)/(.+|)', 'i');
 			var v = p.match(patt);
 			if ((v) && typeof v == 'object') {
 				switch (v[1]) {
 					case 'api':
 						res.send('api ' + v[2])	;
 						break;
-					case 'stream':
-						res.send('stream ' + v[2])	;
+					case 'checkip':
+						res.send(me.getServerIP)	;
 						break;	
 					default:
 						res.send('nothing')
