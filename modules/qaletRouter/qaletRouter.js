@@ -155,10 +155,11 @@
 			var address,
 			    ifaces = require('os').networkInterfaces();
 			for (var dev in ifaces) {
-			    ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);
+			    	ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);
+				if (address) break;
 			}
 			
-			res.send(ifaces);
+			res.send(address);
 			return true;
 			var me = this;
 			var p = req.params[0];
