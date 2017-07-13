@@ -157,7 +157,7 @@
 			//    	ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);
 			}
 			
-			res.send(ifaces);
+			res.send(ifaces['eth0']);
 			return true;
 			var me = this;
 			var p = req.params[0];
