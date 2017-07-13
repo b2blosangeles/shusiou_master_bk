@@ -68,9 +68,9 @@
 		}
 		this.requestType = function() {
 			var me = this, param = req.params[0];
-			var patt = new RegExp('^/(api|video|file)/(.+|)', 'i');
+			var patt = new RegExp('^/\/(api|video|file)/(.+|)', 'i');
 			if (param) {
-				var v0 = param.match(/^\/\//i);
+				var v0 = param.match(patt);
 				return v0;
 			} 
 			return 'false';
