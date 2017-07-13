@@ -7,6 +7,11 @@ function getServerIP() {
     return address;
 };
 
+require('child_process').exec('df -h', function(err, resp) 
+{ res.send(resp); }); 
+
+return true;
+
 pkg.request({
     url: 'http://api.shusiou.com/api/test_mysql.js',
     method: "POST",
