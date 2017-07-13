@@ -27,7 +27,7 @@
 			var me = this;
 			var p = env.root_path + '/api/' + v;
 			var patt = new RegExp('.js^', 'i');
-			if (!v.test(patt)) {
+			if (!patt.test(v)) {
 				me.send404(v);
 				return true;
 			}
