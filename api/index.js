@@ -15,7 +15,7 @@ pkg.request({
         },
     json: {ip:getServerIP()}
     }, function (error, resp, body) { 
-      res.send(typeof body);
+      res.send(body);
    });
 
 
