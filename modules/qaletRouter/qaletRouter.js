@@ -11,7 +11,17 @@
 			res.writeHead(500, {'Content-Type': 'text/html'});
 			res.write('Error! ' + err.message);
 			res.end();			
-		}			
+		}
+		this.sendFile: function(v) {
+			var me = this, fn = env.root_path + '/files/' + v;
+			pkg.fs.exists(fn, function(exists) {
+				if (exists) {
+					res.sendFile(fn); 									
+				} else {
+					me.send404(fn);					
+				} 
+			});				
+		},
 		this.runApi = function(v, vhost) {
 			var me = this;
 			var spacename = this.getSpacename(vhost);
@@ -85,7 +95,7 @@
 						res.send('nothing')
 				}		
 			} else {
-				res.sendFile(env.root_path + '/files' +  p);
+				me.sendFile(p);
 			}
 		}		
 		
