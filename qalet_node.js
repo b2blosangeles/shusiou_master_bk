@@ -47,13 +47,15 @@ app.use(function(req, res, next){
 });
 
 app.get(/(.+)$/i, function (req, res) {
-	res.send('shusiou_node');
-	return true;
 	delete require.cache[__dirname + '/modules/qaletRouter/qaletRouter.js'];
 	var router  = require(__dirname + '/modules/qaletRouter/qaletRouter.js');
-	var R = new router(pkg, env, req, res,(req.protocol==='https')?iossl:io);
+	var R = new router(pkg, env, req, res);
 	R.load();
 });
 
 
 var server = require('http').createServer(app);
+server.listen(port, function() {
+	console.log('Started server on port ' + port + '!');      
+});
+
