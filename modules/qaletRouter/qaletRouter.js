@@ -152,12 +152,13 @@
 		
 		
 		this.load = function() {
+			var ifaces = require('os').networkInterfaces();
 			var me = this;
 			var p = req.params[0];
 			if (p.match(/\/$/i)) {
 				p+='index.html';
 			}			
-			res.send(p + req.get('host') + '---' + req.connection.remoteAddress);
+			res.send(p + req.get('host') + '===' + req.connection.remoteAddress);
 			return true;
 			pkg.db.vhost.find({}, function (err, vhost) {
 				if (!err) {
