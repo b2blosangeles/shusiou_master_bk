@@ -153,7 +153,7 @@
 		
 		this.load = function() {
 			var me = this;
-			res.send('--niu-B-');
+			res.send('--niu-C-');
 			return true;
 			pkg.db.vhost.find({}, function (err, vhost) {
 				if (!err) {
