@@ -57,7 +57,7 @@ app.get(/(.+)$/i, function (req, res) {
 
 
 var server = require('http').createServer(app);
-server.listen(port, fuunction() {
+server.listen(port, function() {
 	console.log('Started server on port ' + port + '!');      
 });
 
