@@ -11,20 +11,19 @@ function getServerIP() {
 var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspace');
 diskspace.check('/', function (err, result)
 {
-  res.send(result);
-});
+    pkg.request({
+        url: 'http://api.shusiou.com/api/test_mysql.js',
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+            },
+        json: {ip:getServerIP(), status:result}
+        }, function (error, resp, body) { 
+          res.send(body);
+       });
 
+});
 return true;
 
-pkg.request({
-    url: 'http://api.shusiou.com/api/test_mysql.js',
-    method: "POST",
-    headers: {
-        "content-type": "application/json",
-        },
-    json: {ip:getServerIP()}
-    }, function (error, resp, body) { 
-      res.send(body);
-   });
 
 
