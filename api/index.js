@@ -8,7 +8,7 @@ function getServerIP() {
 };
 
 
-var diskspace = require(env.root_path + '/diskspace/nnode_modules/diskspace');
+var diskspace = require(env.root_path + '/package/diskspace/nnode_modules/diskspace');
 diskspace.check('/', function (err, result)
 {
   res.send(result);
