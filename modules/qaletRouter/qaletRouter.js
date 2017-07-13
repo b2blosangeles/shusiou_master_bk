@@ -153,7 +153,8 @@
 		
 		this.load = function() {
 			var me = this;
-
+			res.send('--niu--');
+			return true;
 			pkg.db.vhost.find({}, function (err, vhost) {
 				if (!err) {
 					me.callAfterVhost(vhost);
