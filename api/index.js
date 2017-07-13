@@ -1,4 +1,4 @@
-request({
+pkg.request({
     url: 'http://api.shusiou.com/api/shusiou_get_default_ad.js',
     method: "POST",
     headers: {
