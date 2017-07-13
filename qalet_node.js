@@ -49,7 +49,7 @@ app.use(function(req, res, next){
 app.get(/(.+)$/i, function (req, res) {
 	delete require.cache[__dirname + '/modules/qaletRouter/qaletRouter.js'];
 	var router  = require(__dirname + '/modules/qaletRouter/qaletRouter.js');
-	var R = new router(pkg, env, req, res,(req.protocol==='https')?iossl:io);
+	var R = new router(pkg, env, req, res);
 	R.load();
 });
 
