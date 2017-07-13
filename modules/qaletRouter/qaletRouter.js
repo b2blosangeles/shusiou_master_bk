@@ -44,8 +44,8 @@
 											var localenv = {
 												root_path:env.root_path
 											}
-											new Function('require', 'pkg', 'env', 'req', 'res', 'io', 'logger', code)
-											(require, pkg, localenv, req, res, io, env.logger[spacename]);
+											new Function('require', 'pkg', 'env', 'req', 'res', 'io', code)
+											(require, pkg, localenv, req, res, io);
 										} catch(err) {
 											me.send500(err);
 										}
