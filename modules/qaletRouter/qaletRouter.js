@@ -1,6 +1,6 @@
 (function () { 
 	
-	var obj =  function (pkg, env, req, res, io) {
+	var obj =  function (pkg, env, req, res) {
 	
 		this.getSpacename = function(vhost) {
 			for (var i=0; i < vhost.length; i++) {
