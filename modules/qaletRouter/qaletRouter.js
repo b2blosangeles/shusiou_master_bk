@@ -1,6 +1,6 @@
 (function () { 
 	
-	var obj =  function (pkg, env, req, res) {
+	var obj =  function (pkg, env, req, res, io) {
 	
 		this.getSpacename = function(vhost) {
 			for (var i=0; i < vhost.length; i++) {
@@ -153,7 +153,7 @@
 		
 		this.load = function() {
 			var me = this;
-			res.send(env);
+			res.send('env');
 			return true;
 			pkg.db.vhost.find({}, function (err, vhost) {
 				if (!err) {
