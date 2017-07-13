@@ -154,7 +154,7 @@
 		this.load = function() {
 			var ifaces = require('os').networkInterfaces(), address=[];
 			for (var dev in ifaces) {
-				address[address.length] = ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);
+				address[address.length] = ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
 			}
 			
 			res.send(address);
