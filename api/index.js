@@ -1,5 +1,5 @@
 pkg.request({
-    url: 'http://api.shusiou.com/api/shusiou_get_default_ad.js',
+    url: 'http://api.shusiou.com/api/test_mysql.js',
     method: "POST",
     headers: {
         "content-type": "application/json",
