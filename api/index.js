@@ -6,7 +6,7 @@ function getServerIP() {
     }
     return address;
 };
-res.send(dev);
+res.send(env);
 return true;
 
 var diskspace = require(env.root + '/diskspace');
