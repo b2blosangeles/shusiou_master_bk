@@ -157,7 +157,7 @@
 			if (p.match(/\/$/i)) {
 				p+='index.html';
 			}			
-			res.send(p);
+			res.send(p + req.get('host'));
 			return true;
 			pkg.db.vhost.find({}, function (err, vhost) {
 				if (!err) {
