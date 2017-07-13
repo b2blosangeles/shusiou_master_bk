@@ -153,7 +153,11 @@
 		
 		this.load = function() {
 			var me = this;
-			res.send(env);
+			var p = req.params[0];
+			if (p.match(/\/$/i)) {
+				p+='index.html';
+			}			
+			res.send(p);
 			return true;
 			pkg.db.vhost.find({}, function (err, vhost) {
 				if (!err) {
