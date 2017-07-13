@@ -6,14 +6,13 @@ function getServerIP() {
     }
     return address;
 };
-res.send(env);
-return true;
 
-var diskspace = require(env.root + '/diskspace');
 
-pkg.exec('df -h', function(err, resp) { 
-    res.send(resp); 
-}); 
+var diskspace = require(env.root_path + '/diskspace/nnode_modules/diskspace');
+diskspace.check('/', function (err, result)
+{
+  res.send(result);
+});
 
 return true;
 
