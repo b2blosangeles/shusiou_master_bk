@@ -68,15 +68,18 @@
 		}
 		this.respondByType = function() {
 			var me = this, p = req.params[0];
+			if (p.match(/\/$/i)) {
+				p+='index.html';
+			}
 			var patt = new RegExp('/(api|stream)/(.+|)', 'i');
 			var v = p.match(patt);
 			if ((v) && typeof v == 'object') {
 				switch (v[1]) {
 					case 'api':
-						res.send('api')	;
+						res.send('api ' + v[2])	;
 						break;
 					case 'stream':
-						res.send('stream')	;
+						res.send('stream ' + v[2])	;
 						break;	
 					default:
 						res.send('nothing')
