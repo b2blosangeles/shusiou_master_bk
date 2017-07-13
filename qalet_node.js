@@ -47,7 +47,7 @@ app.use(function(req, res, next){
 });
 
 app.get(/(.+)$/i, function (req, res) {
-	res.send('shusiou_node');
+	res.send('shusiou_node A');
 	return true;
 	delete require.cache[__dirname + '/modules/qaletRouter/qaletRouter.js'];
 	var router  = require(__dirname + '/modules/qaletRouter/qaletRouter.js');
