@@ -24,13 +24,11 @@
 		};
 		
 		this.runApi = function(v) {
-			res.send('api -->')	;
-			return true;
 			var me = this;
-			var spacename = this.getSpacename(vhost);
-			var space_dir = env.root_path + '/_microservice/' + spacename;
-			var p = space_dir + '/api/' + v;
-
+			var p = env.root_path + '/api/' + v;
+			res.send('api -->' + p);
+			return true;
+			
 			pkg.fs.exists(p, function(exists) {
 				if (exists) {
 					pkg.fs.stat(p, function(err, stats) {
