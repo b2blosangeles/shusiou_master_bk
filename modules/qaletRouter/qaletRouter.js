@@ -68,13 +68,9 @@
 		}
 		this.requestType = function() {
 			var me = this, p = req.params[0];
-			var patt = new RegExp('/(api|video|file)/(.+|)', 'i');
-			return p;
-			if (p) {
-				var v0 = p.match(patt);
-				return v0;
-			} 
-			return 'false';
+			var patt = new RegExp('/(api|video)/(.+|)', 'i');
+			var v = p.match(patt);
+			return (v)?v:p;
 		}		
 		
 		this.load = function() {
