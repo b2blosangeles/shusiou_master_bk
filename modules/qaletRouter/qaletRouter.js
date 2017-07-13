@@ -26,9 +26,7 @@
 		this.runApi = function(v) {
 			var me = this;
 			var p = env.root_path + '/api/' + v;
-			res.send('api -->' + p);
-			return true;
-			
+
 			pkg.fs.exists(p, function(exists) {
 				if (exists) {
 					pkg.fs.stat(p, function(err, stats) {
@@ -44,9 +42,7 @@
 									if (!err) {
 										try {
 											var localenv = {
-												vhost_code: spacename,
-												root_path:env.root_path,
-												space_path:space_dir
+												root_path:env.root_path
 											}
 											new Function('require', 'pkg', 'env', 'req', 'res', 'io', 'logger', code)
 											(require, pkg, localenv, req, res, io, env.logger[spacename]);
@@ -60,11 +56,11 @@
 							}		
 
 						 } else {
-							me.send404(req.params[0]);									 
+							me.send404(v);									 
 						 }
 					});									
 				} else {
-					me.send404(req.params[0]);						
+					me.send404(v);						
 				} 
 			});	
 		}		
