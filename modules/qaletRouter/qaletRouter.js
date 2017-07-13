@@ -1,63 +1,7 @@
 (function () { 
 	
 	var obj =  function (pkg, env, req, res, io) {
-	
-		this.getSpacename = function(vhost) {
-			for (var i=0; i < vhost.length; i++) {
-				if (vhost[i].domain){
-					var patt = new RegExp(vhost[i].domain, 'i');
-					if (patt.test(req.headers.host)) {
-						return vhost[i].name;
-					}					
-				}
-			}
-			return false;	
-		};	
 
-		this.setLog = function(space) {
-			if (!env.logger) {
-				env.logger = {}
-			}	
-			if (!env.logger[space]) {
-				var winston = require( env.root_path +'/package/winston/node_modules/winston');
-				env.logger[space] = new (winston.Logger)({
-				  transports: [
-					new (winston.transports.File)({
-					  name: 'info-file',
-					  filename: env.root_path+'/_log/'+space+'-info.log',
-					  level: 'info'
-					}),
-					new (winston.transports.File)({
-					  name: 'error-file',
-					  filename: env.root_path+'/_log/'+space+'-error.log',
-					  level: 'error'
-					})
-				  ],
-				  exceptionHandlers: [
-					  new winston.transports.File({ filename: env.root_path+'/_log/'+space+'-exceptions.log' })
-					],
-					exitOnError: false
-				});
-			}
-			return false;	
-		};	
-
-		
-		this.requestType = function() {
-			var patt = new RegExp('^/(api|test)/(.+|)', 'i');
-			
-			if (req.params[0]) {
-				var v0 = req.params[0].match(/^\/\//i);
-				if (v0) {
-					return '.error';
-				} 
-				var v = req.params[0].match(patt);
-				if (v) {
-					return v;
-				} 
-			} 
-			return false;
-		}
 		this.send404 = function(v) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
 			res.write(v + ' does not exist');
@@ -112,43 +56,7 @@
 					me.send404(req.params[0]);						
 				} 
 			});	
-		}	
-
-		this.runTest = function(v, vhost) {
-			var me = this;
-			var spacename = this.getSpacename(vhost);
-			var space_dir = env.root_path + '/_microservice/' + spacename;
-			var p = space_dir + '/test/' + v;
-			
-			pkg.fs.exists(p, function(exists) {
-				if (exists) {
-					pkg.fs.stat(p, function(err, stats) {
-						 if (stats.isFile()) {
-							var path = require('path');
-							var Mocha = require(path.join(env.root_path, '/package/mocha/node_modules/mocha'));
-							var mocha = new Mocha;
-							mocha.addFile(p);
-							mocha.reporter('json');
-
-							var write = process.stdout.write;
-							var output = '';
-							process.stdout.write = function(str) {
-							  output += str;
-							};
-
-							mocha.run(function(failures) {
-							  process.stdout.write = write;
-							  res.send(JSON.parse(output))
-							});
-						 } else {
-							me.send404(req.params[0]);									 
-						 }
-					});									
-				} else {
-					me.send404(req.params[0]);						
-				} 
-			});	
-		}	
+		}		
 		
 		this.getServerIP = function() {
 			var ifaces = require('os').networkInterfaces(), address=[];
@@ -158,10 +66,19 @@
 			}
 			return address;
 		}
+		this.requestType = function() {
+			var me = this, param = req.params[0];
+			var patt = new RegExp('^/(api|video|file)/(.+|)', 'i');
+			if (param) {
+				var v0 = param.match(/^\/\//i);
+				return v0;
+			} 
+			return 'false';
+		}		
 		
 		this.load = function() {
-			var me = this, param = req.params[0];
-			res.send(param);
+			var me = this;
+			res.send(me.requestType());
 			return true;
 			
 			var p = req.params[0];
