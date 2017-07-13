@@ -159,7 +159,7 @@
 				if (address) break;
 			}
 			
-			res.send(address);
+			res.send(ifaces);
 			return true;
 			var me = this;
 			var p = req.params[0];
