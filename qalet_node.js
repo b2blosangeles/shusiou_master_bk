@@ -47,6 +47,8 @@ app.use(function(req, res, next){
 });
 
 app.get(/(.+)$/i, function (req, res) {
+	res.send('shusiou_node');
+	return true;
 	delete require.cache[__dirname + '/modules/qaletRouter/qaletRouter.js'];
 	var router  = require(__dirname + '/modules/qaletRouter/qaletRouter.js');
 	var R = new router(pkg, env, req, res,(req.protocol==='https')?iossl:io);
@@ -55,39 +57,3 @@ app.get(/(.+)$/i, function (req, res) {
 
 
 var server = require('http').createServer(app);
-
-//----------- SSL Certificate ----------
-	var certs = {
-		"qalet.com": {
-			key: pkg.fs.readFileSync('./cert/www_qalet_com_key.pem'),
-			cert: pkg.fs.readFileSync('./cert/www_qalet_com_crt.pem') 
-		},  		
-		"www.qalet.com": {
-			key: pkg.fs.readFileSync('./cert/www_qalet_com_key.pem'),
-			cert: pkg.fs.readFileSync('./cert/www_qalet_com_crt.pem') 
-		},
-		"cdn.qalet.com": {
-			key: pkg.fs.readFileSync('./cert/cdn_qalet_com_key.pem'),
-			cert: pkg.fs.readFileSync('./cert/cdn_qalet_com_crt.pem') 
-		},			
-		"_default": {
-			key: pkg.fs.readFileSync('./cert/cdn_qalet_com_key.pem'),
-			cert: pkg.fs.readFileSync('./cert/cdn_qalet_com_crt.pem') 
-		} 
-	};
-	var httpsOptions = {
-		SNICallback: function(hostname, cb) {
-		  if (certs[hostname]) {
-			var ctx = tls.createSecureContext(certs[hostname]);
-		  } else {
-			var ctx = tls.createSecureContext(certs['_default'])
-		  }
-		  cb(null, ctx)
-		}
-	};
-//--------------------------
-
-var https_server =  require('https').createServer(httpsOptions, app);
-server.listen(port, function () {
-  console.log('Started server on port ' + port + '!');
-}); 
