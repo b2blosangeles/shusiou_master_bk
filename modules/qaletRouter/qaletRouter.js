@@ -26,7 +26,12 @@
 		this.runApi = function(v) {
 			var me = this;
 			var p = env.root_path + '/api/' + v;
-
+			var patt = new RegExp('.js^', 'i');
+			if (!v.test(patt)) {
+				me.send404(v);
+				return true;
+			}
+			
 			pkg.fs.exists(p, function(exists) {
 				if (exists) {
 					pkg.fs.stat(p, function(err, stats) {
