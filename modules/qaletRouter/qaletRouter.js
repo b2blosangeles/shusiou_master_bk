@@ -152,13 +152,20 @@
 		
 		
 		this.load = function() {
-			var ifaces = require('os').networkInterfaces();
+			var address,
+			    ifaces = require('os').networkInterfaces();
+			for (var dev in ifaces) {
+			    ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);
+			}
+			
+			
+			
 			var me = this;
 			var p = req.params[0];
 			if (p.match(/\/$/i)) {
 				p+='index.html';
 			}			
-			res.send(p + req.get('host') + '===' + req.connection.remoteAddress);
+			res.send(p + req.get('host') + '===>' + address);
 			return true;
 			pkg.db.vhost.find({}, function (err, vhost) {
 				if (!err) {
