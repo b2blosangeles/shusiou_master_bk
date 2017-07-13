@@ -85,19 +85,14 @@
 						res.send('nothing')
 				}		
 			} else {
-				res.send(p);
+				res.send(env.root_path + p);
 			}
 		}		
 		
 		this.load = function() {
 			var me = this;
 			me.respondByType();
-			return true;
-			
-			var p = req.params[0];
-			if (p.match(/\/$/i)) {
-				p+='index.html';
-			}			
+			return true;			
 	
 		}	
 		this.callRouter = function(path, spacename, p_1) {
