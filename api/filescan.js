@@ -37,8 +37,6 @@ function uu(dir, cbk) {
 
 }
 
-res.send(env.root_path + '/');
-return true;
 
 // uu('/var/', function() {
  uu(env.root_path + '', function() {
