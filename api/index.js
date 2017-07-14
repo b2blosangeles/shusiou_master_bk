@@ -11,7 +11,7 @@ function getServerIP() {
 var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspace');
 diskspace.check('/', function (err, space)
 {
-   res.send('space--1');
+   res.send('space--2');
 
 });
 return true;
