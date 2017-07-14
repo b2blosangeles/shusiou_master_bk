@@ -16,10 +16,11 @@ function uu(dir, cbk) {
     });
 
     finder.on('file', function (file, stat) {
+       var ff =  file;
         total_size += stat.size;
         var patt = new RegExp('^'+ dir, 'i');
-       _result[_result.length] = {"path":file.replace(patt, 'A')+'BM===CC'};
-   //    _result[_result.length] = {"path":escape(file+'-')};
+     //  _result[_result.length] = {"path":file.replace(patt, 'A')};
+       _result[_result.length] = {"path":ff};
        // _result[_result.length] = file;
          // {path:file};
     });
