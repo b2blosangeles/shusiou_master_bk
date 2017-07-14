@@ -35,8 +35,7 @@ function uu(dir, cbk) {
 
 }
 
-uu('/Users/jxu/', function() {
+uu('.', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB';
    res.send(str);
 });
-// uu('.');
