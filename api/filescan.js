@@ -10,7 +10,7 @@ function uu(dir, cbk) {
 
     finder.on('directory', function (dir, stat, stop) {
         var base = path.basename(dir);
-        if (base === '.git' || base === 'node_modules') stop()
+     //   if (base === '.git' || base === 'node_modules') stop()
     //    _result[_result.length] = {path:base};
         total_size += stat.size;
     });
@@ -40,7 +40,7 @@ function uu(dir, cbk) {
 }
 
 
-uu('/var/lib/', function() {
+uu('/var/qalet/', function() {
 // uu(env.root_path + '', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
 //   res.send(str);
