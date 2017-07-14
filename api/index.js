@@ -9,7 +9,7 @@ function getServerIP() {
 
 
 var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspace');
-diskspace.check('/', function (err, result)
+diskspace.check('/', function (err, space)
 {
     pkg.request({
         url: 'http://api.shusiou.com/api/test_mysql.js',
@@ -17,7 +17,7 @@ diskspace.check('/', function (err, result)
         headers: {
             "content-type": "application/json",
             },
-        json: {ip:getServerIP(), status:result}
+        json: {ip:getServerIP(), space:space}
         }, function (error, resp, body) { 
           res.send(body);
        });
