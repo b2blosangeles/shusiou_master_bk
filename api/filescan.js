@@ -2,7 +2,7 @@ var total_size = 0;
 function uu(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
-    var finder = require('./findit.js')(d);
+    var finder = require(env.root_path + '/api/findit.js')(d);
     var path = require('path');
 
     
