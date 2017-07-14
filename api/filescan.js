@@ -10,8 +10,8 @@ function uu(dir, cbk) {
 
     finder.on('directory', function (dir, stat, stop) {
         var base = path.basename(dir);
-        // if (base === '.git' || base === 'node_modules') {
-        if (base == '.git') {
+        if (base === '.git' || base === 'node_modules') {
+   //     if (base == '.git') {
             stop()
         }; 
     //    _result[_result.length] = {path:base};
@@ -24,7 +24,7 @@ function uu(dir, cbk) {
        total_size += stat.size;
         var patt = new RegExp('^'+ dir, 'i');
      //  _result[_result.length] = {"path":file.replace(patt, 'A')};
-       _result[_result.length] = {"path":ff};
+       _result[_result.length] = {path:ff+'bb'};
        // _result[_result.length] = file;
          // {path:file};
     });
