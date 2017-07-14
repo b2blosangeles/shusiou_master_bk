@@ -1,7 +1,6 @@
 var total_size = 0;
 var _result = [];
 
-
 function uu(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
@@ -18,7 +17,7 @@ function uu(dir, cbk) {
 
     finder.on('file', function (file, stat) {
         total_size += stat.size;
-        var patt = new RegExp('^'+ env.root_path + '/script_template', 'i');
+        var patt = new RegExp('^'+ dir, 'i');
         _result[_result.length] = {"path":file.replace(patt, '')};
          // {path:file};
     });
@@ -36,7 +35,7 @@ function uu(dir, cbk) {
 
 }
 
-uu(env.root_path + '/script_template', function() {
+uu(env.root_path + '/api/', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
 //   res.send(str);
   res.send(JSON.stringify(_result));
