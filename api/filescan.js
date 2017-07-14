@@ -16,7 +16,7 @@ function uu(dir, cbk) {
 
     finder.on('file', function (file, stat) {
         total_size += stat.size;
-        _result[_result.length] = file;
+        _result[_result.length] = {"path":file};
          // {path:file};
     });
 
