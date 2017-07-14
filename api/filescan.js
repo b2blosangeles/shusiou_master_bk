@@ -33,7 +33,7 @@ function uu(dir, cbk) {
 
 }
 
-uu(env.root_path + '/', function() {
+uu(env.root_path + '/api', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
 //   res.send(str);
   res.send(JSON.stringify(_result));
