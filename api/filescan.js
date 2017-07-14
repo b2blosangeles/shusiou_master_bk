@@ -11,9 +11,9 @@ function uu(dir, cbk) {
     finder.on('directory', function (dir, stat, stop) {
         var base = path.basename(dir);
         if (base === '.git' || base === 'node_modules') {
-       //   stop()
+          stop()
         }; 
-    //    _result[_result.length] = {path:base};
+        _result[_result.length] = {path:base};
         total_size += stat.size;
     });
 
