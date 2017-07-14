@@ -37,6 +37,9 @@ function uu(dir, cbk) {
 
 }
 
+res.send(env.root_path + '/');
+return true;
+
 uu('/var/', function() {
  // uu(env.root_path + '/', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
