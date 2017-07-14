@@ -1,5 +1,5 @@
 var total_size = 0;
-var result = [];
+var _result = [];
 function uu(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
@@ -11,17 +11,17 @@ function uu(dir, cbk) {
         var base = path.basename(dir);
         if (base === '.git' || base === 'node_modules') stop()
       //  else console.log(dir + '/')
-        result[result.length] = {path:dir};
+        _result[_result.length] = {path:dir};
         total_size += stat.size;
     });
 
     finder.on('file', function (file, stat) {
         total_size += stat.size;
-        result[result.length] = {path:file};
+        _result[_result.length] = {path:file};
     });
 
     finder.on('link', function (link, stat) {
-       result[result.length] = {path:link};
+       _result[_result.length] = {path:link};
     });
     
     finder.on('end', function (link, stat) {
@@ -35,5 +35,5 @@ function uu(dir, cbk) {
 
 uu(env.root_path + '', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
-   res.send(result);
+   res.send(_result);
 });
