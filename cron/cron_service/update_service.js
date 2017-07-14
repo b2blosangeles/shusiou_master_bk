@@ -1,6 +1,6 @@
 var path = require('path');
 var env = {root_space:path.join(__dirname, '../../')};
-
+console.log(root_space+'===');
 function getServerIP() {
     var ifaces = require('os').networkInterfaces(), address=[];
     for (var dev in ifaces) {
