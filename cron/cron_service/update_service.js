@@ -16,7 +16,7 @@ var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspa
 diskspace.check('/', function (err, space)
 {
     request({
-        url: 'http://api.shusiou.com/api/test_mysql.js',
+        url: 'http://api.shusiou.com/api/cluster_update.js',
         method: "POST",
         headers: {
             "content-type": "application/json",
