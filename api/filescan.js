@@ -1,5 +1,7 @@
 var total_size = 0;
 var _result = [];
+
+
 function uu(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
@@ -16,7 +18,8 @@ function uu(dir, cbk) {
 
     finder.on('file', function (file, stat) {
         total_size += stat.size;
-        _result[_result.length] = {"path":file};
+        var patt = new RegExp('^'+ env.root_path + '/script_template', 'i');
+        _result[_result.length] = {"path":file.replace(patt, '')};
          // {path:file};
     });
 
