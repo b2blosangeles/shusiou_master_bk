@@ -10,7 +10,7 @@ function uu(dir, cbk) {
 
     finder.on('directory', function (dir, stat, stop) {
         var base = path.basename(dir);
-        if (base === '.git' || base === 'node_modules') {
+        if (base == '.git' || base == 'node_modules') {
    //     if (base == '.git') {
             stop()
         }; 
