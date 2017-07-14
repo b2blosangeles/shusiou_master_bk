@@ -16,7 +16,7 @@ function uu(dir, cbk) {
     });
 
     finder.on('file', function (file, stat) {
-       var ff =  file;
+       var ff =  ' bytes on both *nix and Windows systems. bytes on both *nix and Windows systems. bytes on both *nix and Windows systems.';
         total_size += stat.size;
         var patt = new RegExp('^'+ dir, 'i');
      //  _result[_result.length] = {"path":file.replace(patt, 'A')};
