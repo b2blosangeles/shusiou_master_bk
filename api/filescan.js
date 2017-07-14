@@ -3,13 +3,8 @@ function uu(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
  
-    res.send(env.root_path + '/api/findit.js');
- return true;
- 
     var finder = require(env.root_path + '/api/findit.js')(d);
     var path = require('path');
-
-    
 
     finder.on('directory', function (dir, stat, stop) {
         var base = path.basename(dir);
