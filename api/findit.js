@@ -20,9 +20,11 @@ module.exports = function walk (dir, opts, emitter, dstat) {
     
     if (dstat) {
         var stopped = false;
-        emitter.emit('directory', fdir, dstat, function stop () {
-            stopped = true;
-        });
+        emitter.emit('directory', fdir, dstat, (function stop (stopped) {
+            return function() {
+                stopped = true;
+            }     
+        })(stopped));
         emitter.emit('path', fdir, dstat);
         if (!stopped) {
             emitter._pending ++;
