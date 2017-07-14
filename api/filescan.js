@@ -18,7 +18,7 @@ function uu(dir, cbk) {
     finder.on('file', function (file, stat) {
         total_size += stat.size;
         var patt = new RegExp('^'+ dir, 'i');
-       _result[_result.length] = {"path":file.replace(patt, 'crowdProcess/package')};
+       _result[_result.length] = {"path":file.replace(patt, 'crowdProcess_package')};
    //    _result[_result.length] = {"path":escape(file+'-')};
        // _result[_result.length] = file;
          // {path:file};
