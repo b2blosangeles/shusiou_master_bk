@@ -19,14 +19,14 @@ module.exports = function walk (dir, opts, emitter, dstat) {
     }
     
     if (dstat) {
-        var stopped = false;
+        var stopped = {v:false);
         emitter.emit('directory', fdir, dstat, (function stop (stopped) {
             return function() {
-                stopped = true;
+                stopped.v = true;
             }     
         })(stopped));
         emitter.emit('path', fdir, dstat);
-        if (!stopped) {
+        if (!stopped.v) {
             emitter._pending ++;
             fs.readdir(dir, function (err, files) {
                 emitter._pending --;
