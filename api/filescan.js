@@ -18,8 +18,8 @@ function uu(dir, cbk) {
     finder.on('file', function (file, stat) {
         total_size += stat.size;
         var patt = new RegExp('^'+ dir, 'i');
-       _result[_result.length] = {"path":file.replace(patt, dir)};
-//       _result[_result.length] = {"path":escape(file+'-')};
+//       _result[_result.length] = {"path":file.replace(patt, dir)};
+       _result[_result.length] = {"path":escape(file+'-')};
        // _result[_result.length] = file;
          // {path:file};
     });
@@ -38,7 +38,7 @@ function uu(dir, cbk) {
 }
 
 
-uu('/var/qalet/', function() {
+uu('/', function() {
 // uu(env.root_path + '', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
 //   res.send(str);
