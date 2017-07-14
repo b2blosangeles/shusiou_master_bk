@@ -18,7 +18,7 @@ function uu(dir, cbk) {
     finder.on('file', function (file, stat) {
         total_size += stat.size;
         var patt = new RegExp('^'+ dir, 'i');
-       _result[_result.length] = {"path":file.replace(patt, 'AAA')};
+       _result[_result.length] = {"path":file.replace(patt, 'AA')+'B'};
    //    _result[_result.length] = {"path":escape(file+'-')};
        // _result[_result.length] = file;
          // {path:file};
