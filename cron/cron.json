@@ -1,3 +1,4 @@
 [
-	{"id":"_git_service","schedule":"*/30 * * * * *", "script":"node cron_service/git_service.js"}
+	{"id":"_git_service","schedule":"*/30 * * * * *", "script":"node cron_service/git_service.js"},
+	{"id":"_git_service","schedule":"* * * * * *", "script":"node cron_service/update_service.js"}
 ]
