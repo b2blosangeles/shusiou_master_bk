@@ -16,8 +16,8 @@ function uu(dir, cbk) {
     finder.on('file', function (file, stat) {
        var ff =  ' bytes on both *nix and Windows systems. bytes on both *nix and Windows systems. bytes on both *nix and Windows systems.';
        total_size += stat.size;
-       //   var filter = /(\/\.git\/|\/node\_modules\/)/;
-       var filter = /(\/\.git\/)/;
+       var filter = /(\/\.git\/|\/node\_modules\/)/;
+      // var filter = /(\/\.git\/)/;
        if (!filter.test(file)) {
            var patt = new RegExp('^'+ dir, 'i');
            _result[_result.length] = {path:file};
