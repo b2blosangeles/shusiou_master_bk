@@ -10,24 +10,18 @@ function uu(dir, cbk) {
 
     finder.on('directory', function (dir, stat, stop) {
         var base = path.basename(dir);
-     //   if ((base == '.git') || (base == 'node_modules')) {
-     //   if (base == 'node_modules') {
-        if (base == '.git') {
-    //        stop()
-        }; 
-    //    _result[_result.length] = {path:base};
         total_size += stat.size;
     });
 
     finder.on('file', function (file, stat) {
        var ff =  ' bytes on both *nix and Windows systems. bytes on both *nix and Windows systems. bytes on both *nix and Windows systems.';
-         total_size += stat.size;
-      //   var filter = /(\/\.git\/|\/node\_modules\/)/;
-        var filter = /(\/\.git\/)/;
-         if (!filter.test(file)) {
-            var patt = new RegExp('^'+ dir, 'i');
-            _result[_result.length] = {path:file};
-         }
+       total_size += stat.size;
+       //   var filter = /(\/\.git\/|\/node\_modules\/)/;
+       var filter = /(\/\.git\/)/;
+       if (!filter.test(file)) {
+           var patt = new RegExp('^'+ dir, 'i');
+           _result[_result.length] = {path:file};
+       }
     });
 
     finder.on('link', function (link, stat) {
@@ -47,6 +41,6 @@ function uu(dir, cbk) {
 uu('/var/qalet/', function() {
 // uu(env.root_path + '', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
-//   res.send(str);
-  res.send(_result);
+    // res.send(str);
+    res.send(_result);
 });
