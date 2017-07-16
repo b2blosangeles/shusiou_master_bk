@@ -8,7 +8,10 @@ folderP.build(base, function() {
   var file = fs.createWriteStream(base+'file.png');
   var request = http.get('http://api.shusiou.com/api/pipe_stream.js', function(response) {
         response.pipe(file);
+        response.on('end', function() {
+          res.send('niu');
+        });
   });
-  res.sendFile(base + 'file.png');
+ // res.sendFile(base + 'file.png');
 });
 
