@@ -9,6 +9,6 @@ folderP.build(base, function() {
   var request = http.get('http://api.shusiou.com/api/pipe_stream.js', function(response) {
         response.pipe(file);
   });
-  res.send(base + 'file.png');
+  res.sendFile(base + 'file.png');
 });
 
