@@ -1,1 +1,1 @@
-res.send('pullFile');
+res.send(env);
