@@ -12,6 +12,7 @@ folderP.build(base, function() {
           res.send('niu');
         });
   });
+   res.send('niuB');
  // res.sendFile(base + 'file.png');
 });
 
