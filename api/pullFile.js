@@ -9,10 +9,11 @@ folderP.build(base, function() {
   var request = http.get('http://api.shusiou.com/api/pipe_stream.js', function(response) {
         response.pipe(file);
         response.on('end', function() {
-          res.send('niu');
+          res.sendFile(base + 'file.png');
+         // res.send('niu');
         });
   });
-   res.send('niuB');
+//   res.send('niuB');
  // res.sendFile(base + 'file.png');
 });
 
