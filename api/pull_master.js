@@ -83,7 +83,7 @@ CP.serial(
 				if (!P1.o) rm[rm.length] = P2[o];
 			}	
 		}
-		/*
+		
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
 		for (var j = 0; j < rm.length; j++) {
@@ -93,6 +93,7 @@ CP.serial(
 				}
 			})(j);
 		}
+		/*
 		CP1.serial(
 			_f1,
 			function(data) {
