@@ -88,7 +88,8 @@ CP.serial(
 				}
 			}	
 		}
-		
+		res.send({cg:cg, rm:rm});
+		return true;
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
 		for (var j = 0; j < rm.length; j++) {
@@ -107,7 +108,7 @@ CP.serial(
 		
 		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
 			// res.send('rm -fr ' + base + rm[0]);
-			res.send({cg:cg, rm:rm});
+			
 		//});
 	},
 	30000
