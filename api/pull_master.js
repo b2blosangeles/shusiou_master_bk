@@ -73,23 +73,28 @@ _f['P2'] = function (cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rm=[];
+		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[], rmo=[];
 		
 		for (o in P1) {
-			if (!P2.o) cg[cg.length] = P1[o];
+			for (var i = 0; i < P1[o].length; i++) {
+				 cg[cg.length] = P1[o][i];
+			}    
 		}
 		for (o in P2) {
 			if (P1.length) {
-				if (!P1.o) rm[rm.length] = P2[o];
+				if (!P1.o) rmv[rmv.length] = P2[o];
+				else {
+					
+				}
 			}	
 		}
 		
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
 		for (var j = 0; j < rm.length; j++) {
-			_f1[j] = (function(j) {
+			_f1['rmv_'+j] = (function(j) {
 				return function(cbk) {
-					cbk(rm[j]);
+					cbk(rmv[j]);
 				}
 			})(j);
 		}
