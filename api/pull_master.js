@@ -31,9 +31,9 @@ var FOLDER_SCAN = function () {
 		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
 	       }  else {
 		   me.total_size += stat.size;
-		   if (!me.mtime) me.mtime = stat.mtime;
+		  // if (!me.mtime) me.mtime = stat.mtime;
 		   if (new Date(stat.mtime) > new Date(me.mtime)) {
-		       me.mtime = stat.mtime;
+		  //     me.mtime = stat.mtime;
 		       me.last_file = file.replace(patt,'');
 		   }
 		  me._result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
