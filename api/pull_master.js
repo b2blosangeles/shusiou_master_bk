@@ -87,7 +87,7 @@ CP.serial(
 			}    
 		}
 		for (o in P2) {
-			rmv[rmv.length] = o;
+			rmv[rmv.length] = P2[o];
 			/*
 			for (o_1 in P2[o].list) {
 				 P2[o].list[o_1]['path'] = '' + o + '/' + o_1;
