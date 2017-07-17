@@ -12,5 +12,5 @@ request({
         "content-type": "application/json",
         }
     }, function (error, resp, body) { 
-      res.send(body);
+      res.send(body.Z2SCXDw0pZ4);
    });
