@@ -93,14 +93,13 @@ CP.serial(
 				}
 			})(j);
 		}
-		/*
 		CP1.serial(
 			_f1,
 			function(data) {
 				res.send(data.results);
 			}
-		}	
-		*/
+		);	
+		
 		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
 			// res.send('rm -fr ' + base + rm[0]);
 			res.send({cg:cg, rm:rm});
