@@ -1,3 +1,4 @@
+var exec = require('child_process').exec;
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
@@ -80,9 +81,9 @@ CP.serial(
 		for (o in P2) {
 			if (!P1.o) rm[rm.length] = o; // P2[o];
 		}
-		res.send({cg:cg, rm:rm});
-		
-		// res.send({P1:data.results.P1, P2:data.results.P2, cg:cg, rm:rm});
+		exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
+			res.send({cg:cg, rm:rm});
+		});
 	},
 	30000
 );	
