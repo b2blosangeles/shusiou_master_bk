@@ -72,7 +72,15 @@ _f['P2'] = function (cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send({P1:data.results.P1, P2:data.results.P2});
+		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rm=[];
+		
+		for (o in P1) {
+			if (!P2.o) cg[cg.length] = P1[o];
+		}
+		for (o in P2) {
+			if (!P1.o) rm[rm.length] = P2[o];
+		}		
+		res.send({P1:data.results.P1, P2:data.results.P2, cg:cg, rm:rm});
 	},
 	30000
 );	
