@@ -1,4 +1,6 @@
 var exec = require('child_process').exec;
+var path = require('path');
+
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
@@ -17,7 +19,7 @@ var FOLDER_SCAN = function () {
 	
 	this.scan = function(dir, code, cbk) {
 	    var finder = require(env.root_path + '/api/inc/findit/findit.js')(dir);			
-	    var path = require('path');
+	    
 
 	    finder.on('directory', function (dir, stat, stop) {
 		var base = path.basename(dir);
@@ -78,7 +80,9 @@ CP.serial(
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
 				 P1[o].list[o_1]['src'] = P1[o].master.folder + o_1;
+				 var t_dir =   psth.dirname(base + o + '/' + o_1);
 				 P1[o].list[o_1]['target'] = base + o + '/' + o_1;
+				 P1[o].list[o_1]['t_dir'] = t_dir;
 				 cg[cg.length] = P1[o].list[o_1];
 			}    
 		}
