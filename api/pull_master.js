@@ -1,6 +1,8 @@
 var exec = require('child_process').exec;
 var path = require('path');
-var env = {root_space:path.join(__dirname, '../../')};
+// var env = {root_space:path.join(__dirname, '../../')};
+res.send(env);
+return true;
 
 var request = require(env.root_path + '/package/request/node_modules/request');
 request({
