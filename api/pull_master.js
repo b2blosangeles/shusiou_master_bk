@@ -9,7 +9,7 @@ var base = '/var/video/';
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-folder_scan.js
+//folder_scan.js
 
 _f['P1'] = function (cbk) {	
 	request({
