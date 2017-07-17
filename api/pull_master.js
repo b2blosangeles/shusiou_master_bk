@@ -102,9 +102,9 @@ CP.serial(
 				response.pipe(file);
 				response.on('end', function() {
 				res.sendFile(cg[0]['target']);
-			});
-		});		
-		
+				});
+			});		
+		});
 	//	res.send({cg:cg, rm:rmv});
 	//	res.send({rm:rmv});
 		return true;
