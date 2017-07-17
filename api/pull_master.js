@@ -8,10 +8,10 @@ var request = require(env.root_path + '/package/request/node_modules/request');
 request({
     url: 'http://api.shusiou.com/api/cloud_resource.report',
     method: "GET",
-    headers: {
-        "content-type": "application/json",
-        }
+  //  headers: {
+  //      "content-type": "application/json",
+  //      }
     }, function (error, resp, body) { 
-        res.send(resp);
-      // res.send(body.Z2SCXDw0pZ4);
+      //  res.send(resp);
+       res.send(body.Z2SCXDw0pZ4);
    });
