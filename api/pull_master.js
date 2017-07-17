@@ -1,11 +1,15 @@
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
+var folder_scan = require(env.root_path + '/api/inc/findit/folder_scan.js')(dir);
+
 var folderP  = new FOLDERP ();
 var base = '/var/video/';
 
 var CP = new pkg.crowdProcess();
 var _f = {};
+
+folder_scan.js
 
 _f['P1'] = function (cbk) {	
 	request({
@@ -16,7 +20,7 @@ _f['P1'] = function (cbk) {
 	   });	
 },
 _f['P2'] = function (cbk) {	
-	var R = new FOLDER_SCAN();
+	var R = new folder_scan();
 	R.scan(base,  '', 
 	function(data) {
 		 cbk(data);
@@ -39,7 +43,7 @@ var FOLDER_SCAN = function () {
 	this.mtime = '';
 	
 	this.scan = function(dir, code, cbk) {
-	    var finder = require(env.root_path + '/api/inc/findit/findit.js')(dir);
+	    var finder = require(env.root_path + '/api/inc/findit/findit.js')(dir);			
 	    var path = require('path');
 
 	    finder.on('directory', function (dir, stat, stop) {
