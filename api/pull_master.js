@@ -46,7 +46,7 @@ var FOLDER_SCAN = function () {
 	this.mtime = '';
 	
 	this.scan = function(dir, code, cbk) {
-	    var finder = require(env.space_path + '/api/inc/findit/findit.js')(dir);
+	    var finder = require(env.root_path + '/api/inc/findit/findit.js')(dir);
 	    var path = require('path');
 
 	    finder.on('directory', function (dir, stat, stop) {
