@@ -83,9 +83,25 @@ CP.serial(
 				if (!P1.o) rm[rm.length] = P2[o];
 			}	
 		}
+		var CP1 = new pkg.crowdProcess();
+		var _f1 = {};
+		for (var j = 0; j < rm.length; j++) {
+			_f1[j] = function(j) {
+				return function(cbk) {
+					cbk(rm[j]);
+				}
+			}
+		}
+		CP1.serial(
+			_f1,
+			function(data) {
+				cbk(data.results);
+			}
+		}	
+		
 		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
 			// res.send('rm -fr ' + base + rm[0]);
-			res.send({cg:cg, rm:rm});
+		//	res.send({cg:cg, rm:rm});
 		//});
 	},
 	30000
