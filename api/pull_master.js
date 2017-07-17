@@ -76,8 +76,8 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[], rmo=[];
 		
 		for (o in P1) {
-			for (var i = 0; i < P1[o].list.length; i++) {
-				 cg[cg.length] = P1[o].list[i];
+			for (o_1 in P1[o].list) {
+				 cg[cg.length] = P1[o].list[o_1];
 			}    
 		}
 		for (o in P2) {
@@ -88,7 +88,7 @@ CP.serial(
 				}
 			}	
 		}
-		res.send({cg:P1, rm:rmv});
+		res.send({cg:cg, rm:rmv});
 		return true;
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
