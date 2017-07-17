@@ -77,7 +77,7 @@ CP.serial(
 		
 		for (o in P1) {
 			for (var i = 0; i < P1[o].length; i++) {
-				 cg[cg.length] = P1[o][i];
+				 cg[cg.length] = P1[o];
 			}    
 		}
 		for (o in P2) {
