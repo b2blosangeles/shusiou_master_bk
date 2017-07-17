@@ -77,7 +77,7 @@ CP.serial(
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
-				 P1[o].list[o_1]['path'] = P1[o].master.path + '-' + o + '/' + o_1;
+				 P1[o].list[o_1]['path'] = P1[o].master.folder + '/' + o_1;
 				 cg[cg.length] = P1[o].list[o_1];
 			}    
 		}
@@ -87,7 +87,7 @@ CP.serial(
 				 rmv[cg.length] = P2[o].list[o_1];
 			}    
 		}
-		res.send({cg:P1, rm:rmv});
+		res.send({cg:cg, rm:rmv});
 	//	res.send({rm:rmv});
 		return true;
 		var CP1 = new pkg.crowdProcess();
