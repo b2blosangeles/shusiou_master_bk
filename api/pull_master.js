@@ -92,20 +92,21 @@ CP.serial(
 				 rmv[cg.length] = P2[o].list[o_1];
 			}    
 		}
-		
+		/*
 		folderP.build(cg[0]['t_dir'], function() {
 			var http = require('http');
 			var fs = require('fs');
 
 			var file = fs.createWriteStream(cg[0]['target']);
-			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+, function(response) {
+			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0]['target'], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-				res.sendFile(cg[0]['target']);
+					res.sendFile(cg[0]['target']);
 				});
 			});		
 		});
-	//	res.send({cg:cg, rm:rmv});
+		*/
+		res.send({cg:cg, rm:rmv});
 	//	res.send({rm:rmv});
 		return true;
 		var CP1 = new pkg.crowdProcess();
