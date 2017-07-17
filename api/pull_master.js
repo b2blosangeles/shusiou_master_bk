@@ -16,7 +16,7 @@ _f['P1'] = function (cbk) {
 	   });	
 },
 _f['P2'] = function (cbk) {	
-	var R = new FOLDER_SCAN(env);
+	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
 		 cbk(data);
@@ -30,7 +30,7 @@ CP.serial(
 	30000
 );	
 
-var FOLDER_SCAN = function (env) {
+var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
 	this.master_video = {};
