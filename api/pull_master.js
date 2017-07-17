@@ -86,11 +86,11 @@ CP.serial(
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
 		for (var j = 0; j < rm.length; j++) {
-			_f1[j] = function(j) {
+			_f1[j] = (function(j) {
 				return function(cbk) {
 					cbk(rm[j]);
 				}
-			}
+			})(j);
 		}
 		CP1.serial(
 			_f1,
