@@ -80,7 +80,7 @@ CP.serial(
 		for (o in P2) {
 			if (!P1.o) rm[rm.length] = o; // P2[o];
 		}
-		res.send({cg:cg, rm:rm});
+		res.send({P2:data.results.P2, cg:cg, rm:rm});
 		
 		// res.send({P1:data.results.P1, P2:data.results.P2, cg:cg, rm:rm});
 	},
