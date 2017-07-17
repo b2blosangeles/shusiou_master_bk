@@ -101,7 +101,7 @@ CP.serial(
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0]['target'], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send({cg:cg[0], rm:P2});
+					res.send({cg:cg[0], rm:rmv});
 				});
 			});		
 		});
