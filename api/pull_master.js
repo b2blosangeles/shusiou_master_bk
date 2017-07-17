@@ -2,7 +2,7 @@ var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
 var folderP  = new FOLDERP ();
-var base = '/var/';
+var base = '/var/video/';
 
 var CP = new pkg.crowdProcess();
 var _f = {};
@@ -66,7 +66,7 @@ _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
-		 cbk(data);
+		 cbk(data.list);
 	}); 
 }
 CP.serial(
