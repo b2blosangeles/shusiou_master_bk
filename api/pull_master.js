@@ -82,8 +82,8 @@ CP.serial(
 			if (!P1.o) rm[rm.length] = o; // P2[o];
 		}
 		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
-			res.send('rm -fr ' + base + ' ' + rm[0]);
-		//	res.send({cg:cg, rm:rm});
+			// res.send('rm -fr ' + base + rm[0]);
+			res.send({cg:cg, rm:rm});
 		//});
 	},
 	30000
