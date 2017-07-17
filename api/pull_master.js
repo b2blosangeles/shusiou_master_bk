@@ -20,7 +20,7 @@ _f['P1'] = function (cbk) {
 	   });	
 },
 _f['P2'] = function (cbk) {	
-	var R = new folder_scan();
+	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
 		 cbk(data);
