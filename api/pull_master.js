@@ -77,6 +77,7 @@ CP.serial(
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
+				 P1[o].list[o_1]['code'] = o;
 				 cg[cg.length] = P1[o].list[o_1];
 			}    
 		}
