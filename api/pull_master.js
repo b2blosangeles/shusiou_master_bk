@@ -25,8 +25,7 @@ folderP.build(base, function() {
  */
 });
 
-return true;
-
+/*
 var request = require(env.root_path + '/package/request/node_modules/request');
 request({
     url: 'http://api.shusiou.com/api/cloud_resource.report',
@@ -35,7 +34,7 @@ request({
       //  res.send(resp);
        res.send(JSON.parse(body).Z2SCXDw0pZ4);
    });
-
+*/
 
 var FOLDER_SCAN = function () {
 	var me = this;
