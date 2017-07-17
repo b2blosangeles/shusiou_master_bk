@@ -77,7 +77,8 @@ CP.serial(
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
-				 P1[o].list[o_1]['path'] = P1[o].master.folder + o_1;
+				 P1[o].list[o_1]['src'] = P1[o].master.folder + o_1;
+				 P1[o].list[o_1]['target'] = base + o + '/' + o_1;
 				 cg[cg.length] = P1[o].list[o_1];
 			}    
 		}
