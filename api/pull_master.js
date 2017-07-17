@@ -76,10 +76,12 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rm=[];
 		
 		for (o in P1) {
-			if (!P2.o) cg[cg.length] = o; // P1[o];
+			if (!P2.o) cg[cg.length] = P1[o];
 		}
 		for (o in P2) {
-			if (!P1.o) rm[rm.length] = o; // P2[o];
+			if (P1.length) {
+				if (!P1.o) rm[rm.length] = P2[o];
+			}	
 		}
 		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
 			// res.send('rm -fr ' + base + rm[0]);
