@@ -88,7 +88,7 @@ CP.serial(
 				}
 			}	
 		}
-		res.send({cg:cg, rm:rm});
+		res.send({cg:cg, rm:rmv});
 		return true;
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
