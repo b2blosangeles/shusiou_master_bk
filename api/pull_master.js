@@ -33,7 +33,7 @@ CP.serial(
 	},
 	30000
 );	
-
+return true;
 var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
