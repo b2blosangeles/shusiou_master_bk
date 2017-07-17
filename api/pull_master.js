@@ -95,7 +95,7 @@ CP.serial(
 		CP1.serial(
 			_f1,
 			function(data) {
-				cbk(data.results);
+				res.send(data.results);
 			}
 		}	
 		
