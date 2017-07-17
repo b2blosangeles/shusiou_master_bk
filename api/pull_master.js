@@ -2,8 +2,6 @@ var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var folderP  = new FOLDERP ();
 var base = '/var/video/';
 folderP.build(base, function() {
-     res.send(base);
-     
      var R = new FOLDER_SCAN();
      R.scan(base,  '', 
      function(data) {
