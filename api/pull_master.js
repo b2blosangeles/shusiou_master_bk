@@ -76,8 +76,8 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[], rmo=[];
 		
 		for (o in P1) {
-			for (var i = 0; i < P1[o].length; i++) {
-				 cg[cg.length] = P1[o];
+			for (var i = 0; i < P1[o].list.length; i++) {
+				 cg[cg.length] = P1[o].list[i];
 			}    
 		}
 		for (o in P2) {
