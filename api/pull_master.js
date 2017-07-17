@@ -25,22 +25,10 @@ _f['P2'] = function (cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);
+		res.send({P1:data.results.P1, P2:data.results.P2});
 	},
 	30000
 );	
-
-
-/*
-var request = require(env.root_path + '/package/request/node_modules/request');
-request({
-    url: 'http://api.shusiou.com/api/cloud_resource.report',
-    method: "GET"
-    }, function (error, resp, body) { 
-      //  res.send(resp);
-       res.send(JSON.parse(body).Z2SCXDw0pZ4);
-   });
-*/
 
 var FOLDER_SCAN = function () {
 	var me = this;
