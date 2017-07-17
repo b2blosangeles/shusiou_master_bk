@@ -87,8 +87,8 @@ CP.serial(
 				 rmv[cg.length] = P2[o].list[o_1];
 			}    
 		}
-		// res.send({cg:cg, rm:rmv});
-		res.send({rm:rmv});
+		res.send({cg:cg, rm:rmv});
+	//	res.send({rm:rmv});
 		return true;
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
