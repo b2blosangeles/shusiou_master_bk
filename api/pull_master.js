@@ -1,29 +1,35 @@
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
+var request = require(env.root_path + '/package/request/node_modules/request');
+
 var folderP  = new FOLDERP ();
 var base = '/var/video/';
-folderP.build(base, function() {
-     var R = new FOLDER_SCAN();
-     R.scan(base,  '', 
-     function(data) {
-         res.send(data);
-     });     
-     
-/*    
-    var http = require('http');
-  var fs = require('fs');
 
-  var file = fs.createWriteStream(base+'file.png');
-  var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video=962SfJ00tYM&fn=images/962SfJ00tYM/180_100.png', function(response) {
-        response.pipe(file);
-        response.on('end', function() {
-          res.sendFile(base + 'file.png');
-         // res.send('niu');
-        });
-  });
-//   res.send('niuB');
- // res.sendFile(base + 'file.png');
- */
-});
+var CP = new pkg.crowdProcess();
+var _f = {};
+
+_f['P1'] = function (cbk) {	
+	request({
+	    url: 'http://api.shusiou.com/api/cloud_resource.report',
+	    method: "GET"
+	    }, function (error, resp, body) { 
+	       cbk(JSON.parse(body));
+	   });	
+},
+_f['P2'] = function (cbk) {	
+	var R = new FOLDER_SCAN();
+	R.scan(base,  '', 
+	function(data) {
+		 cbk(data);
+	}); 
+}
+CP.serial(
+	_f,
+	function(data) {
+		res.send(data);
+	},
+	30000
+);	
+
 
 /*
 var request = require(env.root_path + '/package/request/node_modules/request');
