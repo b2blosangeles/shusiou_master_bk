@@ -73,7 +73,7 @@ _f['P2'] = function (cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[], rmo=[];
+		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
@@ -82,12 +82,10 @@ CP.serial(
 			}    
 		}
 		for (o in P2) {
-			if (P1.length) {
-				if (!P1.o) rmv[rmv.length] = P2[o];
-				else {
-					
-				}
-			}	
+			for (o_1 in P2[o].list) {
+				 P2[o].list[o_1]['path'] = '' + o + '/' + o_1;
+				 rmv[cg.length] = P2[o].list[o_1];
+			}    
 		}
 		res.send({cg:cg, rm:rmv});
 		return true;
