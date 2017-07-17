@@ -1,8 +1,6 @@
 (function () { 
 	var obj =  function () {
 		this.build = function(folder, callback) {
-		//	callback();
-		//	return true;
 			var fs = require('fs');
 			function mkfolder (a, callback) {
 				if (typeof a == 'string') {
