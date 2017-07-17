@@ -93,18 +93,17 @@ CP.serial(
 			}    
 		}
 		
-		 folderP.build(cg[0]['t_dir'], function() {
-		  var http = require('http');
-		  var fs = require('fs');
+		folderP.build(cg[0]['t_dir'], function() {
+			var http = require('http');
+			var fs = require('fs');
 
-		  var file = fs.createWriteStream(cg[0]['target']);
-		  var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+, function(response) {
-			response.pipe(file);
-			response.on('end', function() {
-			  res.sendFile(cg[0]['target']);
+			var file = fs.createWriteStream(cg[0]['target']);
+			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+, function(response) {
+				response.pipe(file);
+				response.on('end', function() {
+				res.sendFile(cg[0]['target']);
 			});
-		  });		
-		 }
+		});		
 		
 	//	res.send({cg:cg, rm:rmv});
 	//	res.send({rm:rmv});
