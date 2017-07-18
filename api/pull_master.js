@@ -5,7 +5,7 @@ var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
 var folderP  = new FOLDERP ();
-var base = '/var/';
+var base = '/var/video/';
 
 var CP = new pkg.crowdProcess();
 var _f = {};
