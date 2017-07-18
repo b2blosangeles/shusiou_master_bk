@@ -106,15 +106,14 @@ CP.serial(
 				response.on('end', function() {
 					var CP1 = new pkg.crowdProcess();
 					var _f1 = {};
-					for (var j = 0; j < rm.length; j++) {
+					for (var j = 0; j < rmv.length; j++) {
 						_f1['rmv_'+j] = (function(j) {
 							return function(cbk) {
 
-								exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
-									cbk('rm -fr ' + base + rm[0]);
+								exec('rm -fr ' + base + ' ' + rmv[0], function(error, stdout, stderr) {
+									cbk('rm -fr ' + base + rmv[0]);
 
-								});					
-								cbk(rmv[j]);
+								});
 							}
 						})(j);
 					}
