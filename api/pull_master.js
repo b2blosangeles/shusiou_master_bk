@@ -100,7 +100,7 @@ CP.serial(
 		
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {}, tm = new Date().getTime();
-		/*
+
 		for (var i = 0; i < cfg.length; i++) {
 			_f1['rmv_'+i] = (function(i) {
 				return function(cbk) {
@@ -110,7 +110,7 @@ CP.serial(
 				}
 			})(i);	
 		}
-		*/
+	
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
