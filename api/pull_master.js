@@ -93,7 +93,7 @@ CP.serial(
 			rmv[rmv.length] = o;  
 		}
 
-		res.send(cg);
+		res.send(P2);
 		return true;		
 				
 		
