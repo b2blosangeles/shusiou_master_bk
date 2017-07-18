@@ -72,9 +72,7 @@ CP.serial(
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		
-		res.send(P2);
-		return true;		
-		
+
 		for (o in P1) {
 			/*
 			for (o_1 in P1[o].list) {
@@ -94,6 +92,10 @@ CP.serial(
 			// var v = P2[o]; 
 			rmv[rmv.length] = o;  
 		}
+
+		res.send(cg);
+		return true;		
+				
 		
 		folderP.build(cg[0]['t_dir'], function() {
 			var http = require('http');
