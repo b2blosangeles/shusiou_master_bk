@@ -91,7 +91,7 @@ CP.serial(
 			rmv[rmv.length] = o;  
 		}
 
-		res.send({P2:P2, cg:cg]);
+		res.send({P2:P2, cg:cg});
 		return true;		
 				
 		
