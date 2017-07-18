@@ -103,7 +103,7 @@ CP.serial(
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send(base + cg[0] + ' end');
+					res.send(P2);
 					return true;
 					
 					var CP1 = new pkg.crowdProcess();
