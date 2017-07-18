@@ -104,7 +104,7 @@ CP.serial(
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
-					cbk(i+'--' + new Date().getTime() -tm);	
+					cbk(i+'--' + (new Date().getTime() - tm));	
 				}
 			})(i);	
 		}
