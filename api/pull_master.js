@@ -90,7 +90,7 @@ CP.serial(
 			res.send('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0]);
 			return true;
 			var file = fs.createWriteStream(base + cg[0]);
-			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0], function(response) {
+			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
 					res.send({P2:P2, cg:cg});
