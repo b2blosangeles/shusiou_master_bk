@@ -67,7 +67,7 @@ _f['P2'] = function (cbk) {
 }
 
 function existFile(P1, fn) {
-	for (var o in P1) {
+	for (o in P1) {
 		for (o_1 in P1[o].list) {
 			if (fn ==  (o + '/' + o_1)) return true	 	
 		} 
@@ -82,7 +82,7 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		
 		
-		for (var o in P1) {
+		for (o in P1) {
 			for (o_1 in P1[o].list) {
 				if (P1[o].list[o_1] != P2[o + '/' + o_1]) {
 					cg[cg.length] = P1[o].master.code  + '/' + o_1;	 
@@ -95,51 +95,44 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-			res.send('{rmv:rmv, cg:cg}');
-			return true;		
+
 		folderP.build(path.dirname(base + cg[0]), function() {
 			var http = require('http');
 			var fs = require('fs');
-			res.send('{rmv:rmv, cg:cg}');
-			return true;
-			/*
+			
 			var file = fs.createWriteStream(base + cg[0]);
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send({rmv:rmv, cg:cg});
-					
-					if (!rmv.length) {
-						res.send({rmv:rmv, cg:cg});
-					} else {
-						res.send('niu');
-						
-						var CP1 = new pkg.crowdProcess();
-						var _f1 = {};
-						for (var j = 0; j < rmv.length; j++) {
-							_f1['rmv_'+j] = (function(j) {
-								return function(cbk) {
-
-									exec('rm -fr ' + base + ' ' + rmv[0], function(error, stdout, stderr) {
-										cbk('rm -fr ' + base + rmv[0]);
-
-									});
-								}
-							})(j);
-						}
-						CP1.serial(
-							_f1,
-							function(data) {
-								res.send(data.results);
-							}
-						);
-						
-					}
+					res.send({rmv:rmv, P1:P1, cg:cg});
+					// res.send({cg:P2});
 				});
-			});	
-			*/
+			});		
 		});
+		
+		res.send({cg:cg, rm:rmv});
+	//	res.send({rm:rmv});
+		return true;
+		var CP1 = new pkg.crowdProcess();
+		var _f1 = {};
+		for (var j = 0; j < rm.length; j++) {
+			_f1['rmv_'+j] = (function(j) {
+				return function(cbk) {
+					cbk(rmv[j]);
+				}
+			})(j);
+		}
+		CP1.serial(
+			_f1,
+			function(data) {
+				res.send(data.results);
+			}
+		);	
+		
+		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
+			// res.send('rm -fr ' + base + rm[0]);
+			
+		//});
 	},
 	30000
 );	
-
