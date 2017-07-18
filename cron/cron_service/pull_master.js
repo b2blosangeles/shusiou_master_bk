@@ -1,4 +1,5 @@
 var path = require('path'), fs = require('fs');
+var env = {root_path:path.join(__dirname, '../../')};
 
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
