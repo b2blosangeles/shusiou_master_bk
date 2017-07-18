@@ -87,7 +87,7 @@ CP.serial(
 			var http = require('http');
 			var fs = require('fs');
 			
-			res.send(base + cg[0])
+			res.send('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0]);
 			return true;
 			var file = fs.createWriteStream(base + cg[0]);
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0], function(response) {
