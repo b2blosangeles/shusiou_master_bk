@@ -61,9 +61,9 @@ _f['P1'] = function (cbk) {
 	   });	
 }
 _f['V2'] = function (cbk) {
-	//fs.readdir(base, function (err, files) {
-	   cbk('files-->');
-	//});
+	fs.readdir(base, function (err, files) {
+	   cbk(files);
+	});
 }	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
@@ -84,7 +84,7 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(V2);
+		res.send(data.results.V2);
 		return true;
 		
 		for (o in P1) {
