@@ -56,6 +56,7 @@ _f['P1'] = function (cbk) {
 	       cbk(JSON.parse(body));
 	   });	
 },
+	/*
 _f['P2'] = function (cbk) {
 
 	
@@ -65,7 +66,7 @@ _f['P2'] = function (cbk) {
 		 cbk(data.list);
 	}); 
 }
-
+*/
 function existFile(P1, fn) {
 	for (o in P1) {
 		for (o_1 in P1[o].list) {
