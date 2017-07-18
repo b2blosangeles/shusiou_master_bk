@@ -101,16 +101,14 @@ CP.serial(
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send({P2:P2, rmv:rmv});
-					return true;
 					var CP1 = new pkg.crowdProcess();
 					var _f1 = {};
 					for (var j = 0; j < rmv.length; j++) {
 						_f1['rmv_'+j] = (function(j) {
 							return function(cbk) {
 
-								exec('rm -fr ' + base + ' ' + rmv[0], function(error, stdout, stderr) {
-									cbk('rm -fr ' + base + rmv[0]);
+								exec('rm -fr ' + base + ' ' + rmv[j], function(error, stdout, stderr) {
+									cbk('rm -fr ' + base + rmv[j]);
 
 								});
 							}
