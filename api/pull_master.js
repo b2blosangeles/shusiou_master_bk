@@ -120,7 +120,7 @@ CP.serial(
 					CP1.serial(
 						_f1,
 						function(data) {
-							res.send({cg:cg,P2:P2});
+							res.send({P2:P2, cg:cg});
 						//	res.send(data.results);
 						}
 					);
