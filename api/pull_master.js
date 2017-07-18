@@ -112,7 +112,7 @@ CP.serial(
 		CP1.serial(
 			_f1,
 			function(data) {
-				res.send(data.results);
+				res.send(data);
 			}
 		);	
 		return true;
