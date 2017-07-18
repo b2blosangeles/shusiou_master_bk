@@ -79,10 +79,6 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		
-		res.send(cg);
-		return true;
-		
 		for (o in P1) {
 			cg[cg.length] = o  + '/video/video.mp4';	
 			for (o_1 in P1[o].list) {
@@ -92,6 +88,10 @@ CP.serial(
 			} 
 			 
 		}
+		
+		res.send(cg);
+		return true;		
+		
 		for (var o in P2) {
 			if (!existFile(P1, o)) {
 				rmv[rmv.length] = o;  
