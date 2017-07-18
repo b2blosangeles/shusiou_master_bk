@@ -1,4 +1,3 @@
-var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
 
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
