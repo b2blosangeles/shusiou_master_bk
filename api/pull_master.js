@@ -99,10 +99,8 @@ CP.serial(
 		}
 
 		folderP.build(path.dirname(base + cg[0]), function() {
-			
 			var http = require('http');
-			var fs = require('fs');
-			var file = fs.createWriteStream(base + cg[0]);
+			var file = pkg.fs.createWriteStream(base + cg[0]);
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
