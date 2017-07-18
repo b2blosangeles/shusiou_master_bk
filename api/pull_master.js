@@ -70,6 +70,7 @@ _f['P2'] = function (cbk) {
 }
 function existFile(P1, fn) {
 	for (o in P1) {
+		if (P1[o].master.master_video] == fn) return true;
 		for (o_1 in P1[o].list) {
 			if (fn ==  (o + '/' + o_1)) return true	 	
 		} 
