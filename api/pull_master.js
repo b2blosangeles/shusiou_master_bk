@@ -82,7 +82,7 @@ CP.serial(
 				 P1[o].list[o_1]['t_dir'] = t_dir;
 			*/	
 			//	if (P1[o].list[o_1] != P2[o + '/' + o_1])
-				cg[cg.length] = o_1 + '::' + P1[o].list[o_1] + '--> ' + P2[o + '/' + o_1];
+				cg[cg.length] = P1[o].master.folder + o_1;
 					// o + '/' + o_1;
 				 
 			} 
