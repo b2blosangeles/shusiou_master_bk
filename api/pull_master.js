@@ -90,10 +90,7 @@ CP.serial(
 				return true;
 				
 				cg[cg.length] = o  + '/video/video.mp4';
-			} else {
-				res.send('niu')
-				return true;
-			}
+			} 
 			for (o_1 in P1[o].list) {
 				if (P1[o].list[o_1] != P2[o + '/' + o_1]) {
 					cg[cg.length] = P1[o].master.code  + '/' + o_1;	 
