@@ -80,8 +80,10 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(P1);
+		
 		for (o in P1) {
+			res.send(P1[0].master);
+			return true;
 			cg[cg.length] = o  + '/video/video.mp4';	
 			for (o_1 in P1[o].list) {
 				if (P1[o].list[o_1] != P2[o + '/' + o_1]) {
