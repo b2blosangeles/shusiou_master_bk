@@ -100,6 +100,16 @@ CP.serial(
 		
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {}, tm = new Date().getTime();
+		for (var i = 0; i < cfg.length; i++) {
+			_f1['rmv_'+i] = (function(i) {
+				return function(cbk) {
+					pkg.exec('rm -fr ' + base + ' ' + crg[i], function(error, stdout, stderr) {
+						cbk('removed ' + base + crg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
+
+					});	
+				}
+			})(i);	
+		}		
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
@@ -121,16 +131,7 @@ CP.serial(
 				}
 			})(i);	
 		}
-		for (var i = 0; i < cfg.length; i++) {
-			_f1['rmv_'+i] = (function(i) {
-				return function(cbk) {
-					pkg.exec('rm -fr ' + base + ' ' + crg[i], function(error, stdout, stderr) {
-						cbk('removed ' + base + crg[i] + ' at: ' + (new Date().getTime() - tm);
-
-					});	
-				}
-			})(i);	
-		}		
+		
 		CP1.serial(
 			_f1,
 			function(data) {
