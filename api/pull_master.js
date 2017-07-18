@@ -65,6 +65,11 @@ _f['P2'] = function (cbk) {
 		 cbk(data.list);
 	}); 
 }
+res.send('niuB');
+return true;
+
+
+
 CP.serial(
 	_f,
 	function(data) {
