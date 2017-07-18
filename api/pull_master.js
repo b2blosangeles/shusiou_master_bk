@@ -121,44 +121,23 @@ CP.serial(
 				}
 			})(i);	
 		}
+		for (var i = 0; i < cfg.length; i++) {
+			_f1['rmv_'+i] = (function(i) {
+				return function(cbk) {
+					pkg.exec('rm -fr ' + base + ' ' + crg[i], function(error, stdout, stderr) {
+						cbk('removed ' + base + crg[i] + ' at: ' + (new Date().getTime() - tm);
+
+					});	
+				}
+			})(i);	
+		}		
 		CP1.serial(
 			_f1,
 			function(data) {
 				res.send(data);
-			//	res.send(P2);
 			}
 		);	
 		return true;
-		folderP.build(path.dirname(base + cg[0]), function() {
-			var http = require('http');
-			var file = pkg.fs.createWriteStream(base + cg[0]);
-			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
-				response.pipe(file);
-				response.on('end', function() {
-					res.send({rmv:rmv, cg:cg});
-					return true;
-					var CP1 = new pkg.crowdProcess();
-					var _f1 = {};
-					for (var j = 0; j < rmv.length; j++) {
-						_f1['rmv_'+j] = (function(j) {
-							return function(cbk) {
-							//	exec('rm -fr ' + base + ' ' + rmv[j], function(error, stdout, stderr) {
-									cbk('rm -fr ' + base + rmv[j]);
-
-							//	});
-							}
-						})(j);
-					}
-					CP1.serial(
-						_f1,
-						function(data) {
-						//	res.send({P2:P2, cg:cg});
-							res.send(data.results);
-						}
-					);
-				});
-			});		
-		});
 	},
 	30000
 );
