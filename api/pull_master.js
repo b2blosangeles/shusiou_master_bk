@@ -88,7 +88,7 @@ CP.serial(
 			}    
 		}
 		for (o in P2) {
-			var v = P2[o], v.file = o;
+			var v = P2[o]; v.file = o;
 			rmv[rmv.length] = v;  
 		}
 		
