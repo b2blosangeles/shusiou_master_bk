@@ -66,11 +66,21 @@ _f['P2'] = function (cbk) {
 	}); 
 }
 
+function existFile(P1, fn) {
+	for (o in P1) {
+		for (o_1 in P1[o].list) {
+			if (fn ==  o_1) return true	 	
+		} 
+	}
+	return false;
+}
+
 
 CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
+		
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
@@ -81,8 +91,9 @@ CP.serial(
 			 
 		}
 		for (o in P2) {
-			// var v = P2[o]; 
-			rmv[rmv.length] = o;  
+			if (!existFile(P1, o)) {
+				rmv[rmv.length] = o;  
+			}	
 		}
 
 		folderP.build(path.dirname(base + cg[0]), function() {
@@ -93,7 +104,7 @@ CP.serial(
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send({P2:P2, cg:cg});
+					res.send({rmv:rmv, P2:P2, cg:cg});
 					// res.send({cg:P2});
 				});
 			});		
