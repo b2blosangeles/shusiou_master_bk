@@ -47,7 +47,11 @@ var FOLDER_SCAN = function () {
 	};
 };
 
-
+_f['P0'] = function (cbk) {
+	folderP.build(base, function() {
+		cbk(true);
+	});	
+}
 _f['P1'] = function (cbk) {	
 	request({
 	    url: 'http://api.shusiou.com/api/cloud_resource.report',
