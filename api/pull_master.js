@@ -103,9 +103,10 @@ CP.serial(
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
-					if (new Date().getTime() - tm > 20000) {
+					if (new Date().getTime() - tm > 2000) {
+						
+						cbk('skipped at -->' + (new Date().getTime() - tm));
 						CP1.exit = 1;
-						cbk('skipped at --' + (new Date().getTime() - tm));
 					} else {
 						folderP.build(path.dirname(base + cg[i]), function() {
 							var http = require('http');
