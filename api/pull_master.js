@@ -81,7 +81,7 @@ CP.serial(
 				 P1[o].list[o_1]['target'] = base + o + '/' + o_1;
 				 P1[o].list[o_1]['t_dir'] = t_dir;
 			*/	
-				 cg[cg.length] = P1[o].list[o_1];
+				 cg[cg.length] = o + '/' + o_1;
 				 
 			} 
 			 
