@@ -100,11 +100,11 @@ CP.serial(
 		}
 		
 		var CP1 = new pkg.crowdProcess();
-		var _f1 = {};
+		var _f1 = {}, tm = new Date().getTime();
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
-					cbk(i+'--' + cg.length);	
+					cbk(i+'--' + new Date().getTime() -tm);	
 				}
 			})(i);	
 		}
