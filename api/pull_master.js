@@ -95,7 +95,7 @@ CP.serial(
 				response.pipe(file);
 				response.on('end', function() {
 					// res.send({rm:rmv, cg:cg});
-					 res.send({rm:P1, cg:P2});
+					 res.send({cg:P2});
 				});
 			});		
 		});
