@@ -106,7 +106,6 @@ CP.serial(
 					for (var j = 0; j < rmv.length; j++) {
 						_f1['rmv_'+j] = (function(j) {
 							return function(cbk) {
-
 								exec('rm -fr ' + base + ' ' + rmv[j], function(error, stdout, stderr) {
 									cbk('rm -fr ' + base + rmv[j]);
 
@@ -123,14 +122,6 @@ CP.serial(
 				});
 			});		
 		});
-		
-		return true;
-
-		
-		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
-			// res.send('rm -fr ' + base + rm[0]);
-			
-		//});
 	},
 	30000
 );	
