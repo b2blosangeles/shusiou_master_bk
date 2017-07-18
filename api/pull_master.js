@@ -63,7 +63,7 @@ _f['P1'] = function (cbk) {
 	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
-	R.scan(base,  'Z2SCXDw0pZ4', 
+	R.scan(base,  '', 
 	function(data) {
 		 cbk(data.list);
 	}); 
@@ -80,6 +80,9 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
+		
+		res.send({cg:cg,P2:P2});
+		return true;
 		
 		for (o in P1) {
 			res.send(P1[0].master);
