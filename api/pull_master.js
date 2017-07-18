@@ -74,7 +74,9 @@ CP.serial(
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
-				cg[cg.length] = P1[o].master.code  + '/' + o_1;	 
+				if (P1[o].list[o_1] != P2[o + '/' + o_1]) {
+					cg[cg.length] = P1[o].master.code  + '/' + o_1;	 
+				}	
 			} 
 			 
 		}
