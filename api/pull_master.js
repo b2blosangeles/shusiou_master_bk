@@ -80,10 +80,8 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		
-		res.send({cg:cg,P2:P2});
+		res.send(P1);
 		return true;
-		
 		for (o in P1) {
 			res.send(P1[0].master);
 			return true;
@@ -135,4 +133,4 @@ CP.serial(
 		});
 	},
 	30000
-);	
+);
