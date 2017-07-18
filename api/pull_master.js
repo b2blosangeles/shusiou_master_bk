@@ -70,12 +70,10 @@ _f['P2'] = function (cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send('niuC');
-		return true;
-
-
-		
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
+		
+		res.send(P1);
+		return true;		
 		
 		for (o in P1) {
 			/*
