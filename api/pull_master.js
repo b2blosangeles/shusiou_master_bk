@@ -82,10 +82,10 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
 
 		for (o in P1) {
-			res.send(P1[o].master.master_video + '==>' + P1[o].master.size + '--vs--' + P2[o + '/' + P1[o].master.master_video]);
-			return true;
-			
-			cg[cg.length] = o  + '/video/video.mp4';	
+			if (((P1[o].master.size) && (P1[o].master.size != P1[o].master.master_video])) {
+				cg[cg.length] = o  + '/video/video.mp4';
+			}
+	
 			for (o_1 in P1[o].list) {
 				if (P1[o].list[o_1] != P2[o + '/' + o_1]) {
 					cg[cg.length] = P1[o].master.code  + '/' + o_1;	 
