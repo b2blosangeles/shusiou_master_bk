@@ -82,7 +82,7 @@ CP.serial(
 				 P1[o].list[o_1]['t_dir'] = t_dir;
 			*/	
 			//	if (P1[o].list[o_1] != P2[o])
-				cg[cg.length] = P1[o].list[o_1] + '-- ' + P2[o];
+				cg[cg.length] = o + '::' + P1[o].list[o_1] + '-- ' + P2[o];
 					// o + '/' + o_1;
 				 
 			} 
