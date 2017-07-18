@@ -25,7 +25,7 @@ var FOLDER_SCAN = function () {
 	    finder.on('file', function (file, stat) {
 	       var filter_master = /\/video\/video\.mp4$/;
 		var patt = new RegExp('^'+ dir);
-
+		// --- node is different than master on this comment
 	//       if (filter_master.test(file)) {
 	//	  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''),  size:stat.size};
 	 //      }  else {
@@ -98,7 +98,24 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-
+		
+		var CP1 = new pkg.crowdProcess();
+		var _f1 = {};
+		for (var i; i < cg.length; i++) {
+			
+			_f1['b_'+i] = (function(i) {
+				return function(cbk) {
+					cbk(i);	
+				}
+			})(i);	
+		}
+		CP1.serial(
+			_f1,
+			function(data) {
+				res.send(data.results);
+			}
+		);	
+		return true;
 		folderP.build(path.dirname(base + cg[0]), function() {
 			var http = require('http');
 			var file = pkg.fs.createWriteStream(base + cg[0]);
