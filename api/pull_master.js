@@ -84,7 +84,7 @@ CP.serial(
 				 var t_dir = path.dirname(base + o + '/' + o_1);
 				 P1[o].list[o_1]['target'] = base + o + '/' + o_1;
 				 P1[o].list[o_1]['t_dir'] = t_dir;
-				 cg[cg.length] = P1[o].list[o_1].file;
+				 cg[cg.length] = P1[o].list[o_1]['target'];
 			}    
 		}
 		for (o in P2) {
