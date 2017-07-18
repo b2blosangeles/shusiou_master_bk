@@ -101,12 +101,12 @@ CP.serial(
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {}, tm = new Date().getTime();
 
-		for (var i = 0; i < cfg.length; i++) {
+		for (var i = 0; i < cg.length; i++) {
 			_f1['rmv_'+i] = (function(i) {
 				return function(cbk) {
-				//	pkg.exec('rm -fr ' + base + ' ' + crg[i], function(error, stdout, stderr) {
-						cbk('removed ' + base + crg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
-				//	});	
+					pkg.exec('rm -fr ' + base + ' ' + cg[i], function(error, stdout, stderr) {
+						cbk('removed ' + base + cg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
+					});	
 				}
 			})(i);	
 		}
