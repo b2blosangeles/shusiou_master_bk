@@ -92,15 +92,12 @@ CP.serial(
 			} 
 			 
 		}	
-		res.send(cg);
-		return true;
-		
 		for (var o in P2) {
 			if (!existFile(P1, o)) {
 				rmv[rmv.length] = o;  
 			}	
 		}
-		res.send(cg);
+		res.send(P2);
 		return true;
 		folderP.build(path.dirname(base + cg[0]), function() {
 			
