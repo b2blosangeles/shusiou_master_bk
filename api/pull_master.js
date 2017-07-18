@@ -110,7 +110,7 @@ CP.serial(
 			});		
 		});
 		
-		res.send({cg:cg, rm:rmv});
+	//	res.send({cg:cg, rm:rmv});
 	//	res.send({rm:rmv});
 		return true;
 		var CP1 = new pkg.crowdProcess();
