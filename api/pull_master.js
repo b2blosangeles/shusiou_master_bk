@@ -89,8 +89,8 @@ CP.serial(
 			 
 		}
 		
-		res.send(P2);
-		return true;		
+	//	res.send(P2);
+	//	return true;		
 		
 		for (var o in P2) {
 			if (!existFile(P1, o)) {
