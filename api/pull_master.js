@@ -67,7 +67,7 @@ _f['V2'] = function (cbk) {
 }	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
-	R.scan(base,  '', 
+	R.scan(base,  'Z2SCXDw0pZ4', 
 	function(data) {
 		 cbk(data.list);
 	}); 
