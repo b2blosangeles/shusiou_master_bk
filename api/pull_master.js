@@ -106,7 +106,7 @@ CP.serial(
 				return function(cbk) {
 					if (new Date().getTime() - tm > 20000) {
 						CP1.exit = 1;
-						
+						cbk('skipped at --' + (new Date().getTime() - tm));
 					} else {
 						folderP.build(path.dirname(base + cg[i]), function() {
 							var http = require('http');
