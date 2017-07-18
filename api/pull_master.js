@@ -110,28 +110,33 @@ res.send({P2:P2, P1:P1});
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send({rmv:rmv, P1:P1, cg:cg});
-					// res.send({cg:P2});
+					res.send(rmv);
+					return true;
+					var CP1 = new pkg.crowdProcess();
+					var _f1 = {};
+					for (var j = 0; j < rmv.length; j++) {
+						_f1['rmv_'+j] = (function(j) {
+							return function(cbk) {
+
+								exec('rm -fr ' + base + ' ' + rmv[0], function(error, stdout, stderr) {
+									cbk('rm -fr ' + base + rmv[0]);
+
+								});
+							}
+						})(j);
+					}
+					CP1.serial(
+						_f1,
+						function(data) {
+							res.send(data.results);
+						}
+					);
 				});
 			});		
 		});
 		
 		return true;
-		var CP1 = new pkg.crowdProcess();
-		var _f1 = {};
-		for (var j = 0; j < rm.length; j++) {
-			_f1['rmv_'+j] = (function(j) {
-				return function(cbk) {
-					cbk(rmv[j]);
-				}
-			})(j);
-		}
-		CP1.serial(
-			_f1,
-			function(data) {
-				res.send(data.results);
-			}
-		);	
+
 		
 		//exec('rm -fr ' + base + ' ' + rm[0], function(error, stdout, stderr) {
 			// res.send('rm -fr ' + base + rm[0]);
