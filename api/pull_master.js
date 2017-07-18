@@ -17,7 +17,6 @@ var FOLDER_SCAN = function () {
 	
 	this.scan = function(dir, code, cbk) {
 	    var finder = require(env.root_path + '/api/inc/findit/findit.js')(dir);			
-	    
 
 	    finder.on('directory', function (dir, stat, stop) {
 		var base = path.basename(dir);
@@ -48,7 +47,15 @@ var FOLDER_SCAN = function () {
 	};
 };
 
-
+pkg.fs.readdir(base, function(err, files) {
+    if (err) return;
+    re.send(files);
+	
+//	files.forEach(function(f) {
+ //       console.log('Files: ' + f);
+  //  });
+});
+return true;
 
 _f['P1'] = function (cbk) {	
 	request({
@@ -58,7 +65,9 @@ _f['P1'] = function (cbk) {
 	       cbk(JSON.parse(body));
 	   });	
 },
-_f['P2'] = function (cbk) {	
+_f['P2'] = function (cbk) {
+
+	
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
