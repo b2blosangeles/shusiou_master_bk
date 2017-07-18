@@ -100,9 +100,10 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-
-		
+		res.send(cg);
+		return true;
 		folderP.build(path.dirname(base + cg[0]), function() {
+			
 			var http = require('http');
 			var fs = require('fs');
 			var file = fs.createWriteStream(base + cg[0]);
