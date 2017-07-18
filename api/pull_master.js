@@ -60,11 +60,7 @@ _f['P1'] = function (cbk) {
 	       cbk(JSON.parse(body));
 	   });	
 }
-_f['V2'] = function (cbk) {
-	fs.readdir(base, function (err, files) {
-	   cbk(files);
-	});
-}	
+	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
 	R.scan(base,  'Z2SCXDw0pZ4', 
@@ -84,8 +80,6 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(data.results.P2);
-		return true;
 		
 		for (o in P1) {
 			cg[cg.length] = o  + '/video/video.mp4';	
@@ -111,9 +105,7 @@ CP.serial(
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0]);
-					return true;
-					
+
 					var CP1 = new pkg.crowdProcess();
 					var _f1 = {};
 					for (var j = 0; j < rmv.length; j++) {
