@@ -64,7 +64,7 @@ _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
-		 cbk(data);
+		 cbk(data.list);
 	}); 
 }
 function existFile(P1, fn) {
