@@ -93,7 +93,7 @@ CP.serial(
 			} 
 			 
 		}	
-		res.send(cfg);
+		res.send(cg);
 		return true;
 		
 		for (var o in P2) {
