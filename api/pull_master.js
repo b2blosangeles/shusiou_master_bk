@@ -74,17 +74,7 @@ CP.serial(
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
-			/*/	
-				 P1[o].list[o_1]['src'] = P1[o].master.folder + o_1;
-				 P1[o].list[o_1]['file'] = o + '/' + o_1;
-				 var t_dir = path.dirname(base + o + '/' + o_1);
-				 P1[o].list[o_1]['target'] = base + o + '/' + o_1;
-				 P1[o].list[o_1]['t_dir'] = t_dir;
-			*/	
-			//	if (P1[o].list[o_1] != P2[o + '/' + o_1])
-				cg[cg.length] = P1[o].master.code  + '/' + o_1;
-					// o + '/' + o_1;
-				 
+				cg[cg.length] = P1[o].master.code  + '/' + o_1;	 
 			} 
 			 
 		}
@@ -93,12 +83,7 @@ CP.serial(
 			rmv[rmv.length] = o;  
 		}
 
-	//	res.send({P2:P2, cg:cg});
-	//			
-		res.send(path.dirname(base + cg[0]));			
-		return true;
-		
-		folderP.build(path.dirname(cg[0]), function() {
+		folderP.build(path.dirname(base + cg[0]), function() {
 			var http = require('http');
 			var fs = require('fs');
 			
