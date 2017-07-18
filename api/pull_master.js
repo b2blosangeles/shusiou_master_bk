@@ -69,7 +69,7 @@ _f['P2'] = function (cbk) {
 function existFile(P1, fn) {
 	for (o in P1) {
 		for (o_1 in P1[o].list) {
-			if (fn ==  o_1) return true	 	
+			if (fn ==  (o + '/' + o_1)) return true	 	
 		} 
 	}
 	return false;
@@ -91,9 +91,9 @@ CP.serial(
 			 
 		}
 		for (o in P2) {
-		//	if (!existFile(P1, o)) {
+			if (!existFile(P1, o)) {
 				rmv[rmv.length] = o;  
-		//	}	
+			}	
 		}
 
 		folderP.build(path.dirname(base + cg[0]), function() {
