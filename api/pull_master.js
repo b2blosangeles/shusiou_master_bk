@@ -90,9 +90,9 @@ CP.serial(
 			} 
 			 
 		}
-		for (o in P2) {
+		for (var o in P2) {
 			if (!existFile(P1, o)) {
-				rmv[rmv.length] = existFile(P1, o);  
+				rmv[rmv.length] = o;  
 			}	
 		}
 
