@@ -85,8 +85,8 @@ CP.serial(
 			
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
 				
-				res.send(P1[o].master.size + '--' + P1[o].master.size + '---' +  o + '/' + P1[o].master.master_video 
-					+ P2[o + '/' + P1[o].master.master_video])
+				res.send(P1[o].master.size + '--' + P1[o].master.size + '-->-' +  o + '/' + P1[o].master.master_video 
+					+ '***' + P2[o + '/' + P1[o].master.master_video])
 				return true;
 				
 				cg[cg.length] = o  + '/video/video.mp4';
