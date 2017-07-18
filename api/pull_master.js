@@ -88,8 +88,8 @@ CP.serial(
 			}    
 		}
 		for (o in P2) {
-			var v = P2[o]; v.file = o;
-			rmv[rmv.length] = v.file;  
+			var v = P2[o]; 
+			rmv[rmv.length] = o;  
 		}
 		
 		folderP.build(cg[0]['t_dir'], function() {
