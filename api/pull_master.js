@@ -47,15 +47,6 @@ var FOLDER_SCAN = function () {
 	};
 };
 
-pkg.fs.readdir(base, function(err, files) {
-  //  if (err) return;
-    re.send('files');
-	
-//	files.forEach(function(f) {
- //       console.log('Files: ' + f);
-  //  });
-});
-return true;
 
 _f['P1'] = function (cbk) {	
 	request({
