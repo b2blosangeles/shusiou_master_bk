@@ -93,16 +93,16 @@ CP.serial(
 			rmv[rmv.length] = o;  
 		}
 
-		res.send({P2:P2, cg:cg});
-		return true;		
+	//	res.send({P2:P2, cg:cg});
+	//	return true;		
 				
 		
 		folderP.build(cg[0]['t_dir'], function() {
 			var http = require('http');
 			var fs = require('fs');
 
-			var file = fs.createWriteStream(cg[0]);
-			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0]['target'], function(response) {
+			var file = fs.createWriteStream(base + cg[0]);
+			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?video='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
 					res.send({P2:P2, cg:cg});
