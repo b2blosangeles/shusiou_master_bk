@@ -104,10 +104,21 @@ CP.serial(
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
-					if (new Date().getTime() - tm > 30) {
+					if (new Date().getTime() - tm > 300) {
 						CP1.exit = 1;
-					}
-					cbk(i+'--' + (new Date().getTime() - tm));	
+						
+					} else {
+						folderP.build(path.dirname(base + cg[i]), function() {
+							var http = require('http');
+							var file = pkg.fs.createWriteStream(base + cg[i]);
+							var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[i], function(response) {
+								response.pipe(file);
+								response.on('end', function() {
+									cbk(i+'--' + (new Date().getTime() - tm));	
+								});
+							});		
+						});
+					}	
 				}
 			})(i);	
 		}
