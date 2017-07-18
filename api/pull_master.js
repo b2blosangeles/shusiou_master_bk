@@ -103,9 +103,8 @@ CP.serial(
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
-					if (new Date().getTime() - tm > 2000) {
-						
-						cbk('skipped at -->' + (new Date().getTime() - tm));
+					if (new Date().getTime() - tm > 10000) {
+						cbk('stopped at ' + (new Date().getTime() - tm));
 						CP1.exit = 1;
 					} else {
 						folderP.build(path.dirname(base + cg[i]), function() {
@@ -114,7 +113,7 @@ CP.serial(
 							var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[i], function(response) {
 								response.pipe(file);
 								response.on('end', function() {
-									cbk(i+'--' + (new Date().getTime() - tm));	
+									cbk('pulled ' + cg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');	
 								});
 							});		
 						});
