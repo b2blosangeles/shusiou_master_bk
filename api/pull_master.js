@@ -82,7 +82,7 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
 
 		for (o in P1) {
-			res.send(P1[0].master);
+			res.send(P1[o].master);
 			return true;
 			cg[cg.length] = o  + '/video/video.mp4';	
 			for (o_1 in P1[o].list) {
