@@ -82,13 +82,7 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
 
 		for (o in P1) {
-			
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
-				
-				res.send(P1[o].master.size + '--' + P1[o].master.size + '-->-' +  o + '/' + P1[o].master.master_video 
-					+ '***' + P2[o + '/' + P1[o].master.master_video])
-				return true;
-				
 				cg[cg.length] = o  + '/video/video.mp4';
 			} 
 			for (o_1 in P1[o].list) {
@@ -126,8 +120,8 @@ CP.serial(
 					CP1.serial(
 						_f1,
 						function(data) {
-							res.send({P2:P2, cg:cg});
-						//	res.send(data.results);
+						//	res.send({P2:P2, cg:cg});
+							res.send(data.results);
 						}
 					);
 				});
