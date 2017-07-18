@@ -104,9 +104,9 @@ CP.serial(
 		for (var i = 0; i < cfg.length; i++) {
 			_f1['rmv_'+i] = (function(i) {
 				return function(cbk) {
-					pkg.exec('rm -fr ' + base + ' ' + crg[i], function(error, stdout, stderr) {
+				//	pkg.exec('rm -fr ' + base + ' ' + crg[i], function(error, stdout, stderr) {
 						cbk('removed ' + base + crg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
-					});	
+				//	});	
 				}
 			})(i);	
 		}
