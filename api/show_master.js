@@ -97,69 +97,8 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-		
-		var CP1 = new pkg.crowdProcess();
-		var _f1 = {}, tm = new Date().getTime();
-		for (var i = 0; i < cg.length; i++) {
-			_f1['b_'+i] = (function(i) {
-				return function(cbk) {
-					if (new Date().getTime() - tm > 2000) {
-						
-						cbk('skipped at -->' + (new Date().getTime() - tm));
-						CP1.exit = 1;
-					} else {
-						folderP.build(path.dirname(base + cg[i]), function() {
-							var http = require('http');
-							var file = pkg.fs.createWriteStream(base + cg[i]);
-							var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[i], function(response) {
-								response.pipe(file);
-								response.on('end', function() {
-									cbk(i+'--' + (new Date().getTime() - tm));	
-								});
-							});		
-						});
-					}	
-				}
-			})(i);	
-		}
-		CP1.serial(
-			_f1,
-			function(data) {
-				res.send(data);
-			//	res.send(P2);
-			}
-		);	
+		res.send({rmv:rmv, cg:cg})	
 		return true;
-		folderP.build(path.dirname(base + cg[0]), function() {
-			var http = require('http');
-			var file = pkg.fs.createWriteStream(base + cg[0]);
-			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
-				response.pipe(file);
-				response.on('end', function() {
-					res.send({rmv:rmv, cg:cg});
-					return true;
-					var CP1 = new pkg.crowdProcess();
-					var _f1 = {};
-					for (var j = 0; j < rmv.length; j++) {
-						_f1['rmv_'+j] = (function(j) {
-							return function(cbk) {
-							//	exec('rm -fr ' + base + ' ' + rmv[j], function(error, stdout, stderr) {
-									cbk('rm -fr ' + base + rmv[j]);
-
-							//	});
-							}
-						})(j);
-					}
-					CP1.serial(
-						_f1,
-						function(data) {
-						//	res.send({P2:P2, cg:cg});
-							res.send(data.results);
-						}
-					);
-				});
-			});		
-		});
 	},
 	30000
 );
