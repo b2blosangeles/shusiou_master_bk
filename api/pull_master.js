@@ -61,9 +61,9 @@ _f['P1'] = function (cbk) {
 	   });	
 }
 _f['V2'] = function (cbk) {
-	fs.readdir(base, function (err, files) {
+	//fs.readdir(base, function (err, files) {
 	   cbk('files-->');
-	});
+	//});
 }	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
