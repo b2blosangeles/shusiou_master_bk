@@ -87,10 +87,7 @@ CP.serial(
 				}	
 			} 
 			 
-		}
-		
-	//	res.send(P2);
-	//	return true;		
+		}	
 		
 		for (var o in P2) {
 			if (!existFile(P1, o)) {
@@ -111,17 +108,17 @@ CP.serial(
 					for (var j = 0; j < rmv.length; j++) {
 						_f1['rmv_'+j] = (function(j) {
 							return function(cbk) {
-								exec('rm -fr ' + base + ' ' + rmv[j], function(error, stdout, stderr) {
+							//	exec('rm -fr ' + base + ' ' + rmv[j], function(error, stdout, stderr) {
 									cbk('rm -fr ' + base + rmv[j]);
 
-								});
+							//	});
 							}
 						})(j);
 					}
 					CP1.serial(
 						_f1,
 						function(data) {
-							res.send(P2);
+							res.send({cg:cg,P2:P2});
 						//	res.send(data.results);
 						}
 					);
