@@ -61,7 +61,7 @@ _f['P1'] = function (cbk) {
 	   });	
 }
 _f['V2'] = function (cbk) {
-	pkg.fs.readdir(base, function (err, files) {
+	fs.readdir(base, function (err, files) {
 	   cbk('files-->');
 	});
 }	
