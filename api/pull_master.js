@@ -107,6 +107,8 @@ CP.serial(
 					if (!rmv.length) {
 						res.send({rmv:rmv, cg:cg});
 					} else {
+						res.send('niu');
+						/*
 						var CP1 = new pkg.crowdProcess();
 						var _f1 = {};
 						for (var j = 0; j < rmv.length; j++) {
@@ -126,6 +128,7 @@ CP.serial(
 								res.send(data.results);
 							}
 						);
+						*/
 					}	
 				});
 			});		
