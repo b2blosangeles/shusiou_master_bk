@@ -59,9 +59,9 @@ _f['P1'] = function (cbk) {
 	    }, function (error, resp, body) { 
 	       cbk(JSON.parse(body));
 	   });	
-},
+}
 _f['V2'] = function (cbk) {
-	fs.readdir(base, function (err, files) {
+	pkg.fs.readdir(base, function (err, files) {
 	   cbk('files-->');
 	});
 }	
