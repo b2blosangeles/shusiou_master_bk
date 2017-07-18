@@ -1,5 +1,7 @@
+var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
 var env = {root_path:path.join(__dirname, '../../')};
+var crowdProcess = require(env.root_path + '/package/crowdProcess/crowdProcess');
 
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
@@ -7,7 +9,7 @@ var request = require(env.root_path + '/package/request/node_modules/request');
 var folderP  = new FOLDERP ();
 var base = '/var/video/';
 
-var CP = new pkg.crowdProcess();
+var CP = new crowdProcess();
 var _f = {};
 var FOLDER_SCAN = function () {
 	var me = this;
@@ -99,7 +101,7 @@ CP.serial(
 			}	
 		}
 		
-		var CP1 = new pkg.crowdProcess();
+		var CP1 = new crowdProcess();
 		var _f1 = {}, tm = new Date().getTime();
 
 		for (var i = 0; i < rmv.length; i++) {
@@ -109,7 +111,7 @@ CP.serial(
 						cbk('stopped at ' + (new Date().getTime() - tm));
 						CP1.exit = 1;
 					} else {					
-						pkg.exec('rm -fr ' + base + ' ' + rmv[i], function(error, stdout, stderr) {
+						exec('rm -fr ' + base + ' ' + rmv[i], function(error, stdout, stderr) {
 							cbk('removed ' + base + rmv[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
 						});
 					}	
@@ -126,7 +128,7 @@ CP.serial(
 					} else {
 						folderP.build(path.dirname(base + cg[i]), function() {
 							var http = require('http');
-							var file = pkg.fs.createWriteStream(base + cg[i]);
+							var file = fs.createWriteStream(base + cg[i]);
 							var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[i], function(response) {
 								response.pipe(file);
 								response.on('end', function() {
