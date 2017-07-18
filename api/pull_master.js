@@ -91,9 +91,9 @@ CP.serial(
 			 
 		}
 		for (o in P2) {
-			if (!existFile(P1, o)) {
+		//	if (!existFile(P1, o)) {
 				rmv[rmv.length] = o;  
-			}	
+		//	}	
 		}
 
 		folderP.build(path.dirname(base + cg[0]), function() {
