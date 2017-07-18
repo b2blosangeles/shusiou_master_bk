@@ -60,6 +60,9 @@ _f['P1'] = function (cbk) {
 	       cbk(JSON.parse(body));
 	   });	
 },
+_f['V2'] = function (cbk) {
+	cbk(true);
+}	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
@@ -79,7 +82,7 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(P2);
+		res.send(V2);
 		return true;
 		
 		for (o in P1) {
