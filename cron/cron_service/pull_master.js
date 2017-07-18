@@ -144,7 +144,7 @@ CP.serial(
 		CP1.serial(
 			_f1,
 			function(data) {
-				res.send(data);
+				console.log(data);
 			},
 			60000
 		);	
