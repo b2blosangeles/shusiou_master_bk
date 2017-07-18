@@ -104,9 +104,14 @@ CP.serial(
 		for (var i = 0; i < cg.length; i++) {
 			_f1['rmv_'+i] = (function(i) {
 				return function(cbk) {
-					pkg.exec('rm -fr ' + base + ' ' + cg[i], function(error, stdout, stderr) {
-						cbk('removed ' + base + cg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
-					});	
+					if (new Date().getTime() - tm > 40000) {
+						cbk('stopped at ' + (new Date().getTime() - tm));
+						CP1.exit = 1;
+					} else {					
+						pkg.exec('rm -fr ' + base + ' ' + cg[i], function(error, stdout, stderr) {
+							cbk('removed ' + base + cg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
+						});
+					}	
 				}
 			})(i);	
 		}
