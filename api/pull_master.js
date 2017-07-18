@@ -69,7 +69,7 @@ _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
-		 cbk(data);
+		 cbk(data.list);
 	}); 
 }
 function existFile(P1, fn) {
@@ -84,7 +84,7 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(data.results.V2);
+		res.send(data.results.P2);
 		return true;
 		
 		for (o in P1) {
