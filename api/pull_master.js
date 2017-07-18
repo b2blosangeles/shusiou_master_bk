@@ -104,7 +104,7 @@ CP.serial(
 		for (var i = 0; i < cg.length; i++) {
 			_f1['b_'+i] = (function(i) {
 				return function(cbk) {
-					if (new Date().getTime() - tm > 300) {
+					if (new Date().getTime() - tm > 20000) {
 						CP1.exit = 1;
 						
 					} else {
