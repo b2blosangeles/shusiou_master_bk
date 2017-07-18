@@ -97,8 +97,7 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-		res.send(P2);
-		return true;
+
 		folderP.build(path.dirname(base + cg[0]), function() {
 			
 			var http = require('http');
