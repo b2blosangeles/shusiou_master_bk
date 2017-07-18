@@ -142,9 +142,10 @@ CP.serial(
 			_f1,
 			function(data) {
 				res.send(data);
-			}
+			},
+			60000
 		);	
 		return true;
 	},
-	30000
+	60000
 );
