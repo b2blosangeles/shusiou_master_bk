@@ -67,7 +67,7 @@ _f['P2'] = function (cbk) {
 }
 
 function existFile(P1, fn) {
-	for (o in P1) {
+	for (var o in P1) {
 		for (o_1 in P1[o].list) {
 			if (fn ==  (o + '/' + o_1)) return true	 	
 		} 
@@ -82,7 +82,7 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		
 		
-		for (o in P1) {
+		for (var o in P1) {
 			for (o_1 in P1[o].list) {
 				if (P1[o].list[o_1] != P2[o + '/' + o_1]) {
 					cg[cg.length] = P1[o].master.code  + '/' + o_1;	 
@@ -104,7 +104,7 @@ CP.serial(
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
-					res.send({rmv:rmv, P1:P1, cg:cg});
+					res.send({rmv:rmv, cg:cg});
 					// res.send({cg:P2});
 				});
 			});		
