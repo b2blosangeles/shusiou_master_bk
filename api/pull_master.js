@@ -117,8 +117,6 @@ res.send({rmv:rmv, P1:P1, cg:cg});
 			});		
 		});
 		
-	//	res.send({cg:cg, rm:rmv});
-	//	res.send({rm:rmv});
 		return true;
 		var CP1 = new pkg.crowdProcess();
 		var _f1 = {};
