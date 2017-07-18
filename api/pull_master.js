@@ -72,11 +72,13 @@ CP.serial(
 		
 		for (o in P1) {
 			for (o_1 in P1[o].list) {
+				/*
 				 P1[o].list[o_1]['src'] = P1[o].master.folder + o_1;
 				 P1[o].list[o_1]['file'] = o + '/' + o_1;
 				 var t_dir = path.dirname(base + o + '/' + o_1);
 				 P1[o].list[o_1]['target'] = base + o + '/' + o_1;
 				 P1[o].list[o_1]['t_dir'] = t_dir;
+				*/ 
 				 cg[cg.length] = P1[o].list[o_1];
 			}    
 		}
