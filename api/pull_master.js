@@ -1,5 +1,5 @@
 var exec = require('child_process').exec;
-var path = require('path');
+var path = require('path'), fs = require('fs');
 
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
@@ -61,7 +61,7 @@ _f['P1'] = function (cbk) {
 	   });	
 },
 _f['V2'] = function (cbk) {
-	pkg.fs.readdir(base, function (err, files) {
+	fs.readdir(base, function (err, files) {
 	   cbk('files-->');
 	});
 }	
