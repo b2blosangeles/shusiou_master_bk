@@ -104,11 +104,13 @@ CP.serial(
 			var request = http.get('http://api.shusiou.com/api/pipe_stream.js?fn='+cg[0], function(response) {
 				response.pipe(file);
 				response.on('end', function() {
+					res.send({rmv:rmv, cg:cg});
+					/*
 					if (!rmv.length) {
 						res.send({rmv:rmv, cg:cg});
 					} else {
 						res.send('niu');
-						/*
+						
 						var CP1 = new pkg.crowdProcess();
 						var _f1 = {};
 						for (var j = 0; j < rmv.length; j++) {
@@ -128,8 +130,9 @@ CP.serial(
 								res.send(data.results);
 							}
 						);
-						*/
-					}	
+						
+					}
+					*/
 				});
 			});		
 		});
