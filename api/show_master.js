@@ -64,7 +64,7 @@ _f['P0'] = function (cbk) {
 	});	
 }
 _f['P1'] = function (cbk) {	
-	pkg.request({
+	request({
 		url: 'http://api.shusiou.com/api/cloud_resource.report',
 		method: "GET"
 	//	headers: { "content-type": "application/json"},
