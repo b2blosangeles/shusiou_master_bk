@@ -70,7 +70,7 @@ _f['P1'] = function (cbk) {
 		formData:{}
 		//json:true
 	}, function (error, resp, body) { 
-		res.send(P1);
+		res.send(body);
 		CP.exit = 1;
 		return true;
 		
