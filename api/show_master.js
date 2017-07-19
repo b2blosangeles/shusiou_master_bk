@@ -63,19 +63,19 @@ _f['P0'] = function (cbk) {
 	});	
 }
 _f['P1'] = function (cbk) {	
-	request.post({
-		url: 'http://api.shusiou.com/api/cloud_resource.report',
-	//	headers: { "content-type": "application/json"},
-	//	ip:'getServerIP()',}
-		ip:'8899'
-		//json:true
-	}, function (error, resp, body) { 
+    request({
+        url: 'http://api.shusiou.com/api/cloud_resource.report',
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+            },
+        	json: {ip:getServerIP()}
+        }, function (error, resp, body) { 
 		res.send(body);
 		CP.exit = 1;
 		return true;
-		
-		cbk('JSON.parse(body)');
-	});	
+	    cbk('JSON.parse(body)');
+       });	
 }
 	
 _f['P2'] = function (cbk) {
