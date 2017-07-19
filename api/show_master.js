@@ -67,7 +67,7 @@ _f['P1'] = function (cbk) {
 	pkg.request({
 		url: 'http://api.shusiou.com/api/cloud_resource.report',
 		method: "POST",
-		headers: { "content-type": "application/json"},
+	//	headers: { "content-type": "application/json"},
 		json: {ip:123}
 	}, function (error, resp, body) { 
 	cbk(JSON.parse(body));
