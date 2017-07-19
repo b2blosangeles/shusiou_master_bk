@@ -105,7 +105,6 @@ function lastUpdate(P1) {
 CP.serial(
 	_f,
 	function(data) {
-		return true;
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
 	
 		for (o in P1) {
