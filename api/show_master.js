@@ -10,7 +10,6 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 function getServerIP() {
-	return 111;
     var ifaces = require('os').networkInterfaces(), address=[];
     for (var dev in ifaces) {
         var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
@@ -67,7 +66,7 @@ _f['P1'] = function (cbk) {
 	request.post({
 		url: 'http://api.shusiou.com/api/cloud_resource.report',
 	//	headers: { "content-type": "application/json"},
-		ip:123
+		ip:getServerIP()
 	}, function (error, resp, body) { 
 	cbk(JSON.parse(body));
 	});	
