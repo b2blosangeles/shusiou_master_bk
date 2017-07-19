@@ -59,7 +59,7 @@ _f['P0'] = function (cbk) {
 _f['P1'] = function (cbk) {	
 	request({
 	    url: 'http://api.shusiou.com/api/cloud_resource.report',
-	    method: "GET"
+	    method: "POST"
 	    }, function (error, resp, body) { 
 		pkg.fs.writeFile(base_ctl + 'video.data', body, function(err) {
 		     cbk(JSON.parse(body));
