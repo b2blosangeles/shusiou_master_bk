@@ -9,6 +9,15 @@ var base = '/var/video/';
 var CP = new pkg.crowdProcess();
 var _f = {};
 
+function getServerIP() {
+    var ifaces = require('os').networkInterfaces(), address=[];
+    for (var dev in ifaces) {
+        var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
+        for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
+    }
+    return address;
+};
+
 
 var FOLDER_SCAN = function () {
 	var me = this;
@@ -56,8 +65,8 @@ _f['P0'] = function (cbk) {
 _f['P1'] = function (cbk) {	
 	request({
 	    url: 'http://api.shusiou.com/api/cloud_resource.report',
-	    method: "POST",
-	    json: {ip:getServerIP()}
+	    method: "POST" //,
+	//    json: {ip:getServerIP()}
 	    }, function (error, resp, body) { 
 	       cbk(JSON.parse(body));
 	   });	
@@ -79,16 +88,6 @@ function existFile(P1, fn) {
 	}
 	return false;
 }
-
-
-function getServerIP() {
-    var ifaces = require('os').networkInterfaces(), address=[];
-    for (var dev in ifaces) {
-        var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
-        for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
-    }
-    return address;
-};
 
 
 function lastUpdate(P1) {
