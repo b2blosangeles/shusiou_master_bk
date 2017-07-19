@@ -71,7 +71,7 @@ _f['P1'] = function (cbk) {
             },
         	json: {ip:getServerIP()}
         }, function (error, resp, body) { 
-		res.send(body);
+		res.send(typeof body);
 		CP.exit = 1;
 		return true;
 	    cbk('JSON.parse(body)');
