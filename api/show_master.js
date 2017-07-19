@@ -64,10 +64,10 @@ _f['P0'] = function (cbk) {
 }
 _f['P1'] = function (cbk) {	
 	request.post({
-		url: 'http://api.shusiou.com/api/cloud_resource.report'
+		url: 'http://api.shusiou.com/api/cloud_resource.report',
 	//	headers: { "content-type": "application/json"},
 	//	ip:'getServerIP()',}
-		//,
+		formData:{}
 		//json:true
 	}, function (error, resp, body) { 
 		cbk('JSON.parse(body)');
@@ -82,6 +82,8 @@ _f['P2'] = function (cbk) {
 	}); 
 }
 function existFile(P1, fn) {
+	res.send(P1);
+	return true;
 	for (o in P1) {
 		if ((o + '/' + P1[o].master.master_video) == fn) return true;
 		for (o_1 in P1[o].list) {
