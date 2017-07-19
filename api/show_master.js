@@ -10,6 +10,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 function getServerIP() {
+	return 111;
     var ifaces = require('os').networkInterfaces(), address=[];
     for (var dev in ifaces) {
         var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
