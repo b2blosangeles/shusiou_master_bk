@@ -4,7 +4,7 @@ var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
 var folderP  = new FOLDERP ();
-var base = '/var/video/';
+var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 
 var CP = new pkg.crowdProcess();
 var _f = {};
@@ -48,7 +48,9 @@ var FOLDER_SCAN = function () {
 
 _f['P0'] = function (cbk) {
 	folderP.build(base, function() {
-		cbk(true);
+		folderP.build(base_ctl, function() {
+			cbk(true);
+		});	
 	});	
 }
 _f['P1'] = function (cbk) {	
