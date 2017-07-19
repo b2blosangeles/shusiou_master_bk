@@ -61,7 +61,9 @@ _f['P1'] = function (cbk) {
 	    url: 'http://api.shusiou.com/api/cloud_resource.report',
 	    method: "GET"
 	    }, function (error, resp, body) { 
-	       cbk(JSON.parse(body));
+		pkg.fs.writeFile(base_ctl + 'video.data', body, function(err) {
+		     cbk(JSON.parse(body));
+		}); 		
 	   });	
 }
 	
