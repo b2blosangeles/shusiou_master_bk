@@ -70,6 +70,10 @@ _f['P1'] = function (cbk) {
 		formData:{}
 		//json:true
 	}, function (error, resp, body) { 
+		res.send(P1);
+		CP.exit = 1;
+		return true;
+		
 		cbk('JSON.parse(body)');
 	});	
 }
@@ -82,8 +86,7 @@ _f['P2'] = function (cbk) {
 	}); 
 }
 function existFile(P1, fn) {
-	res.send(P1);
-	return true;
+
 	for (o in P1) {
 		if ((o + '/' + P1[o].master.master_video) == fn) return true;
 		for (o_1 in P1[o].list) {
@@ -105,8 +108,9 @@ function lastUpdate(P1) {
 CP.serial(
 	_f,
 	function(data) {
+		return true;
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-
+	
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
 				cg[cg.length] = o  + '/video/video.mp4';
