@@ -64,10 +64,10 @@ _f['P0'] = function (cbk) {
 }
 _f['P1'] = function (cbk) {	
 	request.post({
-		url: 'http://api.shusiou.com/api/cloud_resource.report'//,
+		url: 'http://api.shusiou.com/api/cloud_resource.report',
 	//	headers: { "content-type": "application/json"},
 	//	ip:'getServerIP()',
-	//	body:{ip:123}
+		body:{}
 		//,
 		//json:true
 	}, function (error, resp, body) { 
