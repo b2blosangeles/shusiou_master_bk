@@ -71,7 +71,7 @@ _f['P1'] = function (cbk) {
 		//,
 		//json:true
 	}, function (error, resp, body) { 
-	cbk(JSON.parse(body));
+		cbk('JSON.parse(body)');
 	});	
 }
 	
