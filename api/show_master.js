@@ -64,12 +64,13 @@ _f['P0'] = function (cbk) {
 }
 _f['P1'] = function (cbk) {	
 	request({
-	    url: 'http://api.shusiou.com/api/cloud_resource.report',
-	    method: "POST" //,
+		url: 'http://api.shusiou.com/api/cloud_resource.report',
+		method: "POST",
+		headers: { "content-type": "application/json"}
 	//    json: {ip:getServerIP()}
-	    }, function (error, resp, body) { 
-	       cbk(JSON.parse(body));
-	   });	
+	}, function (error, resp, body) { 
+	cbk(JSON.parse(body));
+	});	
 }
 	
 _f['P2'] = function (cbk) {
