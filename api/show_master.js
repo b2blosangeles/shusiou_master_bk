@@ -8,6 +8,8 @@ var base = '/var/video/';
 
 var CP = new pkg.crowdProcess();
 var _f = {};
+
+
 var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
@@ -76,6 +78,15 @@ function existFile(P1, fn) {
 	}
 	return false;
 }
+
+function lastUpdate(P1) {
+	var lastone = 0;
+	for (o in P1) {
+		if (P1[o].master.lastupdate > lastone) lastone = P1[o].master.lastupdate;
+	}
+	return lastone;
+}
+
 CP.serial(
 	_f,
 	function(data) {
@@ -97,7 +108,7 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-		res.send({rmv:rmv, cg:cg, P1:P1})	
+		res.send({rmv:rmv, cg:cg, lastupdate:lastUpdate(P1), P1:P1})	
 		return true;
 	},
 	30000
