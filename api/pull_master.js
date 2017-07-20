@@ -8,6 +8,17 @@ var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 
 var CP = new pkg.crowdProcess();
 var _f = {};
+
+function getServerIP() {
+    var ifaces = require('os').networkInterfaces(), address=[];
+    for (var dev in ifaces) {
+        var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
+        for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
+    }
+    return address;
+};
+
+
 var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
@@ -53,13 +64,17 @@ _f['P0'] = function (cbk) {
 		});	
 	});	
 }
-_f['P1'] = function (cbk) {	
-	request({
-	    url: 'http://api.shusiou.com/api/cloud_resource.report',
-	    method: "GET"
-	    }, function (error, resp, body) { 
-	       cbk(JSON.parse(body));
-	   });	
+_f['P1'] = function (cbk) {
+    request({
+        url: 'http://api.shusiou.com/api/cloud_resource.report',
+        method: "POST",
+        headers: {
+		    "content-type": "application/json",
+		    },
+        	json: {ip:getServerIP(), lastUpdate:'lastUpdate'}
+        }, function (error, resp, body) { 
+	    cbk(body);
+       });	
 }
 	
 _f['P2'] = function (cbk) {
