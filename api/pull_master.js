@@ -79,8 +79,12 @@ _f['P1'] = function (cbk) {
 	    cbk(body);
        });	
 }
-_f['P1_S'] = function (cbk) {	
-	cbk(CP.data.P1);	
+_f['P1_S'] = function (cbk) {
+	var v=[];
+	for (o in CP.data.P1) {	
+		v[v.length] = o.lastupdate;	
+	}
+	cbk(v);	
 }	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
