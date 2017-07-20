@@ -87,8 +87,8 @@ _f['P1_S'] = function (cbk) {
 	}
 	v.sort();
 	var fs = require('fs');
-	fs.writeFile(base_ctl + 'lastupdate.js', v.join(','), function(err) {
-	   cbk(v);
+	fs.writeFile(base_ctl + 'lastupdate.js', JSON.stringify(v), function(err) {
+	   cbk(JSON.stringify(v));
 	}); 			
 }	
 _f['P2'] = function (cbk) {
