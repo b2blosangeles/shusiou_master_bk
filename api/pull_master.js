@@ -9,9 +9,7 @@ var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-res.send('1111');
-return true;
-/*
+
 
 function getServerIP() {
     var ifaces = require('os').networkInterfaces(), address=[];
@@ -60,7 +58,9 @@ var FOLDER_SCAN = function () {
 
 	};
 };
-
+res.send('222');
+return true;
+/*
 _f['P0'] = function (cbk) {
 	folderP.build(base, function() {
 		folderP.build(base_ctl, function() {
