@@ -82,7 +82,7 @@ _f['P1'] = function (cbk) {
 _f['P1_S'] = function (cbk) {
 	var v=[];
 	for (o in CP.data.P1) {	
-		v[v.length] = o.lastupdated;	
+		v[v.length] = o.master.lastupdated;	
 	}
 	cbk(v);	
 }	
@@ -106,7 +106,7 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(data.results.P1);
+		res.send(data.results.P1_S);
 		return true;
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
