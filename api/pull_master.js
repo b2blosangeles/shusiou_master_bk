@@ -64,6 +64,9 @@ _f['P0'] = function (cbk) {
 		});	
 	});	
 }
+_f['P1_P'] = function (cbk) {	
+	cbk(true);	
+}
 _f['P1'] = function (cbk) {
     request({
         url: 'http://api.shusiou.com/api/cloud_resource.report',
@@ -76,7 +79,9 @@ _f['P1'] = function (cbk) {
 	    cbk(body);
        });	
 }
-	
+_f['P1_S'] = function (cbk) {	
+	cbk(true);	
+}	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
