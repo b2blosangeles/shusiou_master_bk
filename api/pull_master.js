@@ -81,6 +81,11 @@ _f['P1'] = function (cbk) {
 		    },
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_P}
         }, function (error, resp, body) { 
+	   
+		    cbk(CP.data.P1_P);
+		    CP.exit = 1;
+	    return true;
+	    
 	    if (typeof body == 'string') {
 	    	
 		    cbk('body');
