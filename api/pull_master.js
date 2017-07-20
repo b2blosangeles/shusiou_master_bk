@@ -84,6 +84,7 @@ _f['P1'] = function (cbk) {
 		    CP.exit = 1;
 	    } else {
 	    	cbk(body);
+		    CP.exit = 1;
 	    }		    
        });	
 }
