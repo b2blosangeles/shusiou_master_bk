@@ -9,8 +9,6 @@ var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-
-
 function getServerIP() {
     var ifaces = require('os').networkInterfaces(), address=[];
     for (var dev in ifaces) {
@@ -58,9 +56,7 @@ var FOLDER_SCAN = function () {
 
 	};
 };
-res.send('222');
-return true;
-/*
+
 _f['P0'] = function (cbk) {
 	folderP.build(base, function() {
 		folderP.build(base_ctl, function() {
@@ -73,6 +69,11 @@ _f['P1_P'] = function (cbk) {
 	  	cbk((err)?'':data);
 	});		
 }
+
+res.send('333');
+return true;
+/*
+
 _f['P1'] = function (cbk) {
 	cbk('body');
 	CP.exit = 1;
