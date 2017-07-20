@@ -80,7 +80,7 @@ _f['P1'] = function (cbk) {
         }, function (error, resp, body) { 
 	//    if (typeof body == 'string') {
 	    	
-//		    cbk(body);
+//		    cbk('body');
 //		    CP.exit = 1;
 //	    } else {
 	    	cbk(body);
@@ -118,7 +118,7 @@ function existFile(P1, fn) {
 CP.serial(
 	_f,
 	function(data) {
-		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
+		//var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
 		res.send(data.results.P1);
 	//	res.send(data.results.P1_S + ' --- ' + data.results.P1_P);
 		return true;
