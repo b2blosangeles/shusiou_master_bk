@@ -82,7 +82,7 @@ _f['P1'] = function (cbk) {
 _f['P1_S'] = function (cbk) {
 	var v=[];
 	for (o in CP.data.P1) {	
-		v[v.length] = CP.data.P1[o].master.lastupdated;	
+		v[v.length] = CP.data.P1[o].master.lastupdate;	
 	}
 	cbk(v);	
 }	
