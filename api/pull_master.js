@@ -1,8 +1,6 @@
 var path = require('path'), fs = require('fs');
 
-res.send(111);
-return true;
-/*
+
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
@@ -11,6 +9,10 @@ var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 
 var CP = new pkg.crowdProcess();
 var _f = {};
+
+res.send(222);
+return true;
+/*
 
 function getServerIP() {
     var ifaces = require('os').networkInterfaces(), address=[];
