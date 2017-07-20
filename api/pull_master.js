@@ -79,9 +79,12 @@ _f['P1'] = function (cbk) {
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_P}
         }, function (error, resp, body) { 
 	    if (typeof body == 'string') {
-	    	CP.exit = 1;
-	    }
-	    cbk(body);
+	    	
+		    cbk(body);
+		    CP.exit = 1;
+	    } else {
+	    	cbk(body);
+	    }		    
        });	
 }
 _f['P1_S'] = function (cbk) {
