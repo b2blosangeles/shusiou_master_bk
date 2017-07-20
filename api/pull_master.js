@@ -66,7 +66,7 @@ _f['P0'] = function (cbk) {
 }
 _f['P1_P'] = function (cbk) {
 	fs.readFile(base_ctl + 'lastupdate.data', 'utf8', function (err,data) {
-	  cbk(data);
+	  	cbk((err)?'':data);
 	});		
 }
 _f['P1'] = function (cbk) {
@@ -76,7 +76,7 @@ _f['P1'] = function (cbk) {
         headers: {
 		    "content-type": "application/json",
 		    },
-        	json: {ip:getServerIP(), lastUpdate:'lastUpdate'}
+        	json: {ip:getServerIP(), lastUpdate:CP.data.P1_P}
         }, function (error, resp, body) { 
 	    cbk(body);
        });	
