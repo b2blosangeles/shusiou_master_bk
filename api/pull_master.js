@@ -70,9 +70,7 @@ _f['P1_P'] = function (cbk) {
 	});		
 }
 
-res.send('333');
-return true;
-/*
+
 
 _f['P1'] = function (cbk) {
 	cbk('body');
@@ -126,6 +124,11 @@ function existFile(P1, fn) {
 	}
 	return false;
 }
+res.send('555');
+return true;
+/*
+
+
 CP.serial(
 	_f,
 	function(data) {
