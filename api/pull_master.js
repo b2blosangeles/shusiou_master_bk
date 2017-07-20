@@ -1,7 +1,8 @@
-var path = require('path'), fs = require('fs');
-res.send(222);
+res.send('222');
 return true;
 /*
+var path = require('path'), fs = require('fs');
+
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
