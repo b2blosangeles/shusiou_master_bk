@@ -78,6 +78,9 @@ _f['P1'] = function (cbk) {
 		    },
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_P}
         }, function (error, resp, body) { 
+	    if (typeof body == 'string') {
+	    	CP.exit = 1;
+	    }
 	    cbk(body);
        });	
 }
@@ -112,7 +115,8 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(data.results.P1_S + ' --- ' + data.results.P1_P);
+		res.send(data.results.P1);
+	//	res.send(data.results.P1_S + ' --- ' + data.results.P1_P);
 		return true;
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
