@@ -2,7 +2,7 @@ var path = require('path'), fs = require('fs');
 
 res.send(111);
 return true;
-
+/*
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
 
@@ -75,7 +75,7 @@ _f['P1_P'] = function (cbk) {
 _f['P1'] = function (cbk) {
 	cbk('body');
 	CP.exit = 1;
-	/*
+	
     request({
         url: 'http://api.shusiou.com/api/cloud_resource.report',
         method: "POST",
@@ -93,9 +93,9 @@ _f['P1'] = function (cbk) {
 		    CP.exit = 1;
 //	    }		    
        });
-       */
+      
 }
-/*
+
 _f['P1_S'] = function (cbk) {
 	var v=[];
 	for (o in CP.data.P1) {	
@@ -114,7 +114,7 @@ _f['P2'] = function (cbk) {
 		 cbk(data.list);
 	}); 
 }
-*/
+
 function existFile(P1, fn) {
 	for (o in P1) {
 		if ((o + '/' + P1[o].master.master_video) == fn) return true;
@@ -199,3 +199,4 @@ CP.serial(
 	},
 	60000
 );
+*/
