@@ -84,6 +84,7 @@ _f['P1_S'] = function (cbk) {
 	for (o in CP.data.P1) {	
 		v[v.length] = CP.data.P1[o].master.lastupdate;	
 	}
+	v.sort();
 	cbk(v);	
 }	
 _f['P2'] = function (cbk) {
