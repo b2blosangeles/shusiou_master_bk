@@ -92,6 +92,7 @@ _f['P1'] = function (cbk) {
        });
        */
 }
+/*
 _f['P1_S'] = function (cbk) {
 	var v=[];
 	for (o in CP.data.P1) {	
@@ -110,6 +111,7 @@ _f['P2'] = function (cbk) {
 		 cbk(data.list);
 	}); 
 }
+*/
 function existFile(P1, fn) {
 	for (o in P1) {
 		if ((o + '/' + P1[o].master.master_video) == fn) return true;
