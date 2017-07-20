@@ -65,8 +65,9 @@ _f['P0'] = function (cbk) {
 	});	
 }
 _f['P1_P'] = function (cbk) {
-	
-	cbk(true);	
+	fs.readFile(base_ctl + 'lastupdate.data', 'utf8', function (err,data) {
+	  cbk(data);
+	});		
 }
 _f['P1'] = function (cbk) {
     request({
@@ -87,7 +88,7 @@ _f['P1_S'] = function (cbk) {
 	}
 	v.sort();
 	var fs = require('fs');
-	fs.writeFile(base_ctl + 'lastupdate.js', JSON.stringify(v), function(err) {
+	fs.writeFile(base_ctl + 'lastupdate.data', JSON.stringify(v), function(err) {
 	   cbk(JSON.stringify(v));
 	}); 			
 }	
@@ -111,7 +112,7 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(data.results.P1_S);
+		res.send(data.results.P1_S + ' --- ' + data.results.P1_P);
 		return true;
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
