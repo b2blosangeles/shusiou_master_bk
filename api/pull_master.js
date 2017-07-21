@@ -134,7 +134,7 @@ CP.serial(
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		if (typeof P1 == 'string') {
 			P1 = data.results.P1_Q;
-			res.send(typeof P1);
+			res.send(P1);
 			return true;
 		}
 		for (o in P1) {
