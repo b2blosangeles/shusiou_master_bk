@@ -128,14 +128,14 @@ CP.serial(
 	
 		
 		//var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		res.send(data.results.P1);
+	//	res.send(data.results.P1);
 
-return true;
-/*		
+//return true;
+		
 			
 		
 	//	res.send(data.results.P1_S + ' --- ' + data.results.P1_P);
-		return true;
+	/	return true;
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
 				cg[cg.length] = o  + '/video/video.mp4';
@@ -201,7 +201,7 @@ return true;
 			60000
 		);	
 		return true;
-*/		
+		
 	},
 	60000
 );
