@@ -1,5 +1,7 @@
-var base = '/var/video/';
+var base = '/var/video/', base_ctl = '/var/video_ctl/';
 
 pkg.exec('rm -fr ' + base, function(error, stdout, stderr) {
-    res.send('rm -fr A ' + base);
+    pkg.exec('rm -fr ' + base, function(error, stdout, stderr) {
+         res.send('rm  --- ' + base_ctl);
+    });
 });
