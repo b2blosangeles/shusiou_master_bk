@@ -87,7 +87,7 @@ _f['P1'] = function (cbk) {
 	    if (typeof body == 'string') {
 		    cbk(CP.data.P1_Q);
 	    } else {
-		    cbk(CP.data.P1_Q); return true;
+		//    cbk(CP.data.P1_Q); return true;
 		fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
 			cbk(body);
 		}); 			    
