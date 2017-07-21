@@ -125,6 +125,7 @@ function existFile(P1, fn) {
 CP.serial(
 	_f,
 	function(data) {
+		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		if (typeof P1 == 'string') {
 			res.send(P1);
 			return true;
