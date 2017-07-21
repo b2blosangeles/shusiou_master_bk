@@ -18,7 +18,6 @@ function getServerIP() {
     return address;
 };
 
-
 var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
@@ -81,18 +80,11 @@ _f['P1'] = function (cbk) {
 		    },
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_P}
         }, function (error, resp, body) { 
-	   
-		    cbk(body);
-		    CP.exit = 1;
-	    return true;
-	    
 	    if (typeof body == 'string') {
-	    	
-		    cbk('body');
+		    cbk('body--');
 		    CP.exit = 1;
 	    } else {
 	    	cbk(body);
-		    CP.exit = 1;
 	    }		    
        });
       
