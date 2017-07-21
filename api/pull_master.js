@@ -85,8 +85,7 @@ _f['P1'] = function (cbk) {
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_P}
         }, function (error, resp, body) { 
 	    if (typeof body == 'string') {
-		    cbk(body);
-		    CP.exit = 1;
+		    cbk(CP.data.P1_Q);
 	    } else {
 		fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
 			cbk(body);
@@ -132,11 +131,6 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
-		if (typeof P1 == 'string') {
-			P1 = data.results.P1_Q;
-			res.send(P1);
-			return true;
-		}
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
 				cg[cg.length] = o  + '/video/video.mp4';
