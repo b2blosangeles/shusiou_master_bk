@@ -135,7 +135,7 @@ CP.serial(
 			
 		
 	//	res.send(data.results.P1_S + ' --- ' + data.results.P1_P);
-	/	return true;
+	//	return true;
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
 				cg[cg.length] = o  + '/video/video.mp4';
