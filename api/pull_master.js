@@ -84,7 +84,9 @@ _f['P1'] = function (cbk) {
 		    cbk(body);
 		    CP.exit = 1;
 	    } else {
-	    	cbk(body);
+		fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
+			cbk(body);
+		}); 			    
 	    }		    
        });
       
