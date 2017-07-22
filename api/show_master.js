@@ -124,7 +124,7 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-		res.send({rmv:rmv, cg:cg, lastupdate:lastUpdate(P1), P1:P1})	
+		res.send({rmv:rmv, cg:cg, lastupdate:lastUpdate(P1)})	
 		return true;
 	},
 	30000
