@@ -1,5 +1,6 @@
 var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
+var crowdProcess = require(env.root_path + '/package/crowdProcess/crowdProcess');
 
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
 var request = require(env.root_path + '/package/request/node_modules/request');
@@ -7,7 +8,7 @@ var request = require(env.root_path + '/package/request/node_modules/request');
 var folderP  = new FOLDERP ();
 var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 
-var CP = new pkg.crowdProcess();
+var CP = new crowdProcess();
 var _f = {};
 
 function getServerIP() {
@@ -150,7 +151,7 @@ CP.serial(
 			}	
 		}
 		
-		var CP1 = new pkg.crowdProcess();
+		var CP1 = new crowdProcess();
 		var _f1 = {}, tm = new Date().getTime();
 
 		for (var i = 0; i < rmv.length; i++) {
