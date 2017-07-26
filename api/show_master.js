@@ -72,7 +72,8 @@ _f['P1'] = function (cbk) {
 		    },
         	json: {ip:getServerIP()}
         }, function (error, resp, body) { 
-	    cbk(body);
+	    if (error)  cbk(error.message);
+	    else cbk(body);
        });	
 }
 
