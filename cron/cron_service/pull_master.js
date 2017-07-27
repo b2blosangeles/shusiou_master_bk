@@ -1,5 +1,4 @@
-console.log('test')
-/*
+
 var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
 var env = {root_path:path.join(__dirname, '../../')};
@@ -11,7 +10,8 @@ var request = require(env.root_path + '/package/request/node_modules/request');
 
 var folderP  = new FOLDERP ();
 var base = '/var/video/',  base_ctl = '/var/video_ctl/'
-
+console.log('test1')
+/*
 var CP = new crowdProcess();
 var _f = {};
 
