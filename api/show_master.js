@@ -10,7 +10,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 
-res.send(222);
+res.send('222');
 return true;
 
 function getServerIP() {
