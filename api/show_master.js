@@ -9,10 +9,6 @@ var base = '/var/video/';
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-
-res.send('222');
-return true;
-
 function getServerIP() {
     var ifaces = require('os').networkInterfaces(), address=[];
     for (var dev in ifaces) {
