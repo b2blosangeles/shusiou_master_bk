@@ -21,6 +21,12 @@ function getServerIP() {
     }
     return address;
 };
+function writePullLog(v, cbk) {
+	fs.writeFile(base_ctl + 'pull_log.data', new Date().toString() + '::' + __dirname + '::' + v, function(err) {
+		cbk();
+	});
+};
+
 
 var FOLDER_SCAN = function () {
 	var me = this;
@@ -67,7 +73,7 @@ _f['P0'] = function (cbk) {
 		});	
 	});	
 }
-_f['P1_P'] = function (cbk) {
+_f['P1_Pre'] = function (cbk) {
 	fs.readFile(base_ctl + 'lastupdate.data', 'utf8', function (err,data) {
 	  	cbk((err)?'':data);
 	});		
@@ -86,16 +92,25 @@ _f['P1'] = function (cbk) {
         headers: {
 		    "content-type": "application/json",
 		    },
-        	json: {ip:getServerIP(), lastUpdate:CP.data.P1_P}
-        }, function (error, resp, body) { 
-	    if (typeof body == 'string') {
-		    cbk(CP.data.P1_Q);
+        	json: {ip:getServerIP(), lastUpdate:CP.data.P1_Pre}
+        }, function (error, resp, body) {
+	    //--- check api status ---*/
+	    if (body.status == 'success') {
+		    if (typeof body.data == 'string') {
+			    writePullLog('NoUpdate ::'+body.message, function() {
+				cbk(CP.data.P1_Q);   
+			    });				    
+		    } else {
+			fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
+				cbk(body.data);
+			}); 			    
+		    }	
 	    } else {
-	//	cbk(CP.data.P1_Q); return true;
-		fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
-			cbk(body);
-		}); 			    
+		    writePullLog('Error ::'+body.message, function() {
+			cbk(body)    
+		    });			    
 	    }		    
+	    
        });
       
 }
