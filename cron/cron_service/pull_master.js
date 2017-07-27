@@ -96,14 +96,16 @@ _f['P1'] = function (cbk) {
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_CACHE.lastUpdate}
         }, function (error, resp, body) {
 	    //--- check api status ---
-	    console.log(body.status)
+	    
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
 			    writePullLog('NoUpdate ::'+body.message, function() {
+				    console.log(body.status + '1')
 				cbk(CP.data.P1_CACHE.data);   
 			    });				    
 		    } else {
 			fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
+				    console.log(body.status + '2')
 				cbk(body.data);
 			}); 			    
 		    }	
