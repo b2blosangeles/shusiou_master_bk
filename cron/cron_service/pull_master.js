@@ -199,11 +199,9 @@ CP.serial(
 		
 		CP1.serial(
 			_f1,
-			function(data) {
+			function(data1) {
 				console.log('--->')
 				console.log(data)
-				return true;
-				// res.send(data);
 			},
 			60000
 		);	
