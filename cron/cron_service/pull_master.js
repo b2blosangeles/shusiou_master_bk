@@ -200,8 +200,8 @@ CP.serial(
 		CP1.serial(
 			_f1,
 			function(data1) {
-				console.log('--->')
-				console.log(data)
+				console.log('>')
+				console.log(data1)
 			},
 			60000
 		);	
