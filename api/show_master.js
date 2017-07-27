@@ -108,10 +108,9 @@ CP.serial(
 	_f,
 	function(data) {
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];	
-		if (typeof P1 == 'string' || typeof P2 == 'string') {
-			res.send({status:'failur'})	
-			return true;			
-		}
+		res.send(P1);
+		return true;
+		
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
 				cg[cg.length] = o  + '/video/video.mp4';
@@ -128,7 +127,7 @@ CP.serial(
 				rmv[rmv.length] = o;  
 			}	
 		}
-		res.send({status:'success', rmv:rmv, cg:cg, lastupdate:lastUpdate(P1)})	
+		res.send({rmv:rmv, cg:cg, lastupdate:lastUpdate(P1)})	
 		return true;
 	},
 	30000
