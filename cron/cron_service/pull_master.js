@@ -100,12 +100,10 @@ _f['P1'] = function (cbk) {
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
 			    writePullLog('NoUpdate ::'+body.message, function() {
-				    console.log(CP.data.P1_CACHE.data)
 				cbk(CP.data.P1_CACHE.data);   
 			    });				    
 		    } else {
 			fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
-				    console.log(body.status + '2')
 				cbk(body.data);
 			}); 			    
 		    }	
@@ -137,11 +135,10 @@ function existFile(P1, fn) {
 	return false;
 }
 
-console.log('test3')
 CP.serial(
 	_f,
 	function(data) {
-		console.log('test4')
+		console.log(data)
 		return true;
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		for (o in P1) {
