@@ -1,3 +1,5 @@
+console.log('test')
+/*
 var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
 var env = {root_path:path.join(__dirname, '../../')};
@@ -94,7 +96,7 @@ _f['P1'] = function (cbk) {
 		    },
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_CACHE.lastUpdate}
         }, function (error, resp, body) {
-	    //--- check api status ---*/
+	    //--- check api status ---
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
 			    writePullLog('NoUpdate ::'+body.message, function() {
@@ -206,3 +208,4 @@ CP.serial(
 	},
 	60000
 );
+*/
