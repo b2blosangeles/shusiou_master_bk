@@ -133,9 +133,6 @@ function existFile(P1, fn) {
 	return false;
 }
 
-
-
-
 CP.serial(
 	_f,
 	function(data) {
@@ -209,4 +206,3 @@ CP.serial(
 	},
 	60000
 );
-
