@@ -96,6 +96,7 @@ _f['P1'] = function (cbk) {
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_CACHE.lastUpdate}
         }, function (error, resp, body) {
 	    //--- check api status ---
+	    console.log(body.status)
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
 			    writePullLog('NoUpdate ::'+body.message, function() {
