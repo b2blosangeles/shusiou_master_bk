@@ -92,13 +92,13 @@ _f['P1'] = function (cbk) {
         headers: {
 		    "content-type": "application/json",
 		    },
-        	json: {ip:getServerIP(), lastUpdate:CP.data.P1_Pre}
+        	json: {ip:getServerIP(), lastUpdate:CP.data.P1_CACHE.lastUpdate}
         }, function (error, resp, body) {
 	    //--- check api status ---*/
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
 			    writePullLog('NoUpdate ::'+body.message, function() {
-				cbk(CP.data.P1_Q);   
+				cbk(CP.data.P1_CACHE.data);   
 			    });				    
 		    } else {
 			fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
@@ -114,18 +114,7 @@ _f['P1'] = function (cbk) {
        });
       
 }
-
-_f['P1_S'] = function (cbk) {
-	var v=[];
-	for (o in CP.data.P1) {	
-		v[v.length] = CP.data.P1[o].master.lastupdate;	
-	}
-	v.sort();
-	var fs = require('fs');
-	fs.writeFile(base_ctl + 'lastupdate.data', JSON.stringify(v), function(err) {
-	   cbk(JSON.stringify(v));
-	}); 			
-}	
+	
 _f['P2'] = function (cbk) {
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
