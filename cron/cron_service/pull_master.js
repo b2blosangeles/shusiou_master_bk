@@ -10,8 +10,7 @@ var request = require(env.root_path + '/package/request/node_modules/request');
 
 var folderP  = new FOLDERP ();
 var base = '/var/video/',  base_ctl = '/var/video_ctl/'
-console.log('test1')
-/*
+
 var CP = new crowdProcess();
 var _f = {};
 
@@ -134,7 +133,8 @@ function existFile(P1, fn) {
 	}
 	return false;
 }
-
+console.log('test2')
+/*
 CP.serial(
 	_f,
 	function(data) {
