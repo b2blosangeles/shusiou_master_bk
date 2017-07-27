@@ -73,15 +73,15 @@ _f['P0'] = function (cbk) {
 		});	
 	});	
 }
-_f['P1_Pre'] = function (cbk) {
-	fs.readFile(base_ctl + 'lastupdate.data', 'utf8', function (err,data) {
-	  	cbk((err)?'':data);
-	});		
-}
-_f['P1_Q'] = function (cbk) {
+
+_f['P1_CACHE'] = function (cbk) {
 	fs.readFile(base_ctl + 'report.cache', 'utf8', function (err,data) {
-	  	cbk((err)?{}:JSON.parse(data));
-	});		
+		var d = {};
+		try {		
+			d = (err)?{}:JSON.parse(data);
+		} catch(err) {};
+		cbk(d);
+	});
 }
 
 
