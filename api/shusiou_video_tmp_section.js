@@ -16,9 +16,9 @@ var fn = c_folder + s + '_' + l + '.mp4';
 
 pkg.fs.stat(fn, function(err, data) {
     if (err) 
-      res.send('it does not exist');
+      res.send(fn + '- it does not exist');
     else {
-	    res.send('it  not exist');
+	    res.send(fn + '- it  not exist');
 	    return true;
 	      var total = data.size;
 	      var range = req.headers.range;
