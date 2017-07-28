@@ -104,7 +104,9 @@ _f['P1'] = function (cbk) {
 			    });				    
 		    } else {
 			fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
-				cbk(body.data);
+				writePullLog('Updated', function() {
+					cbk(body.data);   
+			    	});
 			}); 			    
 		    }	
 	    } else {
