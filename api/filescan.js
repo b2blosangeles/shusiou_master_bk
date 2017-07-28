@@ -1,5 +1,4 @@
-var total_size = 0;
-var _result = [];
+var total_size = 0, _result = [], base = '/var/video/'
 
 function uu(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
@@ -38,7 +37,7 @@ function uu(dir, cbk) {
 }
 
 
-uu('/var/qalet/', function() {
+uu(base, function() {
 // uu(env.root_path + '', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
     // res.send(str);
