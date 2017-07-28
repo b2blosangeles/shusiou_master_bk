@@ -1,7 +1,6 @@
 var total_size = 0, _result = [], base = '/var/video/'
 
 function scan(dir, cbk) {
- //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
  
     var finder = require(env.root_path + '/api/inc/findit/findit.js')(d);
