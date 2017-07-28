@@ -23,7 +23,7 @@ function getServerIP() {
     return address;
 };
 function writePullLog(v, cbk) {
-	fs.appendFile(base_ctl + 'pull_log.data', new Date().toString() + '::' + __dirname + '::' + v, function(err) {
+	fs.appendFile(base_ctl + 'pull_log.data', new Date().toString() + '::' + __dirname + '::' + v + "\n", function(err) {
 		cbk();
 	});
 };
