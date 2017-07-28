@@ -27,7 +27,11 @@ function writePullLog(v, cbk) {
 		cbk();
 	});
 };
-
+function writeRepLog(v, cbk) {
+	fs.appendFile(base_ctl + 'rep_log.data', new Date().toString() + '::' + __dirname + '::' + v + "\n", function(err) {
+		cbk();
+	});
+};
 
 var FOLDER_SCAN = function () {
 	var me = this;
@@ -171,6 +175,8 @@ CP.serial(
 					} else {					
 						exec('rm -fr ' + base + ' ' + rmv[i], function(error, stdout, stderr) {
 							cbk('removed ' + base + rmv[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');
+							writeRepLog('removed::'+rmv[i], function() {  
+							});				
 						});
 					}	
 				}
@@ -191,6 +197,10 @@ CP.serial(
 								response.pipe(file);
 								response.on('end', function() {
 									cbk('pulled ' + cg[i] + ' at: ' + (new Date().getTime() - tm) + ' ms');	
+								
+									writeRepLog('pulled::'+cg[i], function() {  
+									});
+								
 								});
 							});		
 						});
