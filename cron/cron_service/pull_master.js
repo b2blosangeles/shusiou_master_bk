@@ -99,7 +99,7 @@ _f['P1'] = function (cbk) {
 	    
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
-			    writePullLog('NoUpdate ::'+body.message, function() {
+			    writePullLog('NoUpdate ::'+body.data, function() {
 				cbk(CP.data.P1_CACHE.data);   
 			    });				    
 		    } else {
