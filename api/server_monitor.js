@@ -1,7 +1,11 @@
 var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 
 pkg.fs.appendFile(base_ctl + 'pull_log.data', function(err, stats){
-    res.send(stats);
+    if (err) {
+	     res.send(err.message);
+    } else {
+	    res.send(stats);
+    }    
 });
 
 /*
