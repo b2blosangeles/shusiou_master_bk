@@ -18,8 +18,6 @@ pkg.fs.stat(fn, function(err, data) {
     if (err) 
       res.send(fn + '- it does not exist');
     else {
-	    res.send(fn + '- it  exist');
-	    return true;
 	      var total = data.size;
 	      var range = req.headers.range;
 	      if (range) {
