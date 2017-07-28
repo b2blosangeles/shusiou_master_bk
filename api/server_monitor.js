@@ -1,6 +1,6 @@
-var base = '/var/video/',  base_ctl = '/var/video_ctl/'
+var base = '/var/video/',  base_ctl = '/var/video_ctl/';
 
-pkg.fs.appendFile(base_ctl + 'pull_log.data', function(err, stats){
+pkg.fs.stat(base_ctl + 'pull_log.data', function(err, stats){
     if (err) {
 	     res.send(err.message);
     } else {
