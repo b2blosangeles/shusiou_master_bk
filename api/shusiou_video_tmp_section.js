@@ -2,14 +2,19 @@ if (!req.query['video']) {
 	res.send('Url error');
 	return true;
 }
-return truel
+
 var video = req.query['video'].split('|'), fn;
+
+
 
 var folder_base = '/mnt/shusiou-video/youtube/';
 
 var c_folder = folder_base + video[0] + '/tmp_section/';
 var s_file = folder_base + video[0] + '/video/video.mp4',  s =  video[1], l =  video[2];
 var fn = c_folder + s + '_' + l + '.mp4';
+
+res.send(fn);
+return truel
 
 var childProcess = require('child_process');
 var CP = new pkg.crowdProcess();
