@@ -1,7 +1,5 @@
 var base = '/var/video/',  base_ctl = '/var/video_ctl/';
 
- res.send('cv--->');
-
 pkg.fs.stat(base_ctl + 'pull_log.data', function(err, stats){
     if (err) {
 	     res.send(err.message);
