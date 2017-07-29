@@ -10,7 +10,7 @@ pkg.fs.stat(base_ctl + 'pull_log.data', function(err, stats){
 	    return true;
 	    
 	    if (cv > 3600 * 24 * 1000) {
-		pkg.exec('rm  base_ctl + 'pull_log.data ' + base_ctl + 'rep_log.data', function(error, stdout, stderr) {
+		pkg.exec('rm  '+ base_ctl + 'pull_log.data ' + base_ctl + 'rep_log.data', function(error, stdout, stderr) {
 			res.send('clean daily');
 		});		    
 	    }	    
