@@ -5,7 +5,9 @@ pkg.fs.stat(base_ctl + 'pull_log.data', function(err, stats){
 	     res.send(err.message);
     } else {
 	    var td = new Date().getTime(), d = new Date(stats.mtime).getTime(), v = td - d;
-	    res.send(v.toString());
+	    if (v > 300000) {
+	    }
+	    res.send(stats);
     }    
 });
 
