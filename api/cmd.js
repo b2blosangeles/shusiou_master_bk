@@ -1,3 +1,3 @@
-pkg.exec('git pull ' + env.root_path, function(error, stdout, stderr) {
+pkg.exec('cd ' + env.root_path + '&& git pull', function(error, stdout, stderr) {
 	 res.send(stdout);
 });
