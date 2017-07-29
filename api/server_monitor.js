@@ -5,7 +5,7 @@ pkg.fs.stat(base_ctl + 'pull_log.data', function(err, stats){
 	     res.send(err.message);
     } else {
 	    var td = new Date().getTime(), d = new Date(stats.mtime).getTime();
-	    res.send(d);
+	    res.send('niu'+d);
     }    
 });
 
