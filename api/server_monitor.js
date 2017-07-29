@@ -5,11 +5,11 @@ pkg.fs.stat(base_ctl + 'pull_log.data', function(err, stats){
 	     res.send(err.message);
     } else {
 	    var td = new Date().getTime(), md = new Date(stats.mtime).getTime(), cd = new Date(stats.atime).getTime(),
-		cv = (td - cd) / (3600 * 24), mv = td - md;
+		cv = (td - cd) / (3600 * 24 * 1000), mv = td - md;
 	    res.send(cv+'---'+mv);
 	    return true;
 	    
-	    if (cv > 3600 * 24 * 1000) {
+	    if (cv > (3600 * 24 * 1000)) {
 		pkg.exec('rm  '+ base_ctl + 'pull_log.data ' + base_ctl + 'rep_log.data', function(error, stdout, stderr) {
 			res.send('clean daily');
 		});		    
