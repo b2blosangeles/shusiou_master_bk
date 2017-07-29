@@ -4,7 +4,7 @@ pkg.fs.stat(base_ctl + 'pull_log.data', function(err, stats){
     if (err) {
 	     res.send(err.message);
     } else {
-	    var td = new Date().getTime(), d = new Date(stats.mtime).getTime(), v = d - td;
+	    var td = new Date().getTime(), d = new Date(stats.mtime).getTime(), v = td - d;
 	    res.send(v.toString());
     }    
 });
