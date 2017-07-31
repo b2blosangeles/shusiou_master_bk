@@ -2,8 +2,7 @@ var vid = req.param('vid');
 var base = '/var/video/';
 var fn =  base +  vid + '/video/video.mp4';
 var fs = require('fs');
-res.send(base);
-/*
+
 fs.stat(fn, function(err, data) {
 
     if (err) 
@@ -43,4 +42,3 @@ fs.stat(fn, function(err, data) {
     
    
   });
-*/
