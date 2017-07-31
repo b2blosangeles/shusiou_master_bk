@@ -4,7 +4,8 @@ var fn =  base +  vid + '/video/video.mp4';
 var fs = require('fs');
 
 fs.stat(fn, function(err, data) {
-
+	res.redirect('http://api.shusiou.com'+req.url);
+	return true;
     if (err) 
       res.send('it does not exist');
     else {
