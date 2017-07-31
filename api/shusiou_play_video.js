@@ -1,6 +1,6 @@
 var vid = req.param('vid');
-var folder_base = '/mnt/shusiou-video/youtube/';
-var fn =  folder_base +  vid + '/video/video.mp4';
+var base = '/var/video/';
+var fn =  base +  vid + '/video/video.mp4';
 var fs = require('fs');
 
 fs.stat(fn, function(err, data) {
