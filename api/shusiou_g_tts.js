@@ -27,10 +27,7 @@ _f['S1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data0) {
-
-		pkg.fs.stat(fn, function(err, data) {
-			res.send(data);
-			return true;			
+		pkg.fs.stat(fn, function(err, data) {		
 		    if (err) {
 			 var options = {
 			      url: 'http://api.shusiou.com'+req.url,
@@ -43,9 +40,9 @@ CP.serial(
 			      p.pipe(pkg.fs.createWriteStream(fn));
 			      p.pipe(res);
 		    } else {
-				res.sendFile(fn);
-				//var file = pkg.fs.createReadStream(fn);
-				//file.pipe(res);
+				// res.sendFile(fn);
+				var file = pkg.fs.createReadStream(fn);
+				file.pipe(res);
 			}
 		});
 	},
