@@ -15,6 +15,9 @@ var fn = folder_base + sh.unique(str+'_'+lang)+'.mp3';
 
 var CP = new pkg.crowdProcess();
 
+res.send(fn);
+return true;
+
 var _f = {};
 _f['S1'] = function(cbk) {
 	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
