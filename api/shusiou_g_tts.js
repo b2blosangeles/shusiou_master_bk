@@ -40,7 +40,9 @@ CP.serial(
 			      p.pipe(pkg.fs.createWriteStream(fn));
 			      p.pipe(res);
 		    } else {
-				res.send(fn);
+				res.sendFile(fn);
+				//var file = pkg.fs.createReadStream(fn);
+				//file.pipe(res);
 			}
 		});
 	},
