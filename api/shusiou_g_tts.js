@@ -26,10 +26,11 @@ _f['S1'] = function(cbk) {
 
 CP.serial(
 	_f,
-	function(data) {
-		res.send(data);
-		return true;
+	function(data0) {
+
 		pkg.fs.stat(fn, function(err, data) {
+			res.send(data);
+			return true;			
 		    if (err) {
 			 var options = {
 			      url: 'http://api.shusiou.com'+req.url,
