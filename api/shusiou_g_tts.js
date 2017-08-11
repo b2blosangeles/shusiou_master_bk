@@ -28,14 +28,14 @@ CP.serial(
 	_f,
 	function(data) {		
 		pkg.fs.stat(fn, function(err, data) {
-			res.send('http://api.shusiou.com'+req.url);	
-			return true;
-		    if (err) {
+			//res.send('http://api.shusiou.com'+req.url);	
+			//return true;
+		    if (true) {
 			 var options = {
 			      url: 'http://api.shusiou.com'+req.url,
 			      headers: {
-				 'Referer': 'http://translate.google.com/',
-				 'User-Agent': 'stagefright/1.2 (Linux;Android 5.0)'
+				// 'Referer': 'http://translate.google.com/',
+				// 'User-Agent': 'stagefright/1.2 (Linux;Android 5.0)'
 			      }
 			   }
 			   var p = pkg.request(options);
