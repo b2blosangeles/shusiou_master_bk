@@ -26,7 +26,9 @@ _f['S1'] = function(cbk) {
 
 CP.serial(
 	_f,
-	function(data) {		
+	function(data) {
+		res.send(data);
+		return true;
 		pkg.fs.stat(fn, function(err, data) {
 		    if (err) {
 			 var options = {
