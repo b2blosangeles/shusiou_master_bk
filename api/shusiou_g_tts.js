@@ -28,7 +28,7 @@ CP.serial(
 	_f,
 	function(data) {		
 		pkg.fs.stat(fn, function(err, data) {
-		    if (true) {
+		    if (err) {
 			 var options = {
 			      url: 'http://api.shusiou.com'+req.url,
 			      headers: {
