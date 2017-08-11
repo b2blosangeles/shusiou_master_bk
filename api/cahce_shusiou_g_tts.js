@@ -17,7 +17,7 @@ var CP = new pkg.crowdProcess();
 
 var _f = {};
 _f['S1'] = function(cbk) {
-	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
+	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(folder_base, function() {
 		cbk(true);
