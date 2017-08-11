@@ -8,7 +8,8 @@ if (!lang) {
 	res.send('No lang!');
 	return false;
 }
-var sh = require(env.space_path + '/inc/shorthash/shorthash.js');
+
+var sh = require(env.root_path  + '/api/inc/shorthash/shorthash.js');
 var fn = folder_base + sh.unique(str+'_'+lang)+'.mp3';
 
 
