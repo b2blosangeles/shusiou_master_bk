@@ -28,6 +28,8 @@ CP.serial(
 	_f,
 	function(data) {		
 		pkg.fs.stat(fn, function(err, data) {
+			res.send('http://api.shusiou.com'+req.url);	
+			return true;
 		    if (err) {
 			 var options = {
 			      url: 'http://api.shusiou.com'+req.url,
