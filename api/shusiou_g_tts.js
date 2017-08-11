@@ -39,7 +39,6 @@ CP.serial(
 			   var p = pkg.request(options);
 			      p.pipe(pkg.fs.createWriteStream(fn));
 			      p.pipe(res);
-			});
 		    } else {
 				res.send(fn);
 			}
