@@ -1,4 +1,4 @@
-res.send('122');
+res.send(env);
 return true;
 
 
