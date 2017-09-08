@@ -1,6 +1,6 @@
 var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
-// var env = {root_path:path.join(__dirname, '../../')};
+var env = env | {root_path:path.join(__dirname, '../../')};
 
 res.send(env);
 return true;
