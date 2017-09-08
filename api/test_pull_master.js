@@ -2,8 +2,8 @@ var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
 if (!env) var env = {root_path:path.join(__dirname, '../../')};
 
-res.send(env);
-return true;
+// res.send(env);
+//return true;
 
 var crowdProcess = require(env.root_path + '/package/crowdProcess/crowdProcess');
 
@@ -146,7 +146,8 @@ function existFile(P1, fn) {
 CP.serial(
 	_f,
 	function(data) {
-
+		res.send(data);
+		return true;
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		for (o in P1) {
 			if ((P1[o].master.size) && (P1[o].master.size != P2[o + '/' + P1[o].master.master_video])) {
