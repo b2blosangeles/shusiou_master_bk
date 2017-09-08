@@ -1,10 +1,9 @@
-res.send(env);
-return true;
-
-
 var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
-var env = {root_path:path.join(__dirname, '../../')};
+// var env = {root_path:path.join(__dirname, '../../')};
+
+res.send(env);
+return true;
 
 var crowdProcess = require(env.root_path + '/package/crowdProcess/crowdProcess');
 
