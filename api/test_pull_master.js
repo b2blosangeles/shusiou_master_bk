@@ -79,7 +79,6 @@ _f['P0'] = function (cbk) {
 }
 
 _f['P1_CACHE'] = function (cbk) {
-	cbk(base_ctl); return true; //===>
 	fs.readFile(base_ctl + 'report.cache', 'utf8', function (err,data) {
 		var d = {};
 		try {		
@@ -88,7 +87,6 @@ _f['P1_CACHE'] = function (cbk) {
 		cbk(d);
 	});
 }
-
 
 _f['P1'] = function (cbk) {
 	cbk(true); return true; //===>
