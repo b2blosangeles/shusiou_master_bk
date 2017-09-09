@@ -74,6 +74,7 @@ var FOLDER_SCAN = function () {
 };
 
 _f['P0'] = function (cbk) {
+	cbk(true); return true; //===>
 	folderP.build(base, function() {
 		folderP.build(base_ctl, function() {
 			cbk(true);
@@ -82,6 +83,7 @@ _f['P0'] = function (cbk) {
 }
 
 _f['P1_CACHE'] = function (cbk) {
+	cbk(true); return true; //===>
 	fs.readFile(base_ctl + 'report.cache', 'utf8', function (err,data) {
 		var d = {};
 		try {		
@@ -93,6 +95,7 @@ _f['P1_CACHE'] = function (cbk) {
 
 
 _f['P1'] = function (cbk) {
+	cbk(true); return true; //===>
     request({
         url: 'http://api.shusiou.com/api/cloud_resource.report',
         method: "POST",
@@ -126,6 +129,7 @@ _f['P1'] = function (cbk) {
 }
 	
 _f['P2'] = function (cbk) {
+	cbk(true); return true; //===>
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
