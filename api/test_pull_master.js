@@ -97,18 +97,17 @@ _f['P1'] = function (cbk) {
 		    },
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_CACHE.lastUpdate}
         }, function (error, resp, body) {
-	    cbk(typeof body.data); return true;
 	    //--- check api status ---
 	    
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
 			    writePullLog('NoUpdate ::'+body.data, function() {
-				cbk(CP.data.P1_CACHE.data);   
+				cbk('CP.data.P1_CACHE.data');   
 			    });				    
 		    } else {
 			fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
 				writePullLog('Updated', function() {
-					cbk(body.data);   
+					cbk('body.data');   
 			    	});
 			}); 			    
 		    }	
