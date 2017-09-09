@@ -163,7 +163,7 @@ CP.serial(
 			}	
 		}
 		
-		res.send({P1:P1['962SfJ00tYM']});
+		res.send({P1:P1['962SfJ00tYM'].list});
 		return true;
 		
 		var CP1 = new crowdProcess();
