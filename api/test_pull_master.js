@@ -89,7 +89,6 @@ _f['P1_CACHE'] = function (cbk) {
 }
 
 _f['P1'] = function (cbk) {
-	cbk(true); return true; //===>
     request({
         url: 'http://api.shusiou.com/api/cloud_resource.report',
         method: "POST",
