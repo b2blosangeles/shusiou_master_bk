@@ -163,8 +163,6 @@ CP.serial(
 			}	
 		}
 		
-		res.send({cg:cg, rmv:rmv});
-		return true;
 		
 		var CP1 = new crowdProcess();
 		var _f1 = {}, tm = new Date().getTime();
