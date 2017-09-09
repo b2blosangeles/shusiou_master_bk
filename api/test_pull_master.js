@@ -16,9 +16,6 @@ var base = '/var/video/',  base_ctl = '/var/video_ctl/'
 var CP = new crowdProcess();
 var _f = {};
 
-res.send('env1');
-return true;
-
 function getServerIP() {
     var ifaces = require('os').networkInterfaces(), address=[];
     for (var dev in ifaces) {
@@ -146,10 +143,13 @@ function existFile(P1, fn) {
 	return false;
 }
 
+res.send('env2');
+return true;
+
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);
+		res.send('data');
 		return true;
 		var P1 = data.results.P1, P2 = data.results.P2, cg=[], rmv=[];
 		for (o in P1) {
