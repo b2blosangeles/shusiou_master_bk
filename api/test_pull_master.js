@@ -97,6 +97,7 @@ _f['P1'] = function (cbk) {
 		    },
         	json: {ip:getServerIP(), lastUpdate:CP.data.P1_CACHE.lastUpdate}
         }, function (error, resp, body) {
+	    cbk('AAA'); return true;
 	    //--- check api status ---
 	    
 	    if (body.status == 'success') {
