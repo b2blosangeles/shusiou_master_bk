@@ -74,7 +74,6 @@ var FOLDER_SCAN = function () {
 };
 
 _f['P0'] = function (cbk) {
-	cbk(true); return true; //===>
 	folderP.build(base, function() {
 		folderP.build(base_ctl, function() {
 			cbk(true);
