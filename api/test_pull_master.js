@@ -104,12 +104,12 @@ _f['P1'] = function (cbk) {
 	    if (body.status == 'success') {
 		    if (typeof body.data == 'string') {
 			    writePullLog('NoUpdate ::'+body.data, function() {
-				cbk('CP.data.P1_CACHE.data');   
+				cbk(CP.data.P1_CACHE.data);   
 			    });				    
 		    } else {
 			fs.writeFile(base_ctl + 'report.cache', JSON.stringify(body), function(err) {
 				writePullLog('Updated', function() {
-					cbk('body.data');   
+					cbk(body.data);   
 			    	});
 			}); 			    
 		    }	
