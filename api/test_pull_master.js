@@ -2,9 +2,6 @@ var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
 if (!env) var env = {root_path:path.join(__dirname, '../../')};
 
-// res.send(env);
-//return true;
-
 var crowdProcess = require(env.root_path + '/package/crowdProcess/crowdProcess');
 
 var FOLDERP =  require(env.root_path + '/api/inc/folderP/folderP.js');
@@ -82,7 +79,7 @@ _f['P0'] = function (cbk) {
 }
 
 _f['P1_CACHE'] = function (cbk) {
-	cbk(true); return true; //===>
+	cbk(base_ctl); return true; //===>
 	fs.readFile(base_ctl + 'report.cache', 'utf8', function (err,data) {
 		var d = {};
 		try {		
