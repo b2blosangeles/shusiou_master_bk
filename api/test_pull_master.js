@@ -143,8 +143,7 @@ function existFile(P1, fn) {
 	return false;
 }
 
-res.send('env2');
-return true;
+
 
 CP.serial(
 	_f,
