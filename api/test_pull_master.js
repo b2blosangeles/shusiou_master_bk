@@ -163,7 +163,7 @@ CP.serial(
 			}	
 		}
 		
-		res.send({p1:p1, p2:p2, cg:cg, rmv:rmv});
+		res.send({P1:P1, P2:P2, cg:cg, rmv:rmv});
 		return true;
 		
 		var CP1 = new crowdProcess();
