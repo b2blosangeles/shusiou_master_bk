@@ -122,7 +122,6 @@ _f['P1'] = function (cbk) {
 }
 	
 _f['P2'] = function (cbk) {
-	cbk(true); return true; //===>
 	var R = new FOLDER_SCAN();
 	R.scan(base,  '', 
 	function(data) {
