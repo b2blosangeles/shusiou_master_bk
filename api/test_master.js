@@ -1,1 +1,1 @@
-res.send('data10-0');
+res.sendFile('/tmp/shusiou_git.log');
