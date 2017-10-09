@@ -1,4 +1,6 @@
 var exec = require('child_process').exec;
+var exec1 = require('child_process').exec;
+
 var path = require('path'), fs = require('fs');
 var env = {root_space:path.join(__dirname, '../../')};
 
@@ -9,7 +11,7 @@ exec(cmd, function(error, stdout, stderr) {
   fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
   }); 
   var log_str1 = "sed -i 'ls/^/pp\n\n/' /tmp/cron_git.log";
-  exec(log_str1, function(error, stdout, stderr) {
+  exec1(log_str1, function(error, stdout, stderr) {
     
   });   
 });
