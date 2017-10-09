@@ -9,7 +9,7 @@ exec(cmd, function(error, stdout, stderr) {
 //  var log_str = "sed -i 'ls/^/" + 'escape(new Date().toString())'  + "\n\n/' /tmp/cron_git.log";
 //  exec(log_str, function(error, stdout, stderr) {
     
-  });  
+//  });  
   fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
   });   
 });
