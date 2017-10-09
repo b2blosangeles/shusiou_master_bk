@@ -5,11 +5,11 @@ var env = {root_space:path.join(__dirname, '../../')};
 var cmd = 'cd ' + env.root_space + ' && git pull';
 
 exec(cmd, function(error, stdout, stderr) {
- // var log_str = "--- " + new Date().toString() + '   ---' + "\n" + cmd + "==>\n" + stdout + "\n\n";
-  var log_str = "sed -i 'ls/^/" + 'escape(new Date().toString())'  + "\n\n/' /tmp/cron_git.log";
-  exec(log_str, function(error, stdout, stderr) {
+  var log_str = "--- " + new Date().toString() + '   ---' + "\n" + cmd + "==>\n" + stdout + "\n\n";
+  fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
+  }); 
+  var log_str1 = "sed -i 'ls/^/pp\n\n/' /tmp/cron_git.log";
+  exec(log_str1, function(error, stdout, stderr) {
     
-  });  
-//  fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
-//  });   
+  });   
 });
