@@ -17,7 +17,7 @@ var e = exec(cmd, function(error, stdout, stderr) {
 var stdout = '';
 var stderr = '';
 e.stdout.on('data', function(buf) {
-    stdout += buf;
+    stdout += buf+'===';
   });
 e.on('close', function(code) {
     var l = stdout.toString().replace(/[\n\r]/g, 'RRDD').replace(/\r/ig, 'RR');
