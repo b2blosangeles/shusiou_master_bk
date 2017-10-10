@@ -1,6 +1,4 @@
 var exec = require('child_process').exec;
-var exec1 = require('child_process').exec;
-
 var path = require('path'), fs = require('fs');
 var env = {root_space:path.join(__dirname, '../../')};
 
