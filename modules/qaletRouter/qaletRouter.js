@@ -14,22 +14,17 @@
 		}
 		this.sendPackage = function(v) {
 			var me = this;
-			var patt = /\.(jsx|js|css)$/i;
-			if (patt.test(v)) {
-				var fn = env.root_path + '/files/package/' + v;
-				pkg.fs.exists(fn, function(exists) {
-					if (exists) {
-						delete require.cache[__dirname + '/qaletPackage.js'];
-						var router  = require(__dirname + '/qaletPackage.js');
-						var P = new router(pkg, env, req, res);						
-						P.load(fn);								
-					} else {
-						me.send404(v);					
-					} 
-				});
-			} else {
-				me.send404(v);	
-			}
+			var fn = env.root_path + '/files/package/' + v;
+			pkg.fs.exists(fn, function(exists) {
+				if (exists) {
+					delete require.cache[__dirname + '/qaletPackage.js'];
+					var router  = require(__dirname + '/qaletPackage.js');
+					var P = new router(pkg, env, req, res);						
+					P.load(fn);								
+				} else {
+					me.send404(v);					
+				} 
+			});
 		};		
 		this.sendFile = function(v) {
 			var me = this, fn = env.root_path + '/files/' + v;
