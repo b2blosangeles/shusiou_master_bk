@@ -13,14 +13,20 @@
 			res.end();			
 		}
 		this.sendPackage = function(v) {
-			var me = this, fn = env.root_path + '/files/package/' + v;
-			pkg.fs.exists(fn, function(exists) {
-				if (exists) {
-					res.send('package'+fn); 									
-				} else {
-					me.send404(v);					
-				} 
-			});				
+			var me = this;
+			var patt = new RegExp('/\.(jsx|js|css)$', 'i');
+			f (patt.test(v)) {
+				var fn = env.root_path + '/files/package/' + v;
+				pkg.fs.exists(fn, function(exists) {
+					if (exists) {
+						res.send('package '+fn); 									
+					} else {
+						me.send404(v);					
+					} 
+				});
+			} else {
+				me.send404(v);	
+			}
 		};		
 		this.sendFile = function(v) {
 			var me = this, fn = env.root_path + '/files/' + v;
