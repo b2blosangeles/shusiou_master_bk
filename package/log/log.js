@@ -1,6 +1,6 @@
 (function () { 
-	var obj =  function (exec) {
-		var fs = require('fs');
+	var obj =  function () {
+		var fs = require('fs'), exec = require('child_process').exec;
 		this.write = function(file, contents) {
 			var l =  contents.toString().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '\\$&').
 				replace(/[\n\r]/g, '\\n\\n');
