@@ -14,7 +14,7 @@ var e = exec(cmd, function(error, stdout, stderr) {
   
   fs.appendFile("/tmp/cron_git.log", ' ', function(err) {
     exec1(log_str1, function(error, stdout, stderr) {
-    // sdfs
+    // 
     });
   }); 
 });
