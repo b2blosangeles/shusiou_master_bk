@@ -14,9 +14,13 @@ var e = exec(cmd, function(error, stdout, stderr) {
     exec1(log_str1, function(error, stdout, stderr) {});
   }); 
 });
-e.stdout.setEncoding('utf8');
+var stdout = '';
+var stderr = '';
+e.stdout.on('data', function(buf) {
+    stdout += buf;
+  });
 e.on('close', function(code) {
-    var l = stdout.toString().replace(/[\n\r]/g, 'III').replace(/\r/ig, 'RR');
+    var l = stdout.toString().replace(/[\n\r]/g, 'RRDD').replace(/\r/ig, 'RR');
     var log_str1 = "sed -i '1s/^/-- git cron -cgc- " + new Date().toString() + '\\n' + l + "\\n/' /tmp/cron_git.log";
     exec1(log_str1, function(error, stdout, stderr) {});  
 });
