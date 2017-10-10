@@ -4,11 +4,11 @@ if (!code) {
 } else {   
    switch(opt) {
       case 'show':
-         res.sendFile('/tmp/'+code);
+         res.sendFile('/var/log/'+code);
          break;
       case 'remove':
          var exec = require('child_process').exec;
-         var cmd = 'rm  /tmp/'+ code;
+         var cmd = 'rm  /var/log/'+ code;
          exec(cmd, function(error, stdout, stderr) {
              res.send(cmd + ' :: ' + stdout);
            });
