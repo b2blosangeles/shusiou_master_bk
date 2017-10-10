@@ -9,7 +9,7 @@ exec(cmd, function(error, stdout, stderr) {
   var l = stdout.replace(/\n/ig, '\\n');
   var log_str = "--- " + new Date().toString() + '   ---' + "\n" + cmd + "==>\n" + stdout + '**' + l +  "\n\n";
   
-  fs.appendFile("/tmp/cron_git.log", ' ', function(err) {
+  fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
     var log_str1 = "sed -i '1s/^/-- git cron -1- " + new Date().toString() + '\\n' + l + "\\n/' /tmp/cron_git.log";
     exec1(log_str1, function(error, stdout, stderr) {});
   }); 
