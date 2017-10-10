@@ -13,7 +13,7 @@
 			res.end();			
 		}
 		this.sendPackage = function(v) {
-			var me = this, fn = env.root_path + '/files/' + v;
+			var me = this, fn = env.root_path + '/files/package/' + v;
 			pkg.fs.exists(fn, function(exists) {
 				if (exists) {
 					res.send('package'+fn); 									
