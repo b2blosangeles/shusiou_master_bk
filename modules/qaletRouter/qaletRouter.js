@@ -14,7 +14,7 @@
 		}
 		this.sendPackage = function(v) {
 			var me = this;
-			var patt = new RegExp(/\.(jsx|js|css)$/, 'i');
+			var patt = new RegExp('.(jsx|js|css)$', 'i');
 			f (patt.test(v)) {
 				var fn = env.root_path + '/files/package/' + v;
 				pkg.fs.exists(fn, function(exists) {
