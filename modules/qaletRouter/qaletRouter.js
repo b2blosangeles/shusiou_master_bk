@@ -21,11 +21,8 @@
 					if (exists) {
 						delete require.cache[__dirname + '/qaletPackage.js'];
 						var router  = require(__dirname + '/qaletPackage.js');
-						//res.send(__dirname + '/qaletPackage.js');
 						var P = new router(pkg, env, req, res);						
-						P.load();
-						
-						// res.sendFile(fn); 									
+						P.load(fn);								
 					} else {
 						me.send404(v);					
 					} 
