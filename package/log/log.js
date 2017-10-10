@@ -1,5 +1,5 @@
 /*
-	the log mudule to add log to top of log file
+	The log mudule is to add log to top of log file
 */
 (function () { 
 	var obj =  function () {
