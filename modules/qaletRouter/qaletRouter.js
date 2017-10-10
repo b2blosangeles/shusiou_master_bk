@@ -12,6 +12,9 @@
 			res.write('Error! ' + err.message);
 			res.end();			
 		}
+		this.sendPackage = function(v) {
+			res.sendFile(v); 				
+		};		
 		this.sendFile = function(v) {
 			var me = this, fn = env.root_path + '/files/' + v;
 			pkg.fs.exists(fn, function(exists) {
