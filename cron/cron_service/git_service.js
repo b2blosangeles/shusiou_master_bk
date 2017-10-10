@@ -8,10 +8,11 @@ var cmd = 'cd ' + env.root_space + ' && git pull';
 
 exec(cmd, function(error, stdout, stderr) {
   var log_str = "--- " + new Date().toString() + '   ---' + "\n" + cmd + "==>\n" + stdout + "\n\n";
-  fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
+  fs.writeFile("/tmp/tmp_cron_git.log", log_str, function(err) {
+    var log_str1 = 'cat /tmp/tmp_cron_git.log /tmp/cron_git.log > /tmp/cron_git.log';
+    exec1(log_str1, function(error, stdout, stderr) {
+
+    });     
   }); 
-  var log_str1 = "sed -i '1s/^/" + new Date().toString() + stdout + "\\n\\n/' /tmp/cron_git.log";
-  exec1(log_str1, function(error, stdout, stderr) {
-    
-  });   
+  
 });
