@@ -11,7 +11,7 @@ var e = exec(cmd, function(error, stdout, stderr) {
   
   var log_str1 = "sed -i '1s/^/-- git cron -c1c- " + new Date().toString() + '\\n' + l + "\\n/' /tmp/cron_git.log";
   
-  fs.appendFile("/tmp/cron_git.log", ' ', function(err) {
+  fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
     exec1(log_str1, function(error, stdout, stderr) {});
   }); 
 });
