@@ -12,7 +12,7 @@ exec(cmd, function(error, stdout, stderr) {
     var log_a = log_str.split("\n");
     var l = log_a.join("\\n")
     
-    var log_str1 = "sed -i '1s/^/task goes heren/' /tmp/cron_git.log";
+    var log_str1 = "sed -i '1s/^/task goes here\\n/' /tmp/cron_git.log";
     exec1(log_str1, function(error, stdout, stderr) {
 
     });
