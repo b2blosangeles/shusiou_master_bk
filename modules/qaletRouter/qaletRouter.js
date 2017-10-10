@@ -19,7 +19,7 @@
 				var fn = env.root_path + '/files/package/' + v;
 				pkg.fs.exists(fn, function(exists) {
 					if (exists) {
-						res.send('package '+fn); 									
+						res.sendFile(fn); 									
 					} else {
 						me.send404(v);					
 					} 
