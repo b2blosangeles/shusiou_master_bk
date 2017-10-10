@@ -10,7 +10,7 @@ exec(cmd, function(error, stdout, stderr) {
   fs.appendFile("/tmp/cron_git.log", ' ', function(err) {
     var log_a = stdout.split("\n");
     var l = log_a.join("\\n")
-    var log_str1 = "sed -i '1s/^/-- git cron -- " + new Date().toString() + '\\n' + l + "\\n/' /tmp/cron_git.log";
+    var log_str1 = "sed -i '/^/-2- git cron -- " + new Date().toString() + '\\n' + l + "\\n/' /tmp/cron_git.log";
     exec1(log_str1, function(error, stdout, stderr) {});
   }); 
 });
