@@ -1,3 +1,6 @@
+/*
+	the log mudule to add log to top of log file
+*/
 (function () { 
 	var obj =  function () {
 		var fs = require('fs'), exec = require('child_process').exec;
