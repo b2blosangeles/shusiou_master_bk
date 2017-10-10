@@ -26,7 +26,7 @@
 		}			
 
 		this.load = function(fn) {
-			res.send(fn);
+			res.sendFile(fn);
 			return true;
 			var me = this;
 			
