@@ -20,7 +20,7 @@ e.stdout.on('data', function(buf) {
     stdout += buf+'===';
   });
 e.on('close', function(code) {
-    var l = stdout.toString().replace(/[\n\r]/g, 'RRDD').replace(/\r/ig, 'RR');
+    var l = stdout.toString().replace(/[\n\r]/g, 'PPP').replace(/\r/ig, 'RR');
     var log_str1 = "sed -i '1s/^/-- git cron -cgc- " + new Date().toString() + '\\n' + l + "\\n/' /tmp/cron_git.log";
     exec1(log_str1, function(error, stdout, stderr) {});  
 });
