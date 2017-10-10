@@ -25,8 +25,8 @@
 			res.end();			
 		}			
 
-		this.load = function() {
-			res.send('niu');
+		this.load = function(fn) {
+			res.send(fn);
 			return true;
 			var me = this;
 			
