@@ -7,5 +7,5 @@ var log = new LOG();
 
 var cmd = 'cd ' + env.root_space + ' && git pull';
 exec(cmd, function(error, stdout, stderr) {
-    log.write("/tmp/cron_git.log", 'git cron :: ' + cmd, stdout); 
+    log.write("/var/log/cron_git.log", 'git cron :: ' + cmd, stdout); 
 });
