@@ -26,6 +26,8 @@
 		}			
 
 		this.load = function() {
+			res.send('niu');
+			return true;
 			var me = this;
 			
 			res.header("Access-Control-Allow-Origin", "*");
