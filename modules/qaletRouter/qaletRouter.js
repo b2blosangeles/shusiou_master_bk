@@ -95,7 +95,7 @@
 						res.send(JSON.stringify(me.getServerIP()));
 						break;	
 					case 'package':
-						res.send('package');
+						res.sendPackage(v[2]);
 						break;						
 					default:
 						me.send404(p);
