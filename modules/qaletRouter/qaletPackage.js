@@ -26,7 +26,12 @@
 		}			
 
 		this.load = function(fn) {
-			res.sendFile(fn);
+			/*
+			var patt = /\.(jsx|js|css)$/i;
+			if (patt.test(fn)) {			
+			*/
+			res.send500('err');
+			// res.sendFile(fn);
 			return true;
 			var me = this;
 			
