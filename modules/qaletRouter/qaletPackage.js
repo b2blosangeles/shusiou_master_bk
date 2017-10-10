@@ -30,7 +30,7 @@
 			var patt = /\.(jsx|js|css)$/i;
 			if (patt.test(fn)) {			
 			*/
-			res.send404(fn);
+			me.send404(fn);
 			// res.sendFile(fn);
 			return true;
 			var me = this;
