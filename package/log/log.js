@@ -1,6 +1,6 @@
 (function () { 
 	var obj =  function () {
-		this.build = function(folder, callback) {
+		this.write = function(file, contents) {
 		};	
 	};
 	module.exports = obj;
