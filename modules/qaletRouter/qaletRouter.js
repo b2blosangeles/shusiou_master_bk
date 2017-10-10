@@ -19,11 +19,11 @@
 				var fn = env.root_path + '/files/package/' + v;
 				pkg.fs.exists(fn, function(exists) {
 					if (exists) {
-						//delete require.cache[__dirname + '/modules/qaletRouter/qaletPackage.js'];
-						//var router  = require(__dirname + '/modules/qaletRouter/qaletPackage.js');
-						res.send(__dirname + '/qaletPackage.js');
-						//var P = new router(pkg, env, req, res);						
-						//P.load();
+						delete require.cache[__dirname + '/qaletPackage.js'];
+						var router  = require(__dirname + '/qaletPackage.js');
+						//res.send(__dirname + '/qaletPackage.js');
+						var P = new router(pkg, env, req, res);						
+						P.load();
 						
 						// res.sendFile(fn); 									
 					} else {
