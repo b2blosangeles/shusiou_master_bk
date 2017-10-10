@@ -84,7 +84,7 @@
 		
 		this.load = function() {
 			var me = this, p = req.params[0];
-			var patt = new RegExp('/(api|checkip)/(.+|)', 'i');
+			var patt = new RegExp('/(api|checkip|package)/(.+|)', 'i');
 			var v = p.match(patt);
 			if ((v) && typeof v == 'object') {
 				switch (v[1]) {
@@ -94,6 +94,9 @@
 					case 'checkip':
 						res.send(JSON.stringify(me.getServerIP()));
 						break;	
+					case 'package':
+						res.send('package');
+						break;						
 					default:
 						me.send404(p);
 				}		
