@@ -15,7 +15,7 @@
 		this.sendPackage = function(v) {
 			var me = this;
 			var patt = /\.(jsx|js|css)$/i;
-			f (patt.test(v)) {
+			if (patt.test(v)) {
 				var fn = env.root_path + '/files/package/' + v;
 				pkg.fs.exists(fn, function(exists) {
 					if (exists) {
