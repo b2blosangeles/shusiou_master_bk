@@ -5,8 +5,8 @@ var path = require('path'), fs = require('fs');
 var env = {root_space:path.join(__dirname, '../../')};
 
 var cmd = 'cd ' + env.root_space + ' && git pull';
-exec(cmd, function(error, stdout, stderr) {
-  var l = stdout.replace(/[\n\r]/g, 'FFF').replace(/\r/ig, 'RR');
+var e = exec(cmd, function(error, stdout, stderr) {
+  var l = stdout.replace(/[\n\r]/g, 'GGG').replace(/\r/ig, 'RR');
   var log_str = "\n--- " + new Date().toString() + '   --c1c-' + "\n" + cmd + "==>\n" + stdout + '**' + l +  "\n\n";
   
   fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
@@ -14,3 +14,4 @@ exec(cmd, function(error, stdout, stderr) {
     exec1(log_str1, function(error, stdout, stderr) {});
   }); 
 });
+e.stdout.setEncoding('utf8');
