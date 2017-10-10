@@ -6,7 +6,7 @@ var env = {root_space:path.join(__dirname, '../../')};
 
 var cmd = 'cd ' + env.root_space + ' && git pull';
 exec(cmd, function(error, stdout, stderr) {
-  var l = stdout.replace(/(\n|\r|\t)/ig, 'KKK').replace(/\r/ig, 'RR');
+  var l = stdout.replace(/(\n|\r|\t)/ig, 'DDD').replace(/\r/ig, 'RR');
   var log_str = "\n--- " + new Date().toString() + '   --c1c-' + "\n" + cmd + "==>\n" + stdout + '**' + l +  "\n\n";
   
   fs.appendFile("/tmp/cron_git.log", log_str, function(err) {
