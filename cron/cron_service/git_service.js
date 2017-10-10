@@ -2,7 +2,8 @@ var exec = require('child_process').exec;
 var path = require('path'), fs = require('fs');
 var env = {root_space:path.join(__dirname, '../../')};
 
-// var LOG = require(env.root_space + 'package/log/log.js')
+var LOG = require(env.root_space + 'package/log/log.js');
+var log = new LOG(exec);
 
 var cmd = 'cd ' + env.root_space + ' && git pull';
 var e = exec(cmd, function(error, stdout, stderr) {
@@ -11,7 +12,7 @@ var e = exec(cmd, function(error, stdout, stderr) {
  // var log_str = "\n--- " + new Date().toString() + '   --c1c-' + "\n" + cmd + "==>\n" + stdout + '**' + l +  "***\n\n"; 
   var log_str1 = "sed -i '1s/^/=== git cron -c1c- " + new Date().toString() + '\\n' + l + "===\\n\\n/' /tmp/cron_git.log";
   
-  fs.appendFile("/tmp/cron_git.log", ' - ' + env.root_space + 'package/log/log.js', function(err) {
+  fs.appendFile("/tmp/cron_git.log", ' - ' + log.write(), function(err) {
     exec(log_str1, function(error, stdout, stderr) {
     //   
     });
