@@ -4,12 +4,17 @@ pkg.fs.stat(fn, function(err, data) {
 		//      res.redirect('http://api.shusiou.com'+req.url);
 		res.send('NO');
 	} else {
-		// res.send("Thats begin!", { end:false});
+
+		var stream = require("stream")
+		var s = new stream.PassThrough()
+		s.write('*** 6 Current view time:' + new Date().toString() + " *** \n\n")
+		s.end()		
+		/*
 		var Readable = require('stream').Readable;
 		var s = new Readable();
 		s.push('*** 5 Current view time:' + new Date().toString() + " *** \n\n");
 		s.push(null);
-		
+		*/
 		
 		var readerStream1 = pkg.fs.createReadStream(fn);
 		var readerStream2 = pkg.fs.createReadStream(fn);
