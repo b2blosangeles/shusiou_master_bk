@@ -4,7 +4,9 @@ pkg.fs.stat(fn, function(err, data) {
 		//      res.redirect('http://api.shusiou.com'+req.url);
 		res.send('NO');
 	} else {
-		res.send("Thats begin!", { end:false});
+		// res.send("Thats begin!", { end:false});
+		var Readable = require('stream').Readable;
+		
 		var readerStream1 = pkg.fs.createReadStream(fn);
 		var readerStream2 = pkg.fs.createReadStream(fn);
 		readerStream1.on('end', function(){
