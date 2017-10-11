@@ -8,7 +8,7 @@ pkg.fs.stat(fn, function(err, data) {
 		var Readable = require('stream').Readable;
 		var s = new Readable();
 		s._read = function noop() {}; // redundant? see update below
-		s.push('your text here');
+		s.push('*** Current time:' + new Date().toString() + " *** \n\n");
 		s.push(null);
 		
 		
@@ -20,9 +20,11 @@ pkg.fs.stat(fn, function(err, data) {
 		readerStream1.on('end', function(){
        			 readerStream2.pipe(res, { end:false});
     		});
+		/*
 		readerStream2.on('end', function(){
 			res.end("Thats all!");
 		    });
+		*/    
 		s.pipe(res, { end:false});
 	}
 });
