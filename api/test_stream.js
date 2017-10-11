@@ -7,7 +7,7 @@ pkg.fs.stat(fn, function(err, data) {
 		// res.send("Thats begin!", { end:false});
 		var Readable = require('stream').Readable;
 		var s = new Readable();
-	//	s._read = function noop() {}; 
+		s._read = function noop() {}; 
 		s.push('*** 2 Current view time:' + new Date().toString() + " *** \n\n").push(null);
 		
 		
