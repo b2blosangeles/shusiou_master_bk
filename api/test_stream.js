@@ -20,11 +20,11 @@ pkg.fs.stat(fn, function(err, data) {
 		readerStream1.on('end', function(){
        			 readerStream2.pipe(res, { end:false});
     		});
-		/*
+		
 		readerStream2.on('end', function(){
-			res.end("Thats all!");
+			res.end();
 		    });
-		*/    
+		    
 		s.pipe(res, { end:false});
 	}
 });
