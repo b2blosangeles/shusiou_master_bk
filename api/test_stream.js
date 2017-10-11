@@ -4,7 +4,7 @@ pkg.fs.stat(fn, function(err, data) {
 		//      res.redirect('http://api.shusiou.com'+req.url);
 		res.send('NO');
 	} else {
-		var readerStream = fs.createReadStream(fn);
+		var readerStream = pkg.fs.createReadStream(fn);
 		readerStream.pipe(res);
 	}
 });
