@@ -6,15 +6,23 @@ pkg.fs.stat(fn, function(err, data) {
 	} else {
 		// res.send("Thats begin!", { end:false});
 		var Readable = require('stream').Readable;
+		var s = new Readable();
+		s._read = function noop() {}; // redundant? see update below
+		s.push('your text here');
+		s.push(null);
+		
 		
 		var readerStream1 = pkg.fs.createReadStream(fn);
 		var readerStream2 = pkg.fs.createReadStream(fn);
+		s.on('end', function(){
+       			 readerStream1.pipe(res, { end:false});
+    		});		
 		readerStream1.on('end', function(){
        			 readerStream2.pipe(res, { end:false});
     		});
 		readerStream2.on('end', function(){
 			res.end("Thats all!");
 		    });
-		readerStream1.pipe(res, { end:false});
+		s.pipe(res, { end:false});
 	}
 });
