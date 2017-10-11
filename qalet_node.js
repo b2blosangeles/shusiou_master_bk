@@ -6,6 +6,9 @@ app			= express(),
 expireTime	= 604800000,
 port 		= 80;
 
+var LOG = require(__dirname + '/package/log/log.js');
+var log = new LOG();
+
 var niu = {};			
 var env = {
 	root_path:__dirname
@@ -56,10 +59,5 @@ app.get(/(.+)$/i, function (req, res) {
 
 var server = require('http').createServer(app);
 server.listen(port, function() {
-	console.log('Started server on port ' + port + '!');      
+	log.write("/var/log/shusiou_master_reboot.log", 'shusiou master boot up', 'Started server on port ' + port + '!'); 
 });
-var LOG = require(__dirname + '/package/log/log.js');
-var log = new LOG();
-log.write("/var/log/shusiou_master_reboot.log", 'shusiou_master_reboot', __dirname + '/package/log/log.js'); 
-
-
