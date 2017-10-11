@@ -59,9 +59,7 @@ server.listen(port, function() {
 	console.log('Started server on port ' + port + '!');      
 });
 /*
-var env = {root_space:path.join(__dirname, '../../')};
-
-var LOG = require(env.root_space + 'package/log/log.js');
+var LOG = require(__dirname + '/package/log/log.js');
 var log = new LOG();
 */
 
