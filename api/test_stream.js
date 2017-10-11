@@ -6,7 +6,12 @@ pkg.fs.stat(fn, function(err, data) {
 	} else {
 		var readerStream1 = pkg.fs.createReadStream(fn);
 		var readerStream2 = pkg.fs.createReadStream(fn);
-		readerStream1.pipe(readerStream2);
-		readerStream1.pipe(res);
+		readerStream1.on('end', function(){
+       			 readerStream2.pipe(res, { end:false});
+    		});
+		readerStream2.on('end', function(){
+			res.end("Thats all!");
+		    });
+		readerStream1.pipe(res, { end:false});
 	}
 });
