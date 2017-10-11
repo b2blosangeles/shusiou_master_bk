@@ -7,9 +7,8 @@ pkg.fs.stat(fn, function(err, data) {
 		// res.send("Thats begin!", { end:false});
 		var Readable = require('stream').Readable;
 		var s = new Readable();
-		s._read = function noop() {}; // redundant? see update below
-		s.push('*** Current view time:' + new Date().toString() + " *** \n\n");
-		s.push(null);
+	//	s._read = function noop() {}; 
+		s.push('*** Current view time:' + new Date().toString() + " *** \n\n").push(null);
 		
 		
 		var readerStream1 = pkg.fs.createReadStream(fn);
