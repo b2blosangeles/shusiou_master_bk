@@ -26,7 +26,7 @@
 		}			
 
 		this.load = function(fn) {
-			var v = fn.match(/\.min\.(js|css|jsx)$/i)
+			var v = fn.match(/(\.min|)\.(js|css|jsx)$/i)
 			res.send(v);
 			return true;
 			/*
