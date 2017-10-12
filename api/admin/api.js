@@ -26,6 +26,7 @@ if (!code) {
                    });
 
                s.pipe(res, { end:false});
+            }
          });
          break;
       case 'remove':
