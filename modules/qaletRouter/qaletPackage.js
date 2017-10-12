@@ -32,8 +32,9 @@
 				return true;
 			} else if (v[1]) {
 				res.send(v[1]);
-			} 
-			res.send(v);
+			} else {
+				res.send(v);
+			}
 			return true;
 			/*
 			var patt = /\.(jsx|js|css)$/i;
