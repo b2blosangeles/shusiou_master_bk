@@ -26,8 +26,12 @@
 		}			
 
 		this.load = function(fn) {
-			var v = fn.match(/(\.min|)\.(js|css|jsx)$/i)
-			res.send(v);
+			var v = fn.match(/(\.min|)\.(js|css|jsx)$/i);
+			if (!v) {
+				res.send('unsupported file type!');
+			} else {
+				res.send(v);
+			}	
 			return true;
 			/*
 			var patt = /\.(jsx|js|css)$/i;
