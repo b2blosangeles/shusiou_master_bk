@@ -332,7 +332,7 @@
 			if ((t_arr) && !me.is_css) {
 				for (var v in t_arr) {
 					_f['_tpl_'+t_arr[v]] = (function(v) {
-						var fn = space_root +me._cdn + t_arr[v];
+						var fn = space_root + '/files' + t_arr[v];
 						return function(cbk) {
 							pkg.fs.exists(fn,function(exists){
 								if(exists){
@@ -356,7 +356,7 @@
 			
 			for (var v in arr) {
 				_f['['+arr[v].code+']'+arr[v].path] = (function(v) {
-					var fn = space_root +me._cdn + arr[v].path;
+					var fn = space_root + '/files' + arr[v].path;
 					fn = fn.replace(/\/\//ig,'/');
 					return function(cbk) {
 						pkg.fs.exists(fn,function(exists){
