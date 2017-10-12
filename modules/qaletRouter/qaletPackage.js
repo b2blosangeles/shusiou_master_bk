@@ -33,6 +33,19 @@
 			var patt = /\.(jsx|js|css)$/i;
 			if (patt.test(fn)) {			
 			*/
+			/*
+			//pkg.fs.exists(fn, function(exists) {
+			//	if (exists) {
+					delete require.cache[__dirname + '/qaletPackage.js'];
+					var router  = require(__dirname + '/qaletPackage.js');
+					var P = new router(pkg, env, req, res);						
+					P.load(fn);								
+			//	} else {
+			//		me.send404(v);					
+			//	} 
+			//});			
+			*/
+			
 			me.send404(fn);
 			// res.sendFile(fn);
 			return true;
