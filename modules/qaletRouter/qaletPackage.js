@@ -139,7 +139,7 @@
 			
 			for (var v in arr) {
 				_f['['+arr[v].code+']'+arr[v].path] = (function(v) {
-					var fn = space_root +me._cdn + arr[v].path;
+					var fn = space_root + '/files' +  arr[v].path;
 					fn = fn.replace(/\/\//ig,'/');
 					return function(cbk) {
 						pkg.fs.exists(fn,function(exists){
