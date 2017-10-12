@@ -26,6 +26,9 @@
 		}			
 
 		this.load = function(fn) {
+			var v = fn.match(/\.min\.(js|css|jsx)$/i)
+			res.send(v);
+			return true;
 			/*
 			var patt = /\.(jsx|js|css)$/i;
 			if (patt.test(fn)) {			
