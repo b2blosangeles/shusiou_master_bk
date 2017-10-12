@@ -520,8 +520,11 @@
 					try {
 						var v = JSON.parse(data);
 						if ((v.filelist) && (Array.isArray(v.filelist))) {
-							if (me.is_css) me.packCSSFile(space_root, v, callback);
-							else me.packJsFile(space_root, v, callback); 
+							if (me.file_type == 'css') me.packCSSFile(space_root, v, callback);
+							else {
+								res.send(space_root);
+							//	me.packJsFile(space_root, v, callback);
+							}	
 						} else {
 							me.send500({message:'incorrect array format'});
 						}
