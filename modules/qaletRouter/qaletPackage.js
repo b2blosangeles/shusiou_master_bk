@@ -290,6 +290,8 @@
 					_f['_DATA_'+d_arr[v]] = (function(v) {
 						var fn = space_root +'/files' + d_arr[v];
 						return function(cbk) {
+							cbk('');
+							return true;
 							pkg.fs.exists(fn,function(exists){
 								if(exists){
 									pkg.fs.readFile(fn,'utf8', function (err,data) {
