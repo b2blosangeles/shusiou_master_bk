@@ -37,7 +37,16 @@
 				me.mini_code = false;
 			}
 			me.file_type = v[2];
-			res.send('me.mini_code:'+ me.mini_code + '--' +'me.file_type:' + me.file_type + ' fn:' + fn.replace(patt, '.'+v[2]));
+			fn = fn.replace(patt, '.'+v[2]);
+			pkg.fs.exists(fn, function(exists) {
+				if (exists) {
+					me.sendFile(fn);								
+				} else {
+					me.send404(v);					
+				} 
+			});			
+			
+			// res.send('me.mini_code:'+ me.mini_code + '--' +'me.file_type:' + me.file_type + ' fn:' + fn.replace(patt, '.'+v[2]));
 			
 			return true;
 			/*
