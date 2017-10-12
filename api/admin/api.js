@@ -28,7 +28,7 @@ if (!code) {
                }
             });
             break;
-      case 'remove':
+      case 'clean':
          var exec = require('child_process').exec;
          var cmd = 'rm  /var/log/'+ code;
          exec(cmd, function(error, stdout, stderr) {
