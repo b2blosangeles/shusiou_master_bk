@@ -1,7 +1,7 @@
 (function () {
 	
 	var obj =  function (pkg, env, req, res, io) {
-	
+		/*
 		this.getSpacename = function(vhost) {
 			for (var i=0; i < vhost.length; i++) {
 				if (vhost[i].domain){
@@ -13,7 +13,7 @@
 			}
 			return false;	
 		}
-		
+		*/
 		this.send404 = function(v) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
 			res.write(v + ' does not exist');
