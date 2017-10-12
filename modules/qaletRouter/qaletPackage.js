@@ -522,8 +522,7 @@
 						if ((v.filelist) && (Array.isArray(v.filelist))) {
 							if (me.file_type == 'css') me.packCSSFile(space_root, v, callback);
 							else {
-								res.send(space_root);
-							//	me.packJsFile(space_root, v, callback);
+								me.packJsFile(space_root, v, callback);
 							}	
 						} else {
 							me.send500({message:'incorrect array format'});
