@@ -1,5 +1,8 @@
 (function () {
 	var obj =  function () {
+		var folderP  = require(__dirname + '/folderP.js');
+		this.folderP = new folderP();
+		
 		this.exist = function(fn) {
 			return 'niu';
 		}		
