@@ -4,7 +4,23 @@ if (!code) {
 } else {   
    switch(opt) {
       case 'show':
-         res.sendFile('/var/log/'+code);
+         var stream = require("stream")
+         var s = new stream.PassThrough();
+         s.push('*** Current view time:' + new Date().toString() + " *** \n\n");
+         s.end()	 
+         
+         var readerStream1 = pkg.fs.createReadStream('/var/log/'+code);
+
+         s.on('end', function(){
+                   readerStream1.pipe(res, { end:false});
+            });		
+
+         readerStream1.on('end', function(){
+            res.end();
+             });
+
+         s.pipe(res, { end:false});
+
          break;
       case 'remove':
          var exec = require('child_process').exec;
