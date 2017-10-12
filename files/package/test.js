@@ -1,3 +1,3 @@
 {
-  "filelist":["js/niu.js"]
+  "filelist":["/js/niu.js"]
 }
