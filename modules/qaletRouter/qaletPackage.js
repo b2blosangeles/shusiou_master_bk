@@ -288,7 +288,7 @@
 			if (d_arr) {
 				for (var v in d_arr) {
 					_f['_DATA_'+d_arr[v]] = (function(v) {
-						var fn = space_root +'/files' + d_arr[v];
+						var fn = space_root + '/files' + d_arr[v];
 						return function(cbk) {
 							cbk('');
 							return true;
@@ -461,6 +461,7 @@
 					_D += '/*---- Data files: ';
 					for (var k in d_arr) {
 						_D += d_arr[k] + '; ';
+						continue;
 						var syntax = pkg.syntaxError(data.results['_DATA_' + d_arr[k]]);
 						if (syntax) {
 							_DC += 'console.log("Package error on data file ' + d_arr[k] + ' ->'+ '"); ' + "\n" +
