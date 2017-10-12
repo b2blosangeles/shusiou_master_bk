@@ -42,7 +42,7 @@
 
 			pkg.fs.exists(fn, function(exists) {
 				if (exists) {
-					res.sendFile('fn');								
+					res.send('fn');								
 				} else {
 					me.send404(v);					
 				} 
