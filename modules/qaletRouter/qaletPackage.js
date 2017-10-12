@@ -447,7 +447,7 @@
 					str0 += "if (!console.log) console.log =function() {}; \n";
 					var _T = '', _D = '', _TC = '', _DC = '', _C = '', _CC = '';
 			
-					str0 += '|||' +  me.pkCache.exist() +   "/*==== Built time : " + ((!me.mini_code && false)?data._spent_time:'--') + " ms: ====*/\n\n"; 
+					str0 += "/*==== Built time : " + ((!me.mini_code && false)?data._spent_time:'--') + " ms: ====*/\n\n"; 
 					str0 += 'if (!_TPL_) var _TPL_ = {};' + "\n\n";
 					str0 += 'if (!_DATA_) var _DATA_ = {}; ' + "\n\n";
 					
