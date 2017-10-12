@@ -539,7 +539,7 @@
 				} 
 			});	
 		}	
-		this.callAfterVhost = function(vhost) {
+		this.callAfterVhost11 = function(vhost) {
 			var me = this;
 			var spacename = this.getSpacename(vhost);
 
