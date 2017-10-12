@@ -29,9 +29,11 @@
 			var v = fn.match(/(\.min|)\.(js|css|jsx)$/i);
 			if (!v) {
 				res.send('unsupported file type!');
-			} else {
-				res.send(v);
-			}	
+				return true;
+			} else if (v[1]) {
+				res.send(v[1]);
+			} 
+			res.send(v);
 			return true;
 			/*
 			var patt = /\.(jsx|js|css)$/i;
