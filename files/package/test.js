@@ -1,3 +1,3 @@
-[
-  "niu.js"
-]
+{
+  filelist:["niu.js"]
+}
