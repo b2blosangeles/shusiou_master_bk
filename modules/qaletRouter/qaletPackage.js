@@ -36,8 +36,8 @@
 			} else {
 				me.mini_code = false;
 			}
-			me.type = v[2];
-			res.send('me.mini_code:'+ me.mini_code + '--' +'me.type:' + me.type);
+			me.file_type = v[2];
+			res.send('me.mini_code:'+ me.mini_code + '--' +'me.file_type:' + me.file_type);
 			
 			return true;
 			/*
