@@ -226,7 +226,7 @@
 					d_json[o.data[i]] = true;
 				}
 			}			
-			/* <-- prepare data set */
+			/* -- prepare data set */
 			
 			var rr = o.filelist, arr=[], main_list = {};
 			for (var k in rr) {
@@ -294,7 +294,7 @@
 								if(exists){
 									pkg.fs.readFile(fn,'utf8', function (err,data) {
 										if (!err) {
-											cbk('_DATA_["'+d_arr[v]+'"] = '+ me.miniCode(data) + ';');
+											cbk('_DATA_["'+d_arr[v]+'"] = '+ 'me.miniCode(data)' + ';');
 										} else {
 											cbk('');
 										}
