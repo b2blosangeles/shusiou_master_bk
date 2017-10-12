@@ -1,4 +1,4 @@
 {
   "filelist":["/js/niu.js"],
-  "ms_tpls":["/js/niu.js"]  
+  "tpls":["/js/niu.js"]  
 }
