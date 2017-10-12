@@ -26,15 +26,19 @@
 		}			
 
 		this.load = function(fn) {
+			var me = this;
 			var v = fn.match(/(\.min|)\.(js|css|jsx)$/i);
 			if (!v) {
 				res.send('unsupported file type!');
 				return true;
 			} else if (v[1]) {
-				res.send(v[1]);
+				me.mini_code = true;
 			} else {
-				res.send(v);
+				me.mini_code = false;
 			}
+			me.type = v[2];
+			res.send('me.mini_code:'+ me.mini_code + '--' +'me.type:' + me.type);
+			
 			return true;
 			/*
 			var patt = /\.(jsx|js|css)$/i;
