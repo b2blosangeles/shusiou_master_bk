@@ -292,6 +292,7 @@
 						return function(cbk) {
 							cbk('');
 							return true;
+							/*
 							pkg.fs.exists(fn,function(exists){
 								if(exists){
 									pkg.fs.readFile(fn,'utf8', function (err,data) {
@@ -304,7 +305,8 @@
 								} else {
 									cbk('');
 								}
-							});		
+							});
+							*/
 						}
 
 					})(v);
