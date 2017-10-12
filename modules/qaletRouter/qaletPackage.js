@@ -288,7 +288,7 @@
 			if (d_arr) {
 				for (var v in d_arr) {
 					_f['_DATA_'+d_arr[v]] = (function(v) {
-						var fn = space_root +me._cdn + d_arr[v];
+						var fn = space_root +'/files' + d_arr[v];
 						return function(cbk) {
 							pkg.fs.exists(fn,function(exists){
 								if(exists){
