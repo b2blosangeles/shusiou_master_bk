@@ -42,7 +42,8 @@
 
 			pkg.fs.exists(fn, function(exists) {
 				if (exists) {
-					res.send('fn');								
+				//	me.readJson();
+					res.send(env);								
 				} else {
 					me.send404(v);					
 				} 
