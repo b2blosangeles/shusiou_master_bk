@@ -1,7 +1,7 @@
 (function () {
 	var obj =  function () {
 		this.exist = function(fn) {
-
+			return 'niu';
 		}		
 		this.read = function() {
 
