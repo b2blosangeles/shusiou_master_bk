@@ -1,7 +1,11 @@
 (function () {
 	
 	var obj =  function (pkg, env, req, res, io) {
-
+		
+		delete require.cache[__dirname + '/pkCache.js'];
+		var pkCache  = require(__dirname + '/pkCache.js');
+		me.pkCache = new pkCache();
+		
 		this.send404 = function(v) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
 			res.write(v + ' does not exist');
@@ -179,7 +183,7 @@
 					var str0 = "";
 					var _C = '', _CC = '';
 			
-					str0 += "/*==== Built time : " + ((!me.mini_code && false)?data._spent_time:'--') + " ms: ====*/\n\n"; 
+					str0 += '|||' +  me.pkCache.exist +  "/*==== Built time : " + ((!me.mini_code && false)?data._spent_time:'--') + " ms: ====*/\n\n"; 
 					
 					var code_result = {}, path_result = {};
 					for (var v in arr) {
