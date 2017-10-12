@@ -1,19 +1,7 @@
 (function () {
 	
 	var obj =  function (pkg, env, req, res, io) {
-		/*
-		this.getSpacename = function(vhost) {
-			for (var i=0; i < vhost.length; i++) {
-				if (vhost[i].domain){
-					var patt = new RegExp(vhost[i].domain, 'i');
-					if (patt.test(req.headers.host)) {
-						return vhost[i].name;
-					}					
-				}
-			}
-			return false;	
-		}
-		*/
+
 		this.send404 = function(v) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
 			res.write(v + ' does not exist');
@@ -24,7 +12,20 @@
 			res.write('Error! ' + err.message);
 			res.end();			
 		}			
-
+		this.sendHeader = function() {
+			var me = this;
+			res.header("Access-Control-Allow-Origin", "*");
+			res.header("Access-Control-Allow-Headers", "X-Requested-With");
+			res.header('Access-Control-Allow-Headers', 'Content-Type'); 
+			if (me.file_type == 'js' || me.file_type == 'jsx') {
+				res.setHeader('Content-Type', "text/javascrip");
+			} else if (me.file_type == 'css') {
+				me.is_css = true;
+				res.setHeader('Content-Type', "text/css");
+			} else {
+				res.setHeader('Content-Type', "text/html");
+			}			
+		}
 		this.load = function(fn) {
 			var me = this, patt = /(\.min|)\.(js|css|jsx)$/i;
 			var v = fn.match(patt);
@@ -41,59 +42,12 @@
 
 			pkg.fs.exists(fn, function(exists) {
 				if (exists) {
-					res.sendFile(fn);								
+					res.sendFile('fn');								
 				} else {
 					me.send404(v);					
 				} 
 			});			
-			
-			// res.send('me.mini_code:'+ me.mini_code + '--' +'me.file_type:' + me.file_type + ' fn:' + fn.replace(patt, '.'+v[2]));
-			
-			return true;
-			/*
-			var patt = /\.(jsx|js|css)$/i;
-			if (patt.test(fn)) {			
-			*/
-			/*
-			//pkg.fs.exists(fn, function(exists) {
-			//	if (exists) {
-					delete require.cache[__dirname + '/qaletPackage.js'];
-					var router  = require(__dirname + '/qaletPackage.js');
-					var P = new router(pkg, env, req, res);						
-					P.load(fn);								
-			//	} else {
-			//		me.send404(v);					
-			//	} 
-			//});			
-			*/
-			
-			me.send404(fn);
-			// res.sendFile(fn);
-			return true;
-			var me = this;
-			
-			res.header("Access-Control-Allow-Origin", "*");
-			res.header("Access-Control-Allow-Headers", "X-Requested-With");
-			res.header('Access-Control-Allow-Headers', 'Content-Type'); 			
-			
-			var patt = new RegExp('^cdn([0-9]+|)\.([^.]+)\.([^.]+)', 'i');	
-			
-			if (!patt.test(req.headers.host)) {
-				me._cdn = '/';
-			} else {
-				me._cdn = '/cdn/';
-			}
-			
-			pkg.db.vhost.find({}, function (err, vhost) {
-				if (!err) {
-					me.callAfterVhost(vhost);
-				} else {
-					res.send500(err)
-				}
-
-			});			
-			return true;
-			
+			return true;			
 		}	
 		
 		this.sendFileType = function(path) {
