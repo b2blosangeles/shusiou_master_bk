@@ -538,47 +538,7 @@
 					
 				} 
 			});	
-		}	
-		this.callAfterVhost11 = function(vhost) {
-			var me = this;
-			var spacename = this.getSpacename(vhost);
-
-			var space_dir, space_root, fn, space_fn;
-			
-			if (req.params[0]) {
-				fn = (req.params[0])?req.params[0].replace(/\.min\.(js|css|jsx)$/i, ".$1"):'';
-			}
-			
-			if (spacename) {
-				space_dir = env.root_path + '/_microservice/' + spacename + '/package/' + req.params[0];
-				space_root = env.root_path + '/_microservice/' + spacename;
-				space_fn = env.root_path + '/_microservice/' + spacename + '/package/' + fn;
-				
-			} else {
-				space_dir = env.root_path + '/defaultsite/www/package/' + req.params[0];
-				space_root = env.root_path + '/defaultsite/www';
-				space_fn = env.root_path + '/defaultsite/www/package/' + fn;
-			}
-			
-			
-			pkg.fs.exists(space_fn, function(exists) {
-				if (exists) {
-					pkg.fs.stat(space_fn, function(err, stats) {
-						if (stats.isFile()) { 
-							me.sendFileType(space_dir);	
-							me.readJson(space_root, space_fn, function(data) {
-								res.send(data);
-							})
-						} else {
-							me.send404(fn + ' does not exist!');								 
-						}
-					});									
-				} else {
-					me.send404(req.params[0] + ' does not exist!');						
-				} 
-			});				
-			return true;
-		};	
+		}		
 	};
 	
 	if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
