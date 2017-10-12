@@ -1,5 +1,8 @@
 (function () {
-	var obj =  function (fn) {
+	var obj =  function () {
+		this.exist = function(fn) {
+
+		}		
 		this.read = function() {
 
 		}		
