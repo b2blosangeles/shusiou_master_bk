@@ -1,5 +1,5 @@
 {
   "filelist":["/js/niu.js"],
   "tpls":["/js/niu.js"],
-  "data":["/js/js1.data"]
+  "data":["/js/niu.data"]
 }
