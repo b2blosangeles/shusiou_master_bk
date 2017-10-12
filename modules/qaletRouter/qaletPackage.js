@@ -26,8 +26,8 @@
 		}			
 
 		this.load = function(fn) {
-			var me = this;
-			var v = fn.match(/(\.min|)\.(js|css|jsx)$/i);
+			var me = this, patt = /(\.min|)\.(js|css|jsx)$/i;
+			var v = fn.match(patt);
 			if (!v) {
 				res.send('unsupported file type!');
 				return true;
@@ -37,7 +37,7 @@
 				me.mini_code = false;
 			}
 			me.file_type = v[2];
-			res.send('me.mini_code:'+ me.mini_code + '--' +'me.file_type:' + me.file_type + ' fn:' + fn);
+			res.send('me.mini_code:'+ me.mini_code + '--' +'me.file_type:' + me.file_type + ' fn:' + fn.replace(patt, v[2]));
 			
 			return true;
 			/*
