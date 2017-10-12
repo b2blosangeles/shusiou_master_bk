@@ -329,7 +329,7 @@
 			for (var k in t_json) {
 				t_arr.push(k);
 			}
-			if ((t_arr) && !me.is_css) {
+			if (t_arr) {
 				for (var v in t_arr) {
 					_f['_tpl_'+t_arr[v]] = (function(v) {
 						var fn = space_root + '/files' + t_arr[v];
