@@ -526,7 +526,7 @@
 							me.send500({message:'incorrect array format'});
 						}
 					} catch(err) {
-						me.send500({message:'incorrect array format'});
+						me.send500({message:'1 incorrect array format'});
 					}
 					
 				} 
