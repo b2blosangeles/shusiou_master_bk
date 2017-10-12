@@ -7,8 +7,7 @@ pkg.fs.stat(fn, function(err, data) {
 
 		var stream = require("stream")
 		var s = new stream.PassThrough();
-		// s.write('*** 6 Current view time:' + new Date().toString() + " *** \n\n")
-		s.push('*** 8 Current view time:' + new Date().toString() + " *** \n\n");
+		s.push('*** Current view time:' + new Date().toString() + " *** \n\n");
 		s.end()		
 		/*
 		var Readable = require('stream').Readable;
