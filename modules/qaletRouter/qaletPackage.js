@@ -4,7 +4,7 @@
 		
 		delete require.cache[__dirname + '/pkCache.js'];
 		var pkCache  = require(__dirname + '/pkCache.js');
-		this.pkCache = new pkCache(env);
+		this.pkCache = new pkCache(env.root_path);
 		
 		this.send404 = function(v) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
