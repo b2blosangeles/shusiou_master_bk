@@ -21,4 +21,4 @@
 		module.exports = obj;
 	} 
 	
-})();
+})(space_root);
