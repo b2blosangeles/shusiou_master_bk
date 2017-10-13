@@ -372,8 +372,8 @@
 										if (err) {
 											cbk('console.log("'+err.message.replace('"', '')+'");');
 										} else {
-											//cbk('ppp');
-											//return true;
+											cbk('ppp');
+											return true;
 											//pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
 											//	if (err) {
 											//		cbk('console.log("'+err.message.replace('"', '')+'");');
