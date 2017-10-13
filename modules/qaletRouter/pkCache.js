@@ -1,5 +1,5 @@
-(function (space_root) {
-	var obj =  function () {
+(function () {
+	var obj =  function (space_root) {
 		var folderP  = require(__dirname + '/folderP.js');
 		var fs = require('fs');
 		this.folderP = new folderP();
@@ -21,4 +21,4 @@
 		module.exports = obj;
 	} 
 	
-})(space_root);
+})();
