@@ -373,7 +373,9 @@
 									pkg.fs.stat(fn, function(err, s){
 										if (err) {
 											cbk('console.log("'+err.message.replace('"', '')+'");');
-										} else {										
+										} else {
+											cbk('ppp');
+											return true;
 											pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
 												if (err) {
 													cbk('console.log("'+err.message.replace('"', '')+'");');
