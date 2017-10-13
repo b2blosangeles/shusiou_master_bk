@@ -411,10 +411,9 @@
 													} else {
 														cbk(me.miniCode(docs[0].doc));
 													}
-													
 												}
-											*/	
-											});												
+											});
+											*/*
 										}   
 										
 									});									
