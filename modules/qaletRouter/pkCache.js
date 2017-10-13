@@ -4,9 +4,16 @@
 		var fs = require('fs');
 		this.folderP = new folderP();
 		
-		this.exist = function(fn, key) {
+		this.exist = function(fn, key, callback) {
 			var patt = new RegExp('^' + root_path + '/files/');
-			return fn.replace(patt, '').replace(/\//g, '_')+'/'+key;
+			var filename = fn.replace(patt, '').replace(/\//g, '_')+'/'+key
+			fs.exists(filename,function(exists){
+				if(exists){
+					callback('Yes');
+				} else {
+					callback('no');
+				}
+			);
 		}		
 		this.read = function() {
 
