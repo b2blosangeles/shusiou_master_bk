@@ -363,8 +363,6 @@
 					return function(cbk) {
 						pkg.fs.exists(fn,function(exists){
 							if(exists){
-								
-		
 								if (fn.match(/\.(jsx)$/i)) {
 									if (!qaletBabel) {
 										var Babel  = require(env.root_path + "/package/qaletBabel/qaletBabel.js");
@@ -374,12 +372,12 @@
 										if (err) {
 											cbk('console.log("'+err.message.replace('"', '')+'");');
 										} else {
-											cbk('ppp');
-											return true;
-											pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
-												if (err) {
-													cbk('console.log("'+err.message.replace('"', '')+'");');
-												} else if (!docs || !docs.length) {
+											//cbk('ppp');
+											//return true;
+											//pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
+											//	if (err) {
+											//		cbk('console.log("'+err.message.replace('"', '')+'");');
+											//	} else if (!docs || !docs.length) {
 													qaletBabel.jsx2js(fn, function(err, v) {
 														if (err) {
 															cbk('console.log("'+err.message.replace('"', '')+'");');
@@ -393,7 +391,7 @@
 															});
 														}   
 													});													
-
+											/*
 												} else {
 													if (docs[0].mtime != s.mtime.getTime()) {
 														qaletBabel.jsx2js(fn, function(err, v) {
@@ -415,7 +413,7 @@
 													}
 													
 												}
-												
+											*/	
 											});												
 										}   
 										
