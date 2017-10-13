@@ -1,11 +1,12 @@
 (function () {
-	var obj =  function () {
+	var obj =  function (space_root) {
 		var folderP  = require(__dirname + '/folderP.js');
 		var fs = require('fs');
 		this.folderP = new folderP();
 		
 		this.exist = function(fn) {
-			return fn;
+			var patt = new Regex('^' + space_root);
+			return fn,replace(patt, '==');
 		}		
 		this.read = function() {
 
