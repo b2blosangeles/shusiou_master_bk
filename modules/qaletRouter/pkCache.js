@@ -5,7 +5,7 @@
 		this.folderP = new folderP();
 		
 		this.exist = function(fn) {
-			return 'niu';
+			return fn;
 		}		
 		this.read = function() {
 
