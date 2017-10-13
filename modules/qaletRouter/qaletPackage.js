@@ -372,7 +372,7 @@
 										if (err) {
 											cbk('console.log("'+err.message.replace('"', '')+'");');
 										} else {
-											cbk(me.pkCache.exist(fn));
+											cbk(me.pkCache.exist(fn, s.mtime.getTime()));
 											return true;
 											//pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
 											//	if (err) {
