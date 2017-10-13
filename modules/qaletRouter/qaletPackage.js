@@ -372,8 +372,8 @@
 										if (err) {
 											cbk('console.log("'+err.message.replace('"', '')+'");');
 										} else {
-											cbk('ppp');
-											return true;
+											
+											// return true;
 											//pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
 											//	if (err) {
 											//		cbk('console.log("'+err.message.replace('"', '')+'");');
@@ -382,6 +382,8 @@
 														if (err) {
 															cbk('console.log("'+err.message.replace('"', '')+'");');
 														} else {
+															cbk('ppp2');
+															/*
 															pkg.db.jsx_cache.insert({file:fn, mtime:s.mtime.getTime(), doc:v.code}, function (err, newDoc) {   
 																if (err) {
 																	cbk('console.log("'+err.message.replace('"', '')+'");');
@@ -389,6 +391,7 @@
 																	cbk(me.miniCode(newDoc.doc));
 																}	
 															});
+															*/
 														}   
 													});													
 											/*
