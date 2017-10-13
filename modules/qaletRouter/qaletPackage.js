@@ -382,7 +382,7 @@
 														if (err) {
 															cbk('console.log("'+err.message.replace('"', '')+'");');
 														} else {
-															cbk(v);
+															cbk(v.code);
 															/*
 															pkg.db.jsx_cache.insert({file:fn, mtime:s.mtime.getTime(), doc:v.code}, function (err, newDoc) {   
 																if (err) {
