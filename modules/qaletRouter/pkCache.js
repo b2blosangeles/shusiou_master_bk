@@ -5,8 +5,8 @@
 		this.folderP = new folderP();
 		
 		this.exist = function(fn) {
-			var patt = new RegExp('^' + root_path);
-			return fn.replace(patt, '==');
+			var patt = new RegExp('^' + root_path + '/files/');
+			return fn.replace(patt, '').replace(/\//g, '_');
 		}		
 		this.read = function() {
 
