@@ -7,13 +7,13 @@
 		this.exist = function(fn, key, callback) {
 			var patt = new RegExp('^' + root_path + '/files/');
 			var filename = fn.replace(patt, '').replace(/\//g, '_')+'/'+key
-			fs.exists(filename,function(exists){
+			fs.exists(filename, function(exists){
 				if(exists){
 					callback('Yes');
 				} else {
 					callback('no');
 				}
-			);
+			});
 		}		
 		this.read = function() {
 
