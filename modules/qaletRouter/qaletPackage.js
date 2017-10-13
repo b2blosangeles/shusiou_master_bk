@@ -462,13 +462,13 @@
 					for (var k in d_arr) {
 						_D += d_arr[k] + '; ';
 						//continue;
-						//var syntax = pkg.syntaxError(data.results['_DATA_' + d_arr[k]]);
-						//if (syntax) {
-						//	_DC += 'console.log("Package error on data file ' + d_arr[k] + ' ->'+ '"); ' + "\n" +
-						//	'console.log(decodeURIComponent("'+ encodeURIComponent(JSON.stringify(syntax)) + '"));' + "\n";
-						//} else {	
+						var syntax = pkg.syntaxError(data.results['_DATA_' + d_arr[k]]);
+						if (syntax) {
+							_DC += 'console.log("Package error on data file ' + d_arr[k] + ' ->'+ '"); ' + "\n" +
+							'console.log(decodeURIComponent("'+ encodeURIComponent(JSON.stringify(syntax)) + '"));' + "\n";
+						} else {	
 							_DC += data.results['_DATA_' + d_arr[k]]+ "\n";
-						//}
+						}
 					}
 					_D += " ----*/\n";
 					
