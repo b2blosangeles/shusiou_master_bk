@@ -1,13 +1,12 @@
 (function () {
-	var obj =  function (space_root) {
+	var obj =  function (root_path) {
 		var folderP  = require(__dirname + '/folderP.js');
 		var fs = require('fs');
 		this.folderP = new folderP();
 		
 		this.exist = function(fn) {
-			var patt = new RegExp('^' + space_root);
-			return JSON.stringify(space_root);
-			//fn.replace(patt, '==');
+			var patt = new RegExp('^' + root_path);
+			return fn.replace(patt, '==');
 		}		
 		this.read = function() {
 
