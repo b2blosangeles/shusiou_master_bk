@@ -6,7 +6,7 @@
 		
 		this.exist = function(fn) {
 			var patt = new RegExp('^' + space_root);
-			return space_root
+			return JSON.stringify(space_root);
 			//fn.replace(patt, '==');
 		}		
 		this.read = function() {
