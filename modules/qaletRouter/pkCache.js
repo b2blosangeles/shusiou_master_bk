@@ -5,7 +5,7 @@
 		this.folderP = new folderP();
 		
 		this.exist = function(fn) {
-			var patt = new Regex('^' + space_root);
+			var patt = new RegExp('^' + space_root);
 			return fn,replace(patt, '==');
 		}		
 		this.read = function() {
