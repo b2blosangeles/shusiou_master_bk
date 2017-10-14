@@ -13,7 +13,7 @@
 					callback('Yes');
 				} else {
 					// me.folderP()
-					callback('no');
+					callback(filename);
 				}
 			});
 		}		
