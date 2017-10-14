@@ -374,9 +374,7 @@
 										} else {
 											me.pkCache.exist(fn, s.mtime.getTime(),
 												cbk,
-												function(data) {
-													return data+'--transformed';
-												}
+												qaletBabel
 											);
 											return true;
 											qaletBabel.jsx2js(fn, function(err, v) {
