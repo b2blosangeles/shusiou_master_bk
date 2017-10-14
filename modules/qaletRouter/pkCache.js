@@ -12,14 +12,20 @@
 				if(exists){
 					callback('Yes');
 				} else {
-					me.folderP.build(p, function() {
-						callback('===p');
-					});
+					//me.folderP.build(p, function() {
+						me.read(fn, callback)
+					//});
 				}
 			});
 		}		
-		this.read = function() {
-
+		this.read = function(fn, cbk) {
+			fs.readFile(fn,'utf8', function (err,data) {
+				if (!err) {
+					cbk(data);
+				} else {
+					cbk('');
+				}
+			});
 		}		
 		this.write = function() {
 
