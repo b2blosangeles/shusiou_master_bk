@@ -17,10 +17,10 @@
 					me.read(fn, function(data) {
 						me.folderP.build(p, function() {
 							fs.readdir(p, function(err, files){
-								
 								for (var i = 0; i < files.length; i++) {
 									fs.unlink( p + files[i]);
-								 }
+								 }								
+
 								me.write(fn, data, function() {
 									callback(data);
 								});								
