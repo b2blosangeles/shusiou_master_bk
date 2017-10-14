@@ -11,7 +11,7 @@
 			fs.exists(p + key, function(exists){
 				if(exists){
 					me.read(p + key, function(data) {
-						callback(data + '==cached==');
+						callback(data);
 					});
 				} else {
 					qaletBabel.jsx2js(fn, function(err, v) {
