@@ -1,2 +1,2 @@
-alert(123); alert(456778);
+alert(123); alert(4000);
 
