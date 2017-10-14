@@ -16,7 +16,9 @@
 				} else {
 					me.read(fn, function(data) {
 						me.folderP.build(p, function() {
-							fs.readdir(p, (err, files)=>{
+							fs.readdir(p, function(err, files){
+								callback(JSON.stringify(files));
+								return true;
 								for (var i = 0; i < files.length; i++) {
 									fs.unlink(files[i]);
 								}
