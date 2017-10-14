@@ -35,28 +35,6 @@
 							callback(v.code + '===v.code');
 						}   
 					});
-					/*
-					
-					me.read(fn, function(data) {
-						if (typeof trans == 'function') {
-							data = trans(data);
-						}
-						me.folderP.build(p, function() {
-							fs.readdir(p, function(err, files){
-								
-								for (var i = 0; i < files.length; i++) {
-									if ((p + files[i]) != fn) {
-										fs.unlink( p + files[i]);
-									}		
-								 }								
-								me.write(p + key, data, function() {
-									callback(data);
-								});							
-							});
-							
-						});
-					});
-					*/
 				}
 			});
 		}		
