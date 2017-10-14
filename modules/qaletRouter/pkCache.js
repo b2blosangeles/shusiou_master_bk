@@ -12,8 +12,11 @@
 				if(exists){
 					callback('Yes');
 				} else {
+					me.read(fn, function(data) {
+						callback(data);
+					}
 					//me.folderP.build(p, function() {
-						me.read(fn, callback)
+						
 					//});
 				}
 			});
