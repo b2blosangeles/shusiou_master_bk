@@ -1,19 +1,20 @@
 var fn = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4';
-res.send(fn);
-return true;
 
 
+/*
 var video = req.param('video').split('|'), fn;
 var folder_base = '/mnt/shusiou-video/youtube/';
 
 var vid = video[0]; s =  (!video[1])?0:video[1];
 
 var file_video = folder_base + vid + '/video/video.mp4';
+*/
 var folder_image = folder_base + vid + '/images/' +  vid;
 
 fn = folder_image + '/180_' + s + '.png';
 var CP = new pkg.crowdProcess();
-
+res.send(fn);
+return true;
 
 var _f = {};
 _f['S0'] = function(cbk) {
