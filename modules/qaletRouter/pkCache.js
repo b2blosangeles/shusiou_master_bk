@@ -16,7 +16,9 @@
 				} else {
 					me.read(fn, function(data) {
 						me.folderP.build(p, function() {
-							callback(data);
+							me.write(p + key, data, function() {
+								callback(data);
+							});	
 						});
 					});
 				}
@@ -31,8 +33,10 @@
 				}
 			});
 		}		
-		this.write = function() {
-
+		this.write = function(fn, data, cbk) {		
+			fs.writeFile(fn, data, function (err) {
+				cbk();
+			});
 		}		    
 	};
 	
