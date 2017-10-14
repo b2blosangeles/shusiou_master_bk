@@ -1,17 +1,8 @@
-var fn = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4';
+var file_video = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4';
+var folder_image = 'tmp/images/';
 
-
-/*
-var video = req.param('video').split('|'), fn;
-var folder_base = '/mnt/shusiou-video/youtube/';
-
-var vid = video[0]; s =  (!video[1])?0:video[1];
-
-var file_video = folder_base + vid + '/video/video.mp4';
-*/
-var folder_image = folder_base + vid + '/images/' +  vid;
-
-fn = folder_image + '/180_' + s + '.png';
+var fn = 'tmp/images/1.png',
+    
 var CP = new pkg.crowdProcess();
 res.send(fn);
 return true;
@@ -29,7 +20,7 @@ _f['S0'] = function(cbk) {
 };
 
 _f['S1'] = function(cbk) {
-	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
+	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(folder_image, function() {
 		cbk(true);
