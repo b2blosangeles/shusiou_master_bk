@@ -12,8 +12,9 @@
 				if(exists){
 					callback('Yes');
 				} else {
-					// me.folderP()
-					callback(p);
+					me.folderP(p, function() {
+						callback('===p');
+					});
 				}
 			});
 		}		
