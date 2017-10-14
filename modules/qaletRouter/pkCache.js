@@ -15,7 +15,6 @@
 					});
 				} else {
 					qaletBabel.jsx2js(fn, function(err, v) {
-						v.code = escape(v.code);
 						if (err) {
 							callback('console.log("'+err.message.replace('"', '')+'");');
 						} else {
