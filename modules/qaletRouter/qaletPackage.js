@@ -373,7 +373,9 @@
 											cbk('console.log("'+err.message.replace('"', '')+'");');
 										} else {
 											me.pkCache.exist(fn, s.mtime.getTime(),
-												cbk		    
+												function(data) {
+													cbk(data);
+												}	 		    
 											);
 											return true;
 											//pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
@@ -396,29 +398,6 @@
 															*/
 														}   
 													});													
-											/*
-												} else {
-													if (docs[0].mtime != s.mtime.getTime()) {
-														qaletBabel.jsx2js(fn, function(err, v) {
-															if (err) {
-																cbk('console.log("'+err.message.replace('"', '')+'");');
-															} else {
-																pkg.db.jsx_cache.update({file:fn},
-																	{$set: {mtime:s.mtime.getTime(), doc:v.code}}, function (err, newDoc) {   
-																	if (err) {
-																		cbk('console.log("'+err.message.replace('"', '')+'");');
-																	} else {						
-																		cbk(me.miniCode(v.code));
-																	}	
-																});
-															}
-														});		
-													} else {
-														cbk(me.miniCode(docs[0].doc));
-													}
-												}
-											});
-											*/
 										}   
 										
 									});									
