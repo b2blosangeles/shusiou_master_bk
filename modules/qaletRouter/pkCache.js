@@ -27,7 +27,7 @@
 											fs.unlink( p + files[i]);
 										}		
 									 }								
-									me.write(p + key, , function() {
+									me.write(p + key, v.code, function() {
 										callback(v.code);
 									});							
 								});
