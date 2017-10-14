@@ -12,7 +12,7 @@
 				if(exists){
 					callback('Yes');
 				} else {
-					me.folderP(p, function() {
+					me.folderP.build(p, function() {
 						callback('===p');
 					});
 				}
