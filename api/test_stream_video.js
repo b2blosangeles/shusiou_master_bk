@@ -1,5 +1,3 @@
-var video = req.query['video'].split('|'), fn;
-var base = '/var/video/';
 
 var fn = __dirname + 'SampleVideo_1280x720_5mb.mp4';
 res.send(fn);
