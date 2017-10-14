@@ -28,7 +28,7 @@
 								
 							});*/
 							me.write(fn, data, function() {
-								callback(data);
+								callback(data + '==' + fn);
 							});							
 						});
 					});
