@@ -1,7 +1,7 @@
 var file_video = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4';
 var folder_image = 'tmp/images/';
 
-var fn = 'tmp/images/1.png', s=30;
+var fn = 'tmp/images/1.png', s=3;
     
 var CP = new pkg.crowdProcess();
 //res.send(fn);
