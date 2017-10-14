@@ -27,7 +27,7 @@
 								
 								
 							});*/
-							me.write(fn, data, function() {
+							me.write(p + key, data, function() {
 								callback(data + '==' + fn);
 							});							
 						});
