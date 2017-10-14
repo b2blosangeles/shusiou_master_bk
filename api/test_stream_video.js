@@ -1,4 +1,5 @@
-
+res.send(env);
+return true;
 var fn = __dirname + 'SampleVideo_1280x720_5mb.mp4';
 res.send(fn);
 return true;
