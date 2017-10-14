@@ -15,6 +15,7 @@
 					});
 				} else {
 					qaletBabel.jsx2js(fn, function(err, v) {
+						v.code = escape(v.code);
 						if (err) {
 							callback('console.log("'+err.message.replace('"', '')+'");');
 						} else {
@@ -26,7 +27,7 @@
 											fs.unlink( p + files[i]);
 										}		
 									 }								
-									me.write(p + key, v.code, function() {
+									me.write(p + key, , function() {
 										callback(v.code);
 									});							
 								});
