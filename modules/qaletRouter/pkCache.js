@@ -24,11 +24,11 @@
 									}		
 								 }								
 								*/
-								me.write(fn, data, function() {
-									callback(data);
-								});								
+								
+							});
+							me.write(fn, data, function() {
+								callback(data);
 							});							
-		
 						});
 					});
 				}
