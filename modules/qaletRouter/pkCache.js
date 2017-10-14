@@ -24,7 +24,7 @@
 									}		
 								 }								
 								me.write(p + key, data, function() {
-									callback(data + '==' + fn);
+									callback(data);
 								});							
 							});
 							
