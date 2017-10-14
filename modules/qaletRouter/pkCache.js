@@ -10,14 +10,15 @@
 			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/';
 			fs.exists(p + key, function(exists){
 				if(exists){
-					callback('Yes');
+					me.read(p + key, function(data) {
+						callback(data + '==cached==');
+					});
 				} else {
 					me.read(fn, function(data) {
-						callback(data);
+						me.folderP.build(p, function() {
+							callback(data);
+						});
 					});
-					//me.folderP.build(p, function() {
-						
-					//});
 				}
 			});
 		}		
