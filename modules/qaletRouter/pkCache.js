@@ -18,7 +18,9 @@
 						me.folderP.build(p, function() {
 							fs.readdir(p, function(err, files){
 								for (var i = 0; i < files.length; i++) {
-									fs.unlink( p + files[i]);
+									if ((p + files[i]) != fn) {
+										fs.unlink( p + files[i]);
+									}		
 								 }								
 
 								me.write(fn, data, function() {
