@@ -373,9 +373,10 @@
 											cbk('console.log("'+err.message.replace('"', '')+'");');
 										} else {
 											me.pkCache.exist(fn, s.mtime.getTime(),
+												cbk,
 												function(data) {
-													cbk(data);
-												}	 		    
+													return data+'--transformed';
+												}
 											);
 											return true;
 											//pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
