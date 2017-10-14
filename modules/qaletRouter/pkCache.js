@@ -4,7 +4,7 @@
 		var fs = require('fs');
 		this.folderP = new folderP();
 		
-		this.exist = function(fn, key, callback, qaletBabel) {
+		this.qaletBabel = function(fn, key, callback, qaletBabel) {
 			var me = this;
 			var patt = new RegExp('^' + root_path + '/files/');
 			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/';
