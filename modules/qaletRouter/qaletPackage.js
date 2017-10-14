@@ -372,18 +372,10 @@
 										if (err) {
 											cbk('console.log("'+err.message.replace('"', '')+'");');
 										} else {
-											me.pkCache.exist(fn, s.mtime.getTime(),
+											me.pkCache.qaletBabel(fn, s.mtime.getTime(),
 												cbk,
 												qaletBabel
-											);
-											return true;
-											qaletBabel.jsx2js(fn, function(err, v) {
-												if (err) {
-													cbk('console.log("'+err.message.replace('"', '')+'");');
-												} else {
-													cbk(v.code);
-												}   
-											});													
+											);													
 										}   
 										
 									});									
