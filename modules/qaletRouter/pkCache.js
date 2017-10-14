@@ -7,7 +7,7 @@
 		this.exist = function(fn, key, callback) {
 			var me = this;
 			var patt = new RegExp('^' + root_path + '/files/');
-			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/'+key
+			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/';
 			fs.exists(p + key, function(exists){
 				if(exists){
 					callback('Yes');
