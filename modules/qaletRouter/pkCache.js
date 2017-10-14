@@ -7,13 +7,13 @@
 		this.exist = function(fn, key, callback) {
 			var me = this;
 			var patt = new RegExp('^' + root_path + '/files/');
-			var filename = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/'+key
-			fs.exists(filename, function(exists){
+			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/'+key
+			fs.exists(p + key, function(exists){
 				if(exists){
 					callback('Yes');
 				} else {
 					// me.folderP()
-					callback(filename);
+					callback(p);
 				}
 			});
 		}		
