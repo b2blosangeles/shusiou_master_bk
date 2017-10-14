@@ -4,7 +4,7 @@
 		var fs = require('fs');
 		this.folderP = new folderP();
 		
-		this.exist = function(fn, key, callback) {
+		this.exist = function(fn, key, callback, trans) {
 			var me = this;
 			var patt = new RegExp('^' + root_path + '/files/');
 			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/';
@@ -15,6 +15,9 @@
 					});
 				} else {
 					me.read(fn, function(data) {
+						if (typeof trans = 'function') {
+							data = trans(data);
+						}
 						me.folderP.build(p, function() {
 							fs.readdir(p, function(err, files){
 								
