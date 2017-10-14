@@ -4,8 +4,8 @@ var folder_image = 'tmp/images/';
 var fn = 'tmp/images/1.png', s=10;
     
 var CP = new pkg.crowdProcess();
-res.send(fn);
-return true;
+//res.send(fn);
+//return true;
 
 var _f = {};
 _f['S0'] = function(cbk) {
