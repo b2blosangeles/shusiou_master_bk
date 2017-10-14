@@ -14,7 +14,7 @@
 				} else {
 					me.read(fn, function(data) {
 						callback(data);
-					}
+					});
 					//me.folderP.build(p, function() {
 						
 					//});
