@@ -15,7 +15,7 @@
 					});
 				} else {
 					me.read(fn, function(data) {
-						if (typeOf trans = 'function') {
+						if (typeOf trans == 'function') {
 							data = trans(data);
 						}
 						me.folderP.build(p, function() {
