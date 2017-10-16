@@ -17,6 +17,15 @@ return true;
 */
 //var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});
 
+function getServerIP() {
+    var ifaces = require('os').networkInterfaces(), address=[];
+    for (var dev in ifaces) {
+        var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
+        for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
+    }
+    return address;
+};
+
 var video = ytdl(url, {quality:'18'});
 video.pipe(pkg.fs.createWriteStream('/tmp/niu.mp4'));	
 
@@ -28,7 +37,7 @@ video.on('data', function(info) {
 }); 
 
 video.on('end', function(info) {
-	res.send(s+'-done!!' + total + "==" + t.join(', '));
+	res.send(s+'-done!!' + total + "==" + getServerIP());
 });	
 /*
 video.on('error', function() {
