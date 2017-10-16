@@ -7,7 +7,7 @@ ytdl.getInfo(url, {},  function(err, info){
     res.send(false);
   } else {
     var r = {vid:info.video_id, title:info.title, length_seconds:parseInt(info.length_seconds), thumbnail_url:info.thumbnail_url};
-    res.send(r);
+    res.send(info);
   }  
 });
 return true;
