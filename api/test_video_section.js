@@ -28,12 +28,6 @@ CP.serial(
 	_f,
 	function(data) {
 		
-		
-		
-res.send(fn+'aaa');
-			return true;
-		
-		
 		pkg.fs.stat(fn, function(err, data) {
 			res.send('date');
 			return true;
