@@ -1,9 +1,16 @@
 var ytdl = require(env.root_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 
-var uid = 1, 
-    source = 'ytdl-core',
-    code = 'https://youtu.be/WAXH_9bpLfI';
+function getServerIP() {
+    var ifaces = require('os').networkInterfaces(), address=[];
+    for (var dev in ifaces) {
+        var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
+        for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
+    }
+    return address;
+};
+
+var holder_ip = getServerIP();
 
 var CP = new pkg.crowdProcess();
 var _f = {};
@@ -14,7 +21,7 @@ _f['P0'] = function(cbk) {
 	connection.connect();
 	
 	var str = 'SELECT * FROM `download_queue` WHERE `id` NOT IN ' +
-	    ' (SELECT `id` FROM `download_queue` WHERE 1) ';
+	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" ) ';
 			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ); ';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
