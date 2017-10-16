@@ -1,10 +1,10 @@
-var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
+var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 
 var CP = new pkg.crowdProcess();
 var _f = {};
 
 _f['Q0'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
@@ -25,7 +25,7 @@ _f['Q0'] = function(cbk) {
 };
 
 _f['Q1'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
