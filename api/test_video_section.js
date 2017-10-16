@@ -4,7 +4,7 @@ var fn = c_folder + s + '_' + l + '.mp4';
 
 
 		
-res.send(s_fil);
+res.send(s_file);
 			return true;
 
 var childProcess = require('child_process');
