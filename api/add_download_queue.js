@@ -4,14 +4,12 @@ var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 var uid = 1, 
     source = 'ytdl-core',
     code = 'https://youtu.be/WAXH_9bpLfI';
-res.send(code);
-return true;
 
 var CP = new pkg.crowdProcess();
 var _f = {};
 
 _f['P0'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	
