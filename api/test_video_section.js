@@ -2,15 +2,13 @@ var c_folder =  '/tmp/tmp_section/';
 var s_file = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4',  s = 1, l =  6;
 var fn = c_folder + s + '_' + l + '.mp4';
 
-res.send(fn);
-			return true;
 
 var childProcess = require('child_process');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
 _f['S0'] = function(cbk) {
-	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
+	var folderP = require(env.root_pat + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(c_folder, function() {
 		cbk(c_folder);	
@@ -29,6 +27,13 @@ _f['S1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
+		
+		
+		
+res.send(fn);
+			return true;
+		
+		
 		pkg.fs.stat(fn, function(err, data) {
 			res.send('date');
 			return true;
