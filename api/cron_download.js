@@ -20,7 +20,7 @@ _f['P0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	
-	var str = 'UPDATE `download_queue` SET `holder_ip` = "' + holder_ip + '", hold_time = NOW() ' +
+	var str = 'UPDATE `download_queue` SET `holder_ip` = "' + holder_ip + '", `hold_time` = NOW() ' +
 	    ' WHERE `id` IN (SELECT `id` FROM `download_queue` WHERE `id` NOT IN ' +
 	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" )  LIMIT 1)';
 			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ); ';
