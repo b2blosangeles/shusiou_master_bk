@@ -2,7 +2,7 @@ var ytdl = require(env.root_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 var url = 'https://youtu.be/wLOl00FJMtc';
 
-ytdl.getInfo(req.body.video_url, {},  function(err, info){
+ytdl.getInfo(url, {},  function(err, info){
   if ((err) || !info) {
     res.send(false);
   } else {
