@@ -27,6 +27,8 @@ CP.serial(
 	_f,
 	function(data) {
 		pkg.fs.stat(fn, function(err, data) {
+			res.send('date');
+			return true;
 		    if (err) 
 		      res.send('it does not exist');
 		    else {
