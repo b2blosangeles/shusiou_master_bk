@@ -1,6 +1,16 @@
 var ytdl = require(env.root_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 
+ytdl.getInfo(req.body.video_url, {},  function(err, info){
+  if ((err) || !info) {
+    res.send(false);
+  } else {
+    var r = {vid:info.video_id, title:info.title, length_seconds:parseInt(info.length_seconds), thumbnail_url:info.thumbnail_url};
+    res.send(r);
+  }  
+});
+return true;
+
 //var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});
 var url = 'https://youtu.be/wLOl00FJMtc';
 var video = ytdl(url, {quality:'18'});
