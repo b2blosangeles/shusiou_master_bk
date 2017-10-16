@@ -18,8 +18,7 @@ video.on('error', function() {
 });			
 */
 
-var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
-var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
+return true;
 
 var folder_base = '/mnt/shusiou-video/youtube/';
 var step = 30000000;
