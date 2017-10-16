@@ -28,7 +28,7 @@ video.on('data', function(info) {
 }); 
 
 video.on('end', function(info) {
-	res.send(s+'-done!!' + total + "==" + t.join(','));
+	res.send(s+'-done!!' + total + "==" + t.join(', '));
 });	
 /*
 video.on('error', function() {
