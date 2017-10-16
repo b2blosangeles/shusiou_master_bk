@@ -15,19 +15,11 @@ var holder_ip = getServerIP();
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-var str = 'UPDATE `download_queue` SET `holder_ip` = "' + holder_ip + '", `hold_time` = NOW() ' +
-	    ' WHERE `id` IN (SELECT `id` FROM `download_queue` WHERE `id` NOT IN ' +
-	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" )  LIMIT 1)';
-res.send(str);
-return true;
 _f['P0'] = function(cbk) {
 	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	
-	var str = 'UPDATE `download_queue` SET `holder_ip` = "' + holder_ip + '", `hold_time` = NOW() ' +
-	    ' WHERE `id` IN (SELECT `id` FROM `download_queue` WHERE `id` NOT IN ' +
-	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" )  LIMIT 1)';
+	var str = 'SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '"';
 	
 			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ); ';
 	connection.query(str, function (error, results, fields) {
@@ -43,6 +35,9 @@ _f['P0'] = function(cbk) {
 
 		}
 	});  
+};
+_f['P0'] = function(cbk) {
+	cbk(1);
 };
 
 CP.serial(
