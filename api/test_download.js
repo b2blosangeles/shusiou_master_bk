@@ -1,7 +1,7 @@
 var ytdl = require(env.root_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
-var url = 'https://youtu.be/wLOl00FJMtc';
-
+var url = 'https://youtu.be/WAXH_9bpLfI';
+/*
 ytdl.getInfo(url, {},  function(err, info){
   if ((err) || !info) {
     res.send(false);
@@ -11,7 +11,7 @@ ytdl.getInfo(url, {},  function(err, info){
   }  
 });
 return true;
-
+*/
 //var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});
 
 var video = ytdl(url, {quality:'18'});
