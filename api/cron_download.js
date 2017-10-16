@@ -13,7 +13,7 @@ _f['P0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	
-	var str = 'SELECT * FROM `download_queue` WHERE 1 ' + '';
+	var str = 'SELECT * FROM `download_queue` WHERE `id` IN  (SELECT `id` FROM `download_queue`) ';
 			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ); ';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
