@@ -37,7 +37,7 @@ _f['P0'] = function(cbk) {
 	});  
 };
 _f['P0'] = function(cbk) {
-	cbk(1);
+	cbk(CP.data.P0);
 };
 
 CP.serial(
