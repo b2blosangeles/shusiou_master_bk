@@ -21,8 +21,8 @@ _f['P0'] = function(cbk) {
 	connection.connect();
 	
 	var str = 'SELECT * FROM `download_queue` WHERE `id` NOT IN ' +
-	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" )';
-			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ) LIMIT 1; ';
+	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" )  LIMIT 1';
+			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ); ';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
