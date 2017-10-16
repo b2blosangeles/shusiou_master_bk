@@ -37,6 +37,27 @@ _f['P0'] = function(cbk) {
 	});  
 };
 _f['P1'] = function(cbk) {
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();
+	var str = 'SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '"';
+	
+			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ); ';
+	connection.query(str, function (error, results, fields) {
+		connection.end();
+		if (error) {
+			cbk(false);
+		} else {
+			if (results.length) {
+				cbk(results[1]);
+			} else {
+				cbk(false);
+			}
+
+		}
+	});  
+};
+_f['P2'] = function(cbk) {
 	cbk(CP.data.P0);
 };
 
