@@ -3,6 +3,7 @@ var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 var url = 'https://youtu.be/WAXH_9bpLfI';
 var total=0;
 var s = 0;
+var t = [];
 /*
 ytdl.getInfo(url, {},  function(err, info){
   if ((err) || !info) {
@@ -22,11 +23,12 @@ video.pipe(pkg.fs.createWriteStream('/tmp/niu.mp4'));
 
 video.on('data', function(info) {
 	total += info.length;
+	t[t.length] = info.length;
 	s++;
 }); 
 
 video.on('end', function(info) {
-	res.send(s+'-done!!' + total);
+	res.send(s+'-done!!' + total + "==" + t.join(','));
 });	
 /*
 video.on('error', function() {
