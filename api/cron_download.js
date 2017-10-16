@@ -21,7 +21,7 @@ _f['P0'] = function(cbk) {
 	connection.connect();
 	
 	var str = 'SELECT * FROM `download_queue` WHERE `id` NOT IN ' +
-	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" ) ';
+	    ' (SELECT `id` FROM `download_queue` WHERE `holder_ip` = "' + holder_ip + '" )';
 			//	'values ("' + source + '", "' + encodeURIComponent(code) + '", "' + uid + '", NOW(), 0 ); ';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -29,7 +29,7 @@ _f['P0'] = function(cbk) {
 			cbk(false);
 		} else {
 			if (results.length) {
-				cbk(results[0]);
+				cbk(results);
 			} else {
 				cbk(false);
 			}
