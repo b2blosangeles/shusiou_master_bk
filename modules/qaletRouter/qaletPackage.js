@@ -4,7 +4,7 @@
 		
 		delete require.cache[__dirname + '/pkCache.js'];
 		var pkCache  = require(__dirname + '/pkCache.js');
-		this.pkCache = new pkCache();
+		this.pkCache = new pkCache(env.root_path);
 		
 		this.send404 = function(v) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
@@ -363,8 +363,6 @@
 					return function(cbk) {
 						pkg.fs.exists(fn,function(exists){
 							if(exists){
-								
-		
 								if (fn.match(/\.(jsx)$/i)) {
 									if (!qaletBabel) {
 										var Babel  = require(env.root_path + "/package/qaletBabel/qaletBabel.js");
@@ -373,48 +371,11 @@
 									pkg.fs.stat(fn, function(err, s){
 										if (err) {
 											cbk('console.log("'+err.message.replace('"', '')+'");');
-										} else {										
-											pkg.db.jsx_cache.find({file:fn}, function (err, docs) {	
-												if (err) {
-													cbk('console.log("'+err.message.replace('"', '')+'");');
-												} else if (!docs || !docs.length) {
-													qaletBabel.jsx2js(fn, function(err, v) {
-														if (err) {
-															cbk('console.log("'+err.message.replace('"', '')+'");');
-														} else {
-															pkg.db.jsx_cache.insert({file:fn, mtime:s.mtime.getTime(), doc:v.code}, function (err, newDoc) {   
-																if (err) {
-																	cbk('console.log("'+err.message.replace('"', '')+'");');
-																} else {						
-																	cbk(me.miniCode(newDoc.doc));
-																}	
-															});
-														}   
-													});													
-
-												} else {
-													if (docs[0].mtime != s.mtime.getTime()) {
-														qaletBabel.jsx2js(fn, function(err, v) {
-															if (err) {
-																cbk('console.log("'+err.message.replace('"', '')+'");');
-															} else {
-																pkg.db.jsx_cache.update({file:fn},
-																	{$set: {mtime:s.mtime.getTime(), doc:v.code}}, function (err, newDoc) {   
-																	if (err) {
-																		cbk('console.log("'+err.message.replace('"', '')+'");');
-																	} else {						
-																		cbk(me.miniCode(v.code));
-																	}	
-																});
-															}
-														});		
-													} else {
-														cbk(me.miniCode(docs[0].doc));
-													}
-													
-												}
-												
-											});												
+										} else {
+											me.pkCache.qaletBabel(fn, s.mtime.getTime(),
+												cbk,
+												qaletBabel
+											);													
 										}   
 										
 									});									
@@ -462,13 +423,13 @@
 					for (var k in d_arr) {
 						_D += d_arr[k] + '; ';
 						//continue;
-						//var syntax = pkg.syntaxError(data.results['_DATA_' + d_arr[k]]);
-						//if (syntax) {
-						//	_DC += 'console.log("Package error on data file ' + d_arr[k] + ' ->'+ '"); ' + "\n" +
-						//	'console.log(decodeURIComponent("'+ encodeURIComponent(JSON.stringify(syntax)) + '"));' + "\n";
-						//} else {	
+						var syntax = pkg.syntaxError(data.results['_DATA_' + d_arr[k]]);
+						if (syntax) {
+							_DC += 'console.log("Package error on data file ' + d_arr[k] + ' ->'+ '"); ' + "\n" +
+							'console.log(decodeURIComponent("'+ encodeURIComponent(JSON.stringify(syntax)) + '"));' + "\n";
+						} else {	
 							_DC += data.results['_DATA_' + d_arr[k]]+ "\n";
-						//}
+						}
 					}
 					_D += " ----*/\n";
 					

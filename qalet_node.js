@@ -16,7 +16,8 @@ var env = {
 var pkg = {
 	crowdProcess:require('./package/crowdProcess/crowdProcess'),
 	request		:require('./package/request/node_modules/request'),
-	fs			:require('fs'),
+	syntaxError	:require('./package/syntax-error/node_modules/syntax-error'),
+	fs		:require('fs'),
 	exec		:require('child_process').exec			
 };
 
