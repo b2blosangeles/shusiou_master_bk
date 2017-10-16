@@ -16,8 +16,6 @@ _f['S0'] = function(cbk) {
 	
 };
 _f['S1'] = function(cbk) {
-	cbk(1);
-	return true;
 	pkg.fs.stat(fn, function(err, stat) {
 		var ls = childProcess.exec('ffmpeg  -i ' + s_file + ' -ss '+ s + ' -t ' + l + ' -c copy ' + fn +' -y ', 		   
 			function (error, stdout, stderr) {
@@ -32,7 +30,7 @@ CP.serial(
 		
 		
 		
-res.send(fn);
+res.send(fn+'aaa');
 			return true;
 		
 		
