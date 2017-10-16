@@ -4,7 +4,7 @@ var fn = c_folder + s + '_' + l + '.mp4';
 
 
 		
-res.send(env.root_pat + '/api/inc/folderP/folderP);
+res.send(env.root_pat + '/api/inc/folderP/folderP');
 			return true;
 
 var childProcess = require('child_process');
