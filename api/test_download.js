@@ -1,5 +1,5 @@
-var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
-var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
+var ytdl = require(env.root_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
+var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 
 var folder_base = '/mnt/shusiou-video/youtube/';
 var step = 30000000;
@@ -8,7 +8,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 _f['P0'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
@@ -31,7 +31,7 @@ _f['P0'] = function(cbk) {
 
 _f['P1'] = function(cbk) {
 	if (CP.data.P0) {
-		var cfg0 = require(env.space_path + '/api/cfg/db.json');
+		var cfg0 = require(env.root_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 
@@ -57,7 +57,7 @@ _f['P1'] = function(cbk) {
 };
 _f['P2'] = function(cbk) {
 	if (CP.data.P0) {
-		var cfg0 = require(env.space_path + '/api/cfg/db.json');
+		var cfg0 = require(env.root_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 
@@ -87,7 +87,7 @@ _f['P2'] = function(cbk) {
 	 
 };
 _f['Q1'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
@@ -132,7 +132,7 @@ _f['Q3'] = function(cbk) {
 	var start = c_m * step;
 	var end = (c_m + 1) * step - 1;	
 	if (c_m !== null) {
-		var folderP = require(env.space_path + '/api/inc/folderP/folderP');
+		var folderP = require(env.root_path + '/api/inc/folderP/folderP');
 		var fp = new folderP();
 		fp.build(folder_base  + vid + '/video/tmp/', function() {
 			ytdl.getInfo(url, function(err) {
@@ -165,7 +165,7 @@ _f['Q4'] = function(cbk) {
 	var m = JSON.parse(CP.data.Q1.matrix), vid = CP.data.Q1.code;
 	m[CP.data.Q3.idx] = CP.data.Q3.status;
 	
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
@@ -186,7 +186,7 @@ _f['Q4'] = function(cbk) {
 };
 
 _f['AF1'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
@@ -214,7 +214,7 @@ _f['matrix_change'] = function(cbk) {
 	var vid = CP.data.AF1.code;
 
 	/--- Save adjusted matrix ---*/
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();	
 	for (var i = 0; i < m.length; i++) {
@@ -258,7 +258,7 @@ _f['AF3'] = function(cbk) {
 	if (CP.data.AF2 === false) {
 	 	cbk(false);
 	} else {
-		var cfg = require(env.space_path + '/api/cfg/db.json');
+		var cfg = require(env.root_path + '/api/cfg/db.json');
 		cfg['multipleStatements'] = true;
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
