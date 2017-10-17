@@ -58,11 +58,11 @@ _f['P1'] = function(cbk) {
 	});  
 };
 _f['P2'] = function(cbk) {
-	if (CP.data.P1) {
+	if ((CP.data.P1) && (CP.data.P1.id)) {
 		var cfg0 = require(env.root_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
-		var str = 'UPDATE `download_queue` SET `holder_ip` = "' + holder_ip + '" WHERE `id` = "' + CP.data.P1 + '"';
+		var str = 'UPDATE `download_queue` SET `holder_ip` = "' + holder_ip + '" WHERE `id` = "' + CP.data.P1.id + '"';
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
