@@ -77,7 +77,7 @@ _f['P2'] = function(cbk) {
 
 _f['D0'] = function(cbk) {
 	if ((CP.data.P2) && (CP.data.P2.code)) {
-		var url = CP.data.P2.code;
+		var url = decodeURIComponent(CP.data.P2.code);
 		var video = ytdl(url, {quality:'18'});
 		video.pipe(pkg.fs.createWriteStream('/tmp/niu.mp4'));	
 
