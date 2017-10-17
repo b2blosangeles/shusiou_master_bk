@@ -1,5 +1,5 @@
 var c_folder =  '/tmp/tmp_section/';
-var s_file = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4',  s = 1000.5, l =  16.5;
+var s_file = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4',  s = 1000.5, l =  19.5;
 s_file =  '/tmp/' + encodeURIComponent('https://youtu.be/phpT_yukNks')+'.mp4';
 var fn = c_folder + s + '_' + l + '.mp4';
 
@@ -19,17 +19,20 @@ _f['S0'] = function(cbk) {
 		
 _f['S1'] = function(cbk) {
 	pkg.fs.stat(fn, function(err, stat) {
-		var ls = childProcess.exec('ffmpeg  -i ' + s_file + ' -ss '+ s + ' -t ' + l + ' -c copy ' + fn +' -y ', 		   
-			function (error, stdout, stderr) {
-				cbk(true);
-			});
+		if (err) {
+			var ls = childProcess.exec('ffmpeg  -i ' + s_file + ' -ss '+ s + ' -t ' + l + ' -c copy ' + fn +' -y ', 		   
+				function (error, stdout, stderr) {
+					cbk(true);
+				});
+		} else {
+			cbk(true);
+		}
 	});
 }
 
 CP.serial(
 	_f,
 	function(data) {
-		
 		pkg.fs.stat(fn, function(err, data) {
 		    if (err) 
 		      res.send('it does not exist');
