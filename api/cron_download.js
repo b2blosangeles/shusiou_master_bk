@@ -69,7 +69,7 @@ _f['P2'] = function(cbk) {
 				cbk(false);
 			} else {
 				if (results.length) {
-					cbk(results[0]);
+					cbk(data.P1.id);
 				} else {
 					cbk(false);
 				}
