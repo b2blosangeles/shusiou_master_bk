@@ -76,7 +76,11 @@ _f['P2'] = function(cbk) {
 };
 
 _f['D0'] = function(cbk) {
-	cbk(CP.data.P2.code);
+	if ((CP.data.P2) && (CP.data.P2.code)) {
+		cbk(CP.data.P2.code);
+	} else {
+		cbk(false);
+	}	
 };
 
 CP.serial(
