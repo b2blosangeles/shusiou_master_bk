@@ -12,8 +12,9 @@ var s_file = base + video[0] + '/video/video.mp4',  s =  video[1], l =  video[2]
 var fn = c_folder + s + '_' + l + '.mp4';
 */
 // var fn =  env.root_path + '/api/SampleVideo_1280x720_5mb.mp4'
-var fn =  env.root_path + '/tmp/' + encodeURIComponent('https://youtu.be/phpT_yukNks')+'.mp4';
+var fn =  '/tmp/' + encodeURIComponent('https://youtu.be/phpT_yukNks')+'.mp4';
 
+// https%3A%2F%2Fyoutu.be%2FphpT_yukNks
 
 pkg.fs.stat(fn, function(err, data) {
     if (err) 
