@@ -77,7 +77,21 @@ _f['P2'] = function(cbk) {
 
 _f['D0'] = function(cbk) {
 	if ((CP.data.P2) && (CP.data.P2.code)) {
-		cbk(CP.data.P2.code);
+		var url = CP.data.P2.code;
+		var video = ytdl(url, {quality:'18'});
+		video.pipe(pkg.fs.createWriteStream('/tmp/niu.mp4'));	
+
+
+		video.on('data', function(info) {
+			total += info.length;
+			t[t.length] = info.length;
+			s++;
+		}); 
+
+		video.on('end', function(info) {
+			cbk('CP.data.P2.code');
+		});			
+		
 	} else {
 		cbk(false);
 	}	
@@ -88,5 +102,5 @@ CP.serial(
 	function(data) {
 		res.send({_spent_time:data._spent_time, status:data.status, data:data});
 	},
-	30000
+	59000
 );
