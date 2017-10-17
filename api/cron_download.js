@@ -40,7 +40,7 @@ _f['P1'] = function(cbk) {
 	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'UPDATE  download_queue SET `holder_ip` = '" + holder_ip + "' WHERE  `holder_ip` = "" ' + 
+	var str = 'UPDATE  download_queue SET `holder_ip` = "' + holder_ip + '" WHERE  `holder_ip` = "" ' + 
 		' OR `holder_ip` IS NULL ORDER BY `created` DESC LIMIT 1';
 	
 	connection.query(str, function (error, results, fields) {
