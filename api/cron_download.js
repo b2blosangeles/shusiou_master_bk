@@ -81,7 +81,7 @@ _f['D0'] = function(cbk) {
 		// var url = CP.data.P2.code;
 		var video = ytdl(url, {quality:'18'}, function(err) {
 		});
-		video.pipe(pkg.fs.createWriteStream('/tmp/niu.mp4'));	
+		video.pipe(pkg.fs.createWriteStream('/tmp/'+ CP.data.P2.id +'.mp4'));	
 
 
 		video.on('data', function(info) {
