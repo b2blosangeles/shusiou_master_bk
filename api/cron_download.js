@@ -19,7 +19,7 @@ _f['P0'] = function(cbk) {
 	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' + holder_ip + '" AND `status` <> 0';
+	var str = 'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' + holder_ip + '" AND `status` = 1';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
@@ -80,17 +80,11 @@ _f['D0'] = function(cbk) {
 		var url = decodeURIComponent(CP.data.P2.code);
 		// var url = CP.data.P2.code;
 		var video = ytdl(url, {quality:'18'}, function(err) {
-			if (err) {
-				cbk('err');
-			}
 		});
 		video.pipe(pkg.fs.createWriteStream('/tmp/niu.mp4'));	
 
 
 		video.on('data', function(info) {
-		//	total += info.length;
-		//	t[t.length] = info.length;
-		//	s++;
 		}); 
 
 		video.on('end', function(info) {
@@ -98,14 +92,34 @@ _f['D0'] = function(cbk) {
 		});
 		
 		video.on('error', function(info) {
+			CP.exit = 1;
 			cbk('ERRCP.data.P2.code');
 		});		
 		
 	} else {
+		CP.exit = 1;
 		cbk(false);
 	}	
 };
+_f['D1'] = function(cbk) {
+	var cfg0 = require(env.root_path + '/api/cfg/db.json');
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();
+	var str = 'UPDATE `download_queue` SET `status` = 8 WHERE `id` = "' + CP.data.P2.id + '"';
+	connection.query(str, function (error, results, fields) {
+		connection.end();
+		if (error) {
+			cbk(false);
+		} else {
+			if (results.length) {
+				cbk('OK');
+			} else {
+				cbk(false);
+			}
 
+		}
+	});  
+};
 CP.serial(
 	_f,
 	function(data) {
