@@ -67,7 +67,6 @@ _f['P2'] = function(cbk) {
 			cbk(false);
 		} else {
 			if (results.length) {
-				if (results[0]) CP.exit = 1
 				cbk(results[0]);
 			} else {
 				cbk(false);
