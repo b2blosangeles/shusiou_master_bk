@@ -28,19 +28,19 @@ _f['S1'] = function(cbk) {
 };
 
 _f['S2'] = function(cbk) {
-/*	pkg.fs.stat(fn, function(err, stat) {
+	pkg.fs.stat(fn, function(err, stat) {
 		 if(!err) {
 			cbk(fn);
 		 } else {
-*/		 
+		 
 			var childProcess = require('child_process');
 			var ls = childProcess.exec('ffmpeg -ss ' + s + ' -i ' + file_video + ' -vf scale=-1:360  -preset ultrafast ' +  fn +' -y ', 		   
 				function (error, stdout, stderr) {
 					cbk(true);
 				});
-/*
+
 		}
-	});*/
+	});
 };
 
 CP.serial(
