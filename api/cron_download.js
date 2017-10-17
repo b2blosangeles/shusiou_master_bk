@@ -90,7 +90,11 @@ _f['D0'] = function(cbk) {
 
 		video.on('end', function(info) {
 			cbk('CP.data.P2.code');
-		});			
+		});
+		
+		video.on('error', function(info) {
+			cbk('ERRCP.data.P2.code');
+		});		
 		
 	} else {
 		cbk(false);
