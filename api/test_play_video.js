@@ -11,7 +11,10 @@ var c_folder = base + video[0] + '/tmp_section/';
 var s_file = base + video[0] + '/video/video.mp4',  s =  video[1], l =  video[2];
 var fn = c_folder + s + '_' + l + '.mp4';
 */
-var fn =  env.root_path + '/api/SampleVideo_1280x720_5mb.mp4'
+// var fn =  env.root_path + '/api/SampleVideo_1280x720_5mb.mp4'
+var fn =  env.root_path + '/tmp/' + encodeURIComponent('https://youtu.be/phpT_yukNks')+'.mp4';
+
+
 pkg.fs.stat(fn, function(err, data) {
     if (err) 
       res.redirect('http://api.shusiou.com'+req.url);
