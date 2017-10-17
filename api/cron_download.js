@@ -77,6 +77,10 @@ _f['P2'] = function(cbk) {
 	});  
 };
 
+_f['D0'] = function(cbk) {
+	cbk(CP.data.P2.code);
+};
+
 CP.serial(
 	_f,
 	function(data) {
