@@ -83,9 +83,9 @@ _f['D0'] = function(cbk) {
 
 
 		video.on('data', function(info) {
-			total += info.length;
-			t[t.length] = info.length;
-			s++;
+		//	total += info.length;
+		//	t[t.length] = info.length;
+		//	s++;
 		}); 
 
 		video.on('end', function(info) {
