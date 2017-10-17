@@ -77,8 +77,8 @@ _f['P2'] = function(cbk) {
 
 _f['D0'] = function(cbk) {
 	if ((CP.data.P2) && (CP.data.P2.code)) {
-		// var url = decodeURIComponent(CP.data.P2.code);
-		var url = CP.data.P2.code;
+		var url = decodeURIComponent(CP.data.P2.code);
+		// var url = CP.data.P2.code;
 		var video = ytdl(url, {quality:'18'}, function(err) {
 			if (err) {
 				cbk('err');
@@ -97,7 +97,7 @@ _f['D0'] = function(cbk) {
 			cbk('CP.data.P2.code');
 		});
 		
-		video.on('err', function(info) {
+		video.on('error', function(info) {
 			cbk('ERRCP.data.P2.code');
 		});		
 		
