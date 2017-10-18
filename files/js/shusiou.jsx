@@ -1,1 +1,1 @@
-<script src="package/qalet.js"></script>	
+alert(123);
