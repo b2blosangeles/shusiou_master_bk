@@ -1,5 +1,5 @@
 {
-  "filelist":["/js/niu.jsx"],
+  "filelist":["/js/shusiou.jsx"],
   "tpls":[],
   "data":[]
 }
