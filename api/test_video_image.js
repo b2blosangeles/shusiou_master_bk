@@ -18,7 +18,7 @@ _f['S0'] = function(cbk) {
 			cbk(true);
 		 } else {
 			cbk(false);
-			CP.exit = 1;
+		//	CP.exit = 1;
 		}
 	});	
 };
