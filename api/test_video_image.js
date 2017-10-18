@@ -11,16 +11,13 @@ var s=req.query['s'], fn = '/tmp/images/' + s + '.png';
     
 var CP = new pkg.crowdProcess();
 
-			res.send(fn);
-			return true;
-
 var _f = {};
 _f['S0'] = function(cbk) {
 	pkg.fs.stat(file_video, function(err, stat) {
 		 if(!err) {
 			cbk(true);
 		 } else {
-			cbk(false);
+			cbk(err.message);
 		//	CP.exit = 1;
 		}
 	});	
