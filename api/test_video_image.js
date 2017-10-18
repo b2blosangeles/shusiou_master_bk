@@ -17,7 +17,7 @@ _f['S0'] = function(cbk) {
 		 if(!err) {
 			cbk(true);
 		 } else {
-			cbk(file_video);
+			cbk(err.message);
 		//	CP.exit = 1;
 		}
 	});	
