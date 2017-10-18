@@ -1,7 +1,11 @@
 var file_video = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4';
 var folder_image = 'tmp/images/';
 
-var s=5, fn = 'tmp/images/' + s + '.png'; 
+if (!req.query['s']) {
+	res.send('S error');
+	return true;
+}
+var s=req.query['s'], fn = 'tmp/images/' + s + '.png'; 
     
 var CP = new pkg.crowdProcess();
 
