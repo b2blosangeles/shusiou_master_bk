@@ -53,7 +53,8 @@ CP.serial(
 		pkg.fs.stat(fn, function(err, data) {
 
 		      if (err) {
-			      res.send(fn + ' does not exist');
+			      res.send(err.message);
+			    //  res.send(fn + ' does not exist');
 		      } else {
 			//	var file = pkg.fs.createReadStream(fn);
 			//	file.pipe(res);		      
