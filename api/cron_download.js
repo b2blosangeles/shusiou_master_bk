@@ -1,6 +1,8 @@
 var ytdl = require(env.root_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var mysql = require(env.root_path + '/api/inc/mysql/node_modules/mysql');
 
+var video_folder = '/var/video/';
+
 function getServerIP() {
     var ifaces = require('os').networkInterfaces(), address=[];
     for (var dev in ifaces) {
@@ -14,6 +16,15 @@ var holder_ip = getServerIP();
 
 var CP = new pkg.crowdProcess();
 var _f = {};
+
+_f['S0'] = function(cbk) {
+	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
+	var fp = new folderP();
+	fp.build(video_folder, function() {
+		cbk(true);
+	});
+};
+
 
 _f['P0'] = function(cbk) {
 	var cfg0 = require(env.root_path + '/api/cfg/db.json');
@@ -81,7 +92,7 @@ _f['D0'] = function(cbk) {
 		// var url = CP.data.P2.code;
 		var video = ytdl(url, {quality:'18'}, function(err) {
 		});
-		video.pipe(pkg.fs.createWriteStream('/tmp/'+ CP.data.P2.code +'.mp4'));	
+		video.pipe(pkg.fs.createWriteStream(video_folder+ CP.data.P2.code +'.mp4'));	
 
 
 		video.on('data', function(info) {
