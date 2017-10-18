@@ -183,7 +183,7 @@
 					var str0 = "";
 					var _C = '', _CC = '';
 			
-					str0 += "/*==== Built time : " + ((!me.mini_code && false)?data._spent_time:'--') + " ms: ====*/\n\n"; 
+					str0 += "/*==== Built time : " + data._spent_time + " ms: ====*/\n\n"; 
 					
 					var code_result = {}, path_result = {};
 					for (var v in arr) {
