@@ -49,17 +49,15 @@ _f['S2'] = function(cbk) {
 
 CP.serial(
 	_f,
-	function(data) {	
-		//	res.send(data);
-		//	return true;		
+	function(data) {			
 		pkg.fs.stat(fn, function(err, data) {
 
 		      if (err) {
 			      res.send(fn + ' does not exist');
 		      } else {
-				var file = pkg.fs.createReadStream(fn);
-				file.pipe(res);		      
-			//	res.sendFile(fn);
+			//	var file = pkg.fs.createReadStream(fn);
+			//	file.pipe(res);		      
+				res.sendFile(fn);
 			}
 		});
 	},
