@@ -56,26 +56,6 @@
 			});			
 			return true;			
 		}	
-		/*
-		this.sendFileType = function(path) {
-			var me = this;
-			if (path.match(/\.min\.(js|css|jsx)$/i)) {
-				me.mini_code = true;
-			} else {
-				me.mini_code = false;
-			}
-			me.is_css = false;
-			var p = path.match(/\.([a-z]+)$/i);
-			if ((p) && p[1] == 'js') {
-				res.setHeader('Content-Type', "text/javascrip");
-			} else if ((p) && p[1] == 'css') {
-				me.is_css = true;
-				res.setHeader('Content-Type', "text/css");
-			} else {
-				res.setHeader('Content-Type', "text/html");
-			}
-		}
-		*/
 		this.miniCode = function(code) {
 			var me = this;
 			var RE_BLOCKS = new RegExp([
