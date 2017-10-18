@@ -56,7 +56,7 @@
 			});			
 			return true;			
 		}	
-		
+		/*
 		this.sendFileType = function(path) {
 			var me = this;
 			if (path.match(/\.min\.(js|css|jsx)$/i)) {
@@ -75,7 +75,7 @@
 				res.setHeader('Content-Type', "text/html");
 			}
 		}
-		
+		*/
 		this.miniCode = function(code) {
 			var me = this;
 			var RE_BLOCKS = new RegExp([
