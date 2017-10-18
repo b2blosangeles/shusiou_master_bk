@@ -208,6 +208,9 @@
 							code_result[k]  + "\n\n";
 					} 
 					var orig_code = str0 + _C + "\n\n" + _CC +  _CM;
+					
+					me.sendHeader();
+					
 					res.send(orig_code);
 				},
 				30000
