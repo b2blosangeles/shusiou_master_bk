@@ -474,6 +474,7 @@
 					var orig_code = str0 +  _T + _D + _C + "\n\n" + _TC + _DC + _CC
 					if (cbk_s) orig_code+= "\n" + 'if (typeof ' + cbk_s + ' == "function") ' + cbk_s+'();';
 					
+					me.sendHeader();
 					res.send(orig_code);
 				},
 				30000
