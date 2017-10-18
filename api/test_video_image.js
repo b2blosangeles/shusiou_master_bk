@@ -18,11 +18,11 @@ _f['S0'] = function(cbk) {
 			cbk(true);
 		 } else {
 			cbk(err.message);
-		//	CP.exit = 1;
+			CP.exit = 1;
 		}
 	});	
 };
-/*
+
 _f['S1'] = function(cbk) {
 	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
@@ -46,20 +46,18 @@ _f['S2'] = function(cbk) {
 		}
 	});
 };
-*/
+
 CP.serial(
 	_f,
 	function(data) {			
 		pkg.fs.stat(fn, function(err, data1) {
-			res.send(data);
-			return true;
 		      if (err) {
-			      res.send(err.message);
-			    //  res.send(fn + ' does not exist');
+			   //   res.send(err.message);
+			      res.send(fn + ' does not exist');
 		      } else {
-			//	var file = pkg.fs.createReadStream(fn);
-			//	file.pipe(res);		      
-				res.sendFile(fn);
+				var file = pkg.fs.createReadStream(fn);
+				file.pipe(res);		      
+			//	res.sendFile(fn);
 			}
 		});
 	},
