@@ -22,7 +22,7 @@ _f['S0'] = function(cbk) {
 		}
 	});	
 };
-
+/*
 _f['S1'] = function(cbk) {
 	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
@@ -46,7 +46,7 @@ _f['S2'] = function(cbk) {
 		}
 	});
 };
-
+*/
 CP.serial(
 	_f,
 	function(data) {			
