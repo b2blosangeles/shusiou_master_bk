@@ -51,7 +51,8 @@ CP.serial(
 	_f,
 	function(data) {			
 		pkg.fs.stat(fn, function(err, data) {
-
+			res.send(data);
+			return true;
 		      if (err) {
 			      res.send(err.message);
 			    //  res.send(fn + ' does not exist');
