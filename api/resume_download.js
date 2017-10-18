@@ -23,12 +23,12 @@ _f['P0'] = function(cbk) {
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
-			cbk(false);
+			cbk('falseB');
 		} else {
 			if (results.length) {
 				cbk(results[0]);
 			} else {
-				cbk(false);
+				cbk('falseA');
 			}
 
 		}
