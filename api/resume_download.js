@@ -19,7 +19,7 @@ _f['P0'] = function(cbk) {
 	var cfg0 = require(env.root_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'UPDATE `download_queue` SET `status` = 0, `holder_ip` = "", `holder_time` = NULL';
+	var str = 'UPDATE `download_queue` SET `status` = 0, `holder_ip` = "", `hold_time` = ""';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
