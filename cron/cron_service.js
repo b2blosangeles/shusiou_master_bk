@@ -16,8 +16,9 @@ fs.exists(conf_file, function(exists){
 			for (var i = 0; i < cron.length; i++) {
 				var f = function(v) {
 					return function() {
-						log.write("/var/log/shusiou_cron.log", 'cronA', 'AAA');
+						
 						exec('cd ' + root_path + '/site/cron' + ' &&  ' + v.script, function(error, stdout, stderr) {
+							log.write("/var/log/shusiou_cron.log", 'cronB', 'BBB');
 							if (!stderr) {
 								log.write("/var/log/shusiou_cron.log", 'cron1', JSON.stringify({status:'success', id:v.id, message:stdout}));
 							} else {
