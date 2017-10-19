@@ -1,7 +1,12 @@
 var CronJobManager = require('./crontab_manager.js');
 var manager = new CronJobManager();
 var exec = require('child_process').exec;
-var cron = require('./cron.json'), fs    = require('fs')
+var fs    = require('fs')
+var cron = require('./cron.json');
+console.log(__dirname + "===");
+fs.exists('./cron.json',function(exists){
+  // handle result
+});
 
 for (var i = 0; i < cron.length; i++) {
 	var f = function(v) {
