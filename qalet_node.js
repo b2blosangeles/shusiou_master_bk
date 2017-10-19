@@ -12,7 +12,7 @@ var log = new LOG();
 var niu = {};			
 var env = {
 	root_path:__dirname,
-	site_path:__dirnam + '/site'
+	site_path:__dirname + '/site'
 };			
 var pkg = {
 	crowdProcess:require('./package/crowdProcess/crowdProcess'),
