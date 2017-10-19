@@ -16,14 +16,16 @@ fs.exists(conf_file, function(exists){
 			for (var i = 0; i < cron.length; i++) {
 				var f = function(v) {
 					return function() {
-						
 						exec('cd ' + root_path + '/site/cron' + ' &&  ' + v.script, function(error, stdout, stderr) {
-							log.write("/var/log/shusiou_cron.log", 'cronB', 'BBB');
-							if (!stderr) {
-								log.write("/var/log/shusiou_cron.log", 'cron1', JSON.stringify({status:'success', id:v.id, message:stdout}));
+							if (error) {
+								log.write("/var/log/shusiou_cron.log", 'cron', 'ERR');
 							} else {
-								log.write("/var/log/shusiou_cron.log", 'cron1', JSON.stringify({status:'error', id:v.id, message:stderr}));
-							}
+								if (!stderr) {
+									log.write("/var/log/shusiou_cron.log", 'cron1', JSON.stringify({status:'success', id:v.id, message:stdout}));
+								} else {
+									log.write("/var/log/shusiou_cron.log", 'cron1', JSON.stringify({status:'error', id:v.id, message:stderr}));
+								}
+							}	
 						});
 
 					}
