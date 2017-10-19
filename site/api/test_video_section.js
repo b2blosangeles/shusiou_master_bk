@@ -1,5 +1,5 @@
 var c_folder =  '/tmp/tmp_section/';
-var s_file = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4',  s = 1000.5, l =  3.5;
+var s_file = env.site_path + '/api/SampleVideo_1280x720_5mb.mp4',  s = 1000.5, l =  3.5;
 var video_folder = '/var/video/';
 
 if (req.query['s']) {
@@ -19,7 +19,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 _f['S0'] = function(cbk) {
-	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
+	var folderP = require(env.site_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(c_folder, function() {
 		cbk(c_folder);	
