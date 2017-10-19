@@ -10,7 +10,7 @@
 			var c =  cmd.toString().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '\\$&').
 				replace(/[\n\r]/g, '\\n');
 			
-			var log_str = "sed -i '1s/^/=== " + c + ' ==> ' +  new Date().toString() + '===\\n' + l + "\\n/' " + file;
+			var log_str = "sed -i '1s/^/=== " + c + ' --> ' +  new Date().toString() + '===\\n' + l + "\\n/' " + file;
   			fs.appendFile(file, ' ', function(err) {
 				exec(log_str, function(error, stdout, stderr) {});
   			});			
