@@ -14,7 +14,7 @@
 		}
 		this.sendPackage = function(v) {
 			var me = this;
-			var fn = env.root_path + '/files/package/' + v;
+			var fn = env.root_path + '/site/files/package/' + v;
 			delete require.cache[__dirname + '/qaletPackage.js'];
 			var router  = require(__dirname + '/qaletPackage.js');
 			var P = new router(pkg, env, req, res);						
@@ -33,7 +33,7 @@
 		
 		this.runApi = function(v) {
 			var me = this;
-			var p = env.root_path + '/api/' + v;
+			var p = env.root_path + '/site/api/' + v;
 			var patt = new RegExp('.js$', 'i');
 			if (!patt.test(v)) {
 				me.send404(v);
