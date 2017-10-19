@@ -1,5 +1,5 @@
 var c_folder =  '/tmp/tmp_section/';
-var s_file = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4',  s = 1000.5, l =  19.5;
+var s_file = env.root_path + '/api/SampleVideo_1280x720_5mb.mp4',  s = 1000.5, l =  3.5;
 var video_folder = '/var/video/';
 s_file =  video_folder + encodeURIComponent('https://youtu.be/phpT_yukNks')+'.mp4';
 var fn = c_folder + s + '_' + l + '.mp4';
