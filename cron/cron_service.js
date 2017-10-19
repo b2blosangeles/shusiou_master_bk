@@ -7,7 +7,7 @@ console.log('--->' + root_path);
 var LOG = require(root_path + '/package/log/log.js');
 var log = new LOG();
 
-var conf_file = root_path + '/site/cron/cron.json');
+var conf_file = root_path + '/site/cron/cron.json';
 
 fs.exists(conf_file, function(exists){
 	if(exists) {
