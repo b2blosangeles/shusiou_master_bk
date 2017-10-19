@@ -1,9 +1,13 @@
 var CronJobManager = require('./crontab_manager.js');
 var manager = new CronJobManager();
 var exec = require('child_process').exec;
-var fs    = require('fs'), path = require('path')
+var fs    = require('fs'), path = require('path');
+var root_path =  path.join(__dirname, '..');
+console.log('--->' + root_path);
+var LOG = require(root_path + '/package/log/log.js');
+var log = new LOG();
 
-var conf_file = path.join(__dirname, '..', '/site/cron/cron.json');
+var conf_file = root_path + '/site/cron/cron.json');
 
 fs.exists(conf_file, function(exists){
 	if(exists) {
@@ -11,7 +15,7 @@ fs.exists(conf_file, function(exists){
 		for (var i = 0; i < cron.length; i++) {
 			var f = function(v) {
 				return function() {
-					exec('cd ' + path.join(__dirname, '..', '/site/cron') + ' &&  ' + v.script, function(error, stdout, stderr) {
+					exec('cd ' + root_path + '/site/cron' + ' &&  ' + v.script, function(error, stdout, stderr) {
 						if (!stderr) {
 							console.log(JSON.stringify({status:'success', id:v.id, message:stdout}));
 						} else {
