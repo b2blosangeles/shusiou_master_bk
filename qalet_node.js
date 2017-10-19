@@ -8,8 +8,7 @@ port 		= 80;
 
 var LOG = require(__dirname + '/package/log/log.js');
 var log = new LOG();
-
-var niu = {};			
+		
 var env = {
 	root_path:__dirname,
 	site_path:__dirname + '/site'
