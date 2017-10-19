@@ -54,9 +54,6 @@
 								pkg.fs.readFile(p, 'utf8', function(err, code) {
 									if (!err) {
 										try {
-											var localenv = {
-												root_path:env.root_path
-											}
 											new Function('require', 'pkg', 'env', 'req', 'res', 'io', code)
 											(require, pkg, env, req, res, io);
 										} catch(err) {
