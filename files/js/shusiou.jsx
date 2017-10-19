@@ -9,6 +9,7 @@ var r = '' +
 }
 
 setTimeout(
- setVideo('/api/test_video_section.js', 10, 6) {
+	function() {
+ 		setVideo('/api/test_video_section.js', 10, 6);
  }, 1000
 )
