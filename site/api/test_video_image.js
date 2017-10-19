@@ -26,7 +26,7 @@ _f['S0'] = function(cbk) {
 };
 
 _f['S1'] = function(cbk) {
-	var folderP = require(env.root_path + '/api/inc/folderP/folderP');
+	var folderP = require(env.site_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(folder_image, function() {
 		cbk(true);
