@@ -41,6 +41,6 @@ fs.exists(conf_file, function(exists){
 			}	
 		}		
 	} else {
-		console.log('Missing cron.json!');
+		log.write("/var/log/shusiou_cron.log", 'Missing cron.json!');
 	}
 });
