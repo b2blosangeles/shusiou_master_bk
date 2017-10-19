@@ -58,7 +58,7 @@
 												root_path:env.root_path
 											}
 											new Function('require', 'pkg', 'env', 'req', 'res', 'io', code)
-											(require, pkg, localenv, req, res, io);
+											(require, pkg, env, req, res, io);
 										} catch(err) {
 											me.send500(err);
 										}
