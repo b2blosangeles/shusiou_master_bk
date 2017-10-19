@@ -6,7 +6,7 @@ var cron = require('./cron.json'), fs    = require('fs')
 for (var i = 0; i < cron.length; i++) {
 	var f = function(v) {
 		return function() {
-			exec('cd ' + __dirname + ' &&  ' + v.script, function(error, stdout, stderr) {
+			exec('cd ' + __dirname + '/site/cron &&  ' + v.script, function(error, stdout, stderr) {
 				if (!stderr) {
 					console.log(JSON.stringify({status:'success', id:v.id, message:stdout}));
 				} else {
