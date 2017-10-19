@@ -18,7 +18,7 @@ fs.exists(conf_file, function(exists){
 					return function() {
 						exec('cd ' + root_path + '/site/cron' + ' &&  ' + v.script, function(error, stdout, stderr) {
 							if (error) {
-								log.write("/var/log/shusiou_cron.log", 'cron', error.message);
+								log.write("/var/log/shusiou_cron.log", 'cron',  JSON.stringify(error.message));
 							} else {
 								if (!stderr) {
 									log.write("/var/log/shusiou_cron.log", 'cron1', JSON.stringify({status:'success', id:v.id, message:stdout}));
